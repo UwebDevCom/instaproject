@@ -1,6 +1,4 @@
-// const users = require('./users/users.routes.js');
-// const posts = require('./posts/posts.routes.js');
-// const comments = require('./comments/comments.routes.js');
+const users = require('./src/users/users.route');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -16,7 +14,5 @@ app.use(cors({
 }));
 app.use(bodyParser.json());
 app.use(users.route);
-app.use(posts.route);
-app.use(comments.route);
 
-app.listen(8080);   
+app.listen(8081);   

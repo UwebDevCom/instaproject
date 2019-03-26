@@ -17,14 +17,14 @@ const UserSchema = mongoose.Schema({
     email: {
         type: String,
         required: true,
-        validate: validator.isEmail(string)
+        validate: [ isEmail, 'invalid email']
     },
     registrationDate: {
         type: Date,
         default: Date.now
     },
     password: {
-
+        type: String,
     },
     following: [{
         type: mongoose.Schema.Types.ObjectId,
