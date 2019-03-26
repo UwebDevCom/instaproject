@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/instaproject', { useNewUrlParser: true });
 
 const express = require('express');
-console.log('server is running!');
 const app = express();
 
 app.use(cors({
@@ -15,4 +14,6 @@ app.use(cors({
 app.use(bodyParser.json());
 app.use(users.route);
 
-app.listen(8081);   
+app.listen(8081,
+    ()=>console.log('server is running!')
+    );   
