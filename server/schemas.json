@@ -1,0 +1,21 @@
+
+// Post
+{
+    "caption": "this is the first post in instagram!",
+    "image": "https://media.mnn.com/assets/images/2018/07/cat_eating_fancy_ice_cream.jpg.1080x0_q100_crop-scale.jpg",
+    "hashtages": ["post","first"],
+    "author": "5c9fe185767dc86f2d3ade9a"
+}
+
+
+// User
+
+
+{   "name": "Testo",
+    "lastName": "Testi",
+    "userName": "Test",
+    "userImg": "https://live.staticflickr.com/1425/1113633633_b1c3fea585_m.jpg",
+    "location": "Tel aviv, Israel",
+    "email": "test@gmail.com",
+    "password": "1234"
+}

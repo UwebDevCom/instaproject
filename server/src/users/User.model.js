@@ -14,10 +14,17 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    userImg: {
+        type: String,
+    },
+    location: {
+        type: String,
+        required: true
+    },
     email: {
         type: String,
         required: true,
-        validate: [ isEmail, 'invalid email']
+        validate: [ validator.isEmail, 'invalid email']
     },
     registrationDate: {
         type: Date,
