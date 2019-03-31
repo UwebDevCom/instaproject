@@ -1,4 +1,5 @@
 const users = require('./src/users/users.route');
+const posts = require('./src/posts/posts.route');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -13,7 +14,7 @@ app.use(cors({
 }));
 app.use(bodyParser.json());
 app.use(users.route);
-
+app.use(posts.route);
 app.listen(8081,
     ()=>console.log('server is running!')
     );   

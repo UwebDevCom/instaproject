@@ -8,8 +8,10 @@
     "express": "^4.16.4",
     "moment": "^2.24.0",
     "mongoose": "^5.4.19",
+    "mongoose-autopopulate": "^0.9.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
     "validator": "^10.11.0"
   },
