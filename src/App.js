@@ -10,13 +10,19 @@ class App extends Component {
       isLoggedIn: false
     }
   }
+  loginHandler = () =>{
+  this.setState({
+    isLoggedIn: true
+  });
+  }
   render() {
     return (
       <Router>
-      <div className="App">
+      <div className="App" >
       <Link to='/'></Link>
-      <Route path='/' exact={true} component={this.state.isLoggedIn ? Home : LoginFirst} />
-      
+      <Route path='/' exact={true}
+        render={()=>(
+          <div>{this.state.isLoggedIn ? <Home /> : <LoginFirst logIn={()=>this.loginHandler} />}</div>)} />
       </div>
       </Router>
     );

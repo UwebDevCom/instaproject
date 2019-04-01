@@ -1,6 +1,12 @@
 import React, {Component} from 'react';
 import './login-first.css';
 import slide1 from './images/slide1.jpg';
+import apple from './images/app-app.png';
+import android from './images/app-and.png';
+import windows from './images/app-win.png';
+import FormLogin from './FormLogin';
+
+
 class LoginFirst extends Component{
     render(){
         return(
@@ -10,11 +16,30 @@ class LoginFirst extends Component{
                    <Slider />
                 </div>
                 <div className="login-area">
-                    <div className="logo"></div>
+                   <div className="inner-login-area">
+                   <div className="logo"></div>
                     <div className="login-form">
                         <FormLogin />
+                        <div className="buffer">
+                            <hr /><p>OR</p><hr />
+                        </div>
+                        <div className="fb-login">
+                            <span className="icon-fb"></span><span>Login With Facebook</span>
+                            <a href="#">Forgot password?</a>
+                        </div>
                     </div>
-                    <div className="get-the-app"></div>
+                   </div>
+                   <div className="sign-up">
+                        <span>Don't have an account?</span><a href="#">Sign Up</a>
+                    </div>
+                    <div className="get-the-app">
+                        <p>Get the app.</p>
+                    <div className="get-apps">
+                        <a href='#'><img src={apple} /></a>
+                        <a href='#'><img src={android} /></a>
+                        <a href='#'><img src={windows} /></a>
+                    </div>
+                    </div>
                 </div>
                </div>
                 <footer>
@@ -39,35 +64,11 @@ class LoginFirst extends Component{
     }
 }
 
-const Slider = (props)=>{
+const Slider = ()=>{
 
 
     return  <img src={slide1} alt='image' />
 }
-
-
-const FormLogin = ()=>{
-    const onClickForm = (e)=>{
-        e.preventDefault();
-        
-    }
-    return (
-        <div>
-            <form id="loginForm" onSubmit={onClickForm}>
-               <div className="field user-name">
-                   <label></label>
-               <input type="text" value="test@gmail.com" />
-               </div>
-               <div className="field user-pass">
-               <label></label>
-                <input type="password" value="test@gmail.com" />
-                </div>
-                <button className="login-btn" type="submit">Log In</button>
-            </form>
-        </div>
-    )
-}
-
 
 export default LoginFirst;
 
