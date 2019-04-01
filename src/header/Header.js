@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Header.css';
 import Search from  './Search';
+import Logo from "./Logo"
 
 
 class Header extends Component {
@@ -8,8 +9,8 @@ class Header extends Component {
     return(
       <div class="header">
         <Search />
-          {/* <Logo className="logo"/>
-          <ExploreButton className="exploreButton"/>
+        <Logo />
+          {/* <ExploreButton className="exploreButton"/>
           <Notification className="notification"/>
           <UserButton className="userButton"/>
           <Loader className="loader"/> */}

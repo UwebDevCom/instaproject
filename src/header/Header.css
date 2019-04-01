@@ -9,15 +9,17 @@
 
 .flexHeader{
   display: flex;
-  background: blue;
+  background: rgb(255, 217, 0);
   margin: 10px;
 }
 .logo {
   margin: 10px;
-  color: aqua
+  color: aqua;
+  order: 1;
  }
 .search {
   flex: center;
+  order: 2;
 }
 /* .exploreButton {
 

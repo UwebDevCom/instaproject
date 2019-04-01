@@ -19,6 +19,7 @@ class App extends Component {
       <ContextProvider>
         <Router>
           <div className="App">
+          <Header />
           <Link to='/'></Link>
           <Route path='/' exact={true} component={this.state.isLoggedIn ? Home : LoginFirst} />
           </div>
