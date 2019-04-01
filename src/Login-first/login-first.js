@@ -17,7 +17,7 @@ class LoginFirst extends Component{
                 </div>
                 <div className="login-area">
                    <div className="inner-login-area">
-                   <div className="logo"></div>
+                   <div className="logo-login"></div>
                     <div className="login-form">
                         <FormLogin />
                         <div className="buffer">

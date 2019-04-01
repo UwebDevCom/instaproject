@@ -10,7 +10,7 @@
 
 /* ==== logo  ===== */
 
-.logo
+.logo-login
 {
 
     margin: 22px auto 12px;
@@ -120,7 +120,7 @@ footer span
 {
     border: 1px solid #efefef;
     background: #fafafa;
-    padding: 10px;
+    padding: 16px 10px 4px 10px;
     margin: 6px auto;
     text-overflow: ellipsis;
     border-radius: 4px;
@@ -149,6 +149,10 @@ footer span
 {
     cursor: pointer;
 }
+.login-btn:disabled
+{
+   opacity: .4;
+}
 .field 
 {
     position: relative;
@@ -175,6 +179,11 @@ form label
     -ms-user-select: none;
     user-select: none;
     white-space: nowrap;
+}
+form label.label-up
+{
+    transform: scale(.8);
+    top: -8px;
 }
 
 .buffer
