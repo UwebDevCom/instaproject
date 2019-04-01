@@ -1,40 +1,52 @@
 import React, {Component} from 'react';
 import './login-first.css';
 import slide1 from './images/slide1.jpg';
+import { ContextConsumer } from '../AppContext/AppContext';
+
 class LoginFirst extends Component{
     render(){
         return(
-            <div className="container-login">
-               <div className="inner-container">
-               <div className="image-slides">
-                   <Slider />
+            
+                <ContextConsumer>
+                {(context) => (
+                    <React.Fragment>
+                         <div className="container-login">
+                <div className="inner-container">
+                <div className="image-slides">
+                    <Slider />
+                 </div>
+                 <div className="login-area">
+                     <div className="logo"></div>
+                     <div className="login-form">
+                         <FormLogin />
+                     </div>
+                     <div className="get-the-app"></div>
+                 </div>
                 </div>
-                <div className="login-area">
-                    <div className="logo"></div>
-                    <div className="login-form">
-                        <FormLogin />
-                    </div>
-                    <div className="get-the-app"></div>
-                </div>
-               </div>
-                <footer>
-                <ul>
-                        <li><a href={'/'}>About us</a></li>
-                        <li><a href={'/'}>Support</a></li>
-                        <li><a href={'/'}>Press</a></li>
-                        <li><a href={'/'}>API</a></li>
-                        <li><a href={'/'}>Jobs</a></li>
-                        <li><a href={'/'}>privacy</a></li>
-                        <li><a href={'/'}>Tearms</a></li>
-                        <li><a href={'/'}>Directory</a></li>
-                        <li><a href={'/'}>Profiles</a></li>
-                        <li><a href={'/'}>Hashtags</a></li>
-                        <li><a href={'/'}>Language</a></li>
+                 <footer>
+                 <ul>
+                         <li><a href={'/'}>About us</a></li>
+                         <li><a href={'/'}>Support</a></li>
+                         <li><a href={'/'}>Press</a></li>
+                         <li><a href={'/'}>API</a></li>
+                         <li><a href={'/'}>Jobs</a></li>
+                         <li><a href={'/'}>privacy</a></li>
+                         <li><a href={'/'}>Tearms</a></li>
+                         <li><a href={'/'}>Directory</a></li>
+                         <li><a href={'/'}>Profiles</a></li>
+                         <li><a href={'/'}>Hashtags</a></li>
+                         <li><a href={'/'}>Language</a></li>
                       
-                    </ul>
-                    <span>© 2019 INSTAGRAM</span>
-                </footer>
-            </div>
+                     </ul>
+                     <span>© 2019 INSTAGRAM</span>
+                 </footer>
+             </div>
+             </React.Fragment>
+                    )
+                }
+                </ContextConsumer>
+            
+
         )
     }
 }
