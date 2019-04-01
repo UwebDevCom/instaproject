@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Header.css';
 
 
 class Search extends Component {
@@ -6,7 +7,7 @@ class Search extends Component {
   render(){
     return(
       <form >
-        <input type='text' placeholder="search"/>
+        <input class="search flexHeader" type='text' placeholder="search"/>
       </form>
     )
   }

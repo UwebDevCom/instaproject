@@ -6,13 +6,13 @@ import Search from  './Search';
 class Header extends Component {
   render(){
     return(
-      <div className="header">
-      <Search className="search"/>
-        {/* <Logo className="logo"/>
-        <ExploreButton className="exploreButton"/>
-        <Notification className="notification"/>
-        <UserButton className="userButton"/>
-        <Loader className="loader"/> */}
+      <div class="header">
+        <Search />
+          {/* <Logo className="logo"/>
+          <ExploreButton className="exploreButton"/>
+          <Notification className="notification"/>
+          <UserButton className="userButton"/>
+          <Loader className="loader"/> */}
       </div>
     )
   }

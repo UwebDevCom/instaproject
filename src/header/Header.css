@@ -6,9 +6,16 @@
   margin: 0;
   display: flex;
 }
-/* .logo {
 
-/* } */
+.flexHeader{
+  display: flex;
+  background: blue;
+  margin: 10px;
+}
+.logo {
+  margin: 10px;
+  color: aqua
+ }
 .search {
   flex: center;
 }
