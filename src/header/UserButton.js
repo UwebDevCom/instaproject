@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import './Header.css';
 
-
-class Logo extends Component {
+class UserButton extends Component {
 
   render() { 
     return ( 
-      <div class="logoHeader flexHeader">
-        logo
+      <div className="userButton">
+        userButton
       </div>
      );
   }
 }
  
-export default Logo;
+export default UserButton;

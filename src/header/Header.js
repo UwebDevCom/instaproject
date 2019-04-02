@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './Header.css';
 import Search from  './Search';
-import Logo from "./Logo"
-
+import Logo from "./Logo";
+import ExploreButton from './ExploreButton';
+import Notification from './Notification';
+import UserButton from './UserButton';
 
 class Header extends Component {
   render(){
@@ -10,10 +12,10 @@ class Header extends Component {
       <div class="header">
         <Search />
         <Logo />
-          {/* <ExploreButton className="exploreButton"/>
-          <Notification className="notification"/>
-          <UserButton className="userButton"/>
-          <Loader className="loader"/> */}
+        <ExploreButton />
+        <Notification />
+        <UserButton />
+          {/* <Loader /> */}
       </div>
     )
   }

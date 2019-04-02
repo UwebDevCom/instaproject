@@ -9,27 +9,40 @@
 
 .flexHeader{
   display: flex;
-  background: rgb(255, 217, 0);
   margin: 10px;
 }
-.logo {
+
+.logoHeader {
   margin: 10px;
   color: aqua;
   order: 1;
  }
+
 .search {
   flex: center;
   order: 2;
-}
-/* .exploreButton {
+  background: rgb(255, 217, 0);
 
 }
+
+.exploreButton {
+  margin: 10px;
+  color: aqua;
+  order: 1;
+}
+
 .notification {
-
+  margin: 10px;
+  color: aqua;
+  order: 1;
 }
+
 .userButton {
-
+  margin: 10px;
+  color: aqua;
+  order: 1;
 }
-.loader {
+
+/* .loader {
   
 } */
