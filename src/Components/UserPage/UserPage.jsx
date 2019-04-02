@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { ContextConsumer } from '../AppContext/AppContext';
-import Header from '../header/Header';
+import { ContextConsumer } from '../../AppContext/AppContext';
 
 class UserPage extends Component {
     constructor(props) {
