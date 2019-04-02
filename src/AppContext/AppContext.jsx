@@ -4,15 +4,15 @@ const AppContext = React.createContext();
 export const ContextConsumer = AppContext.Consumer;
 
 class ContextProvider extends Component {
-    state = { 
-        name: "boaz"
+    state = {
+        isLoggedIn: false
     }
 
     render() { 
         return (
             <AppContext.Provider value={{
                 state: this.state,
-                isLoggedIn: () => false 
+                isLoggedIn: () => this.setState({isLoggedIn: !this.state.isLoggedIn})
             }} >
                 {this.props.children}
             </AppContext.Provider>

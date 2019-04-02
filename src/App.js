@@ -4,21 +4,20 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import LoginFirst from './Login-first/login-first';
 import Home from './Home/home';
 import ContextProvider from './AppContext/AppContext';
+import { ContextConsumer } from './AppContext/AppContext';
 
 class App extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      isLoggedIn: false
-    }
-  }
   render() {
     return (
       <ContextProvider>
         <Router>
           <div className="App">
           <Link to='/'></Link>
-          <Route path='/' exact={true} component={this.state.isLoggedIn ? Home : LoginFirst} />
+          <ContextConsumer>
+            {(context)=>(
+              <Route path='/' exact={true} render={()=>context.state.isLoggedIn ? <Home /> : <LoginFirst />} />
+            )}
+          </ContextConsumer>
           </div>
       </Router>
       </ContextProvider>
