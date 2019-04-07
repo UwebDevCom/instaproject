@@ -5,7 +5,7 @@ export const ContextConsumer = AppContext.Consumer;
 
 class ContextProvider extends Component {
     state = {
-        isLoggedIn: false
+        isLoggedIn: true
     }
 
     render() { 
