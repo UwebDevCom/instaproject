@@ -1,49 +1,26 @@
 import React, { Component } from 'react';
 import { ContextConsumer } from '../../AppContext/AppContext';
+import UesrInfo from './UserInfo';
+import './userPage.css';
 
 class UserPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {  }
-    }
-    render() { 
-        const pageStyle = {
-
-        }
-        return (
-            <ContextConsumer>
-                {(context) => (
-                    <div>
-                        <UesrInfo />
-                    </div>
-                )}
-            </ContextConsumer>
-        );
-    }
+		constructor(props) {
+				super(props);
+				this.state = {  }
+		}
+		render() { 
+				return (
+						<ContextConsumer>
+								{(context) => (
+										<div className='userPageMain'>
+												<UesrInfo />
+										</div>
+								)}
+						</ContextConsumer>
+				);
+		}
 }
 
-class UesrInfo extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {  }
-    }
-    render() { 
-        const style = {
-            Width: 'yellow'
-        }
-        return (
-            <ContextConsumer>
-                {(context) => (
-                    <div style={style}>
-                        <p>ma kore?</p>
-                    </div>
-                )}
-            </ContextConsumer>
-
-        );
-    }
-}
- 
 
 
 export default UserPage ;

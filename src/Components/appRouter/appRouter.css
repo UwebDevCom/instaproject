@@ -1,0 +1,17 @@
+.navigation {
+    height: 77px;
+    background-color: white;
+    border-bottom: 1px solid grey;
+}
+
+.routerLink {
+    padding: 20px;
+    line-height: 50px;
+}
+
+.mainRouter {
+    min-height: 100%;
+    padding: 0px;
+    margin: 0px;
+    background-color: #e7e7e7;
+}

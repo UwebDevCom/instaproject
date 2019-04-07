@@ -1,0 +1,52 @@
+header.header {
+    height: 150px;
+    display: flex;
+    margin-bottom: 45px;
+    border: 1px solid blue;
+    background: goldenrod;
+}
+
+.userInfo-image {
+    flex: 1;
+
+}
+
+.userInfo-data {
+    flex: 2;
+    /* display: flex; */
+}
+
+.userInfo-stats > ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;    
+}
+.userInfo-data ul li {
+margin-right: 40px;    
+}
+.userInfo-userName {
+    color: green;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+.userInfo-stats {
+    color: red;
+}
+.userInfo-name {
+    color: yellow;
+}
+
+
+
+
+img {
+    display: block;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
