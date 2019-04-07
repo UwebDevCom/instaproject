@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { ContextConsumer } from '../AppContext/AppContext';
+import { ContextConsumer } from '../../AppContext/AppContext';
 
 
 

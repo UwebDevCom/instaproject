@@ -6,7 +6,7 @@ class UserButton extends Component {
   render() { 
     return ( 
       <div className="userButton">
-        userButton
+        User
       </div>
      );
   }
