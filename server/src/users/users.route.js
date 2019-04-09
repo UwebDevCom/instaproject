@@ -2,7 +2,7 @@ const { Router } = require ('express');
 const route = Router();
 const {User} = require('./User.model');
 
-route.get('/users', async (req, res) => {
+route.get('/api/users', async (req, res) => {
     try {
        const users = await User.find({
            name: new RegExp(req.query.name, 'i')
@@ -14,7 +14,7 @@ route.get('/users', async (req, res) => {
 });
 
 
-route.post('/users',async (req,res)=>{
+route.post('/api/users',async (req,res)=>{
    try {
     const user = new User(req.body);
     user.save();

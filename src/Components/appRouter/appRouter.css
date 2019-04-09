@@ -1,0 +1,14 @@
+
+main
+{
+    width: 100%;
+    max-width: 935px;
+    margin: 0 auto;
+}
+
+header
+{
+    background-color: #fff;
+    padding: 1.6em 0;
+    border-bottom: 1px solid #e6e6e6;
+}

@@ -1,0 +1,139 @@
+
+
+article.post-wrap
+{
+    max-width: 614px;
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 60px;
+}
+header.post-header
+{ 
+    display: flex;
+    padding: .6em 1em;
+    justify-content: space-between;
+    border-radius:  3px 3px 0 0;
+    border: 1px solid #e6e6e6;
+
+}
+.header-flex
+{
+    display: flex;
+    align-items: center;
+}
+.user-image
+{
+    width: 42px;
+    height: 42px;
+    display: inline-block;
+    background-image: linear-gradient(to left bottom, #d62976, #ea3664, #f64b4f, #fc6439, #fa7e1e);
+    border-radius: 30px;
+    position: relative;
+}
+.user-image img
+{
+    width: 34px;
+    height: 34px;
+    border-radius: 30px;
+    border: 2px solid #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.user-top-details
+{
+    padding-left: 1em;
+    display: inline-block;
+}
+.user-top-details > *
+{
+    margin: 0;
+    font-size: .8rem;  
+}
+.user-top-details a
+{
+    font-size: 14px;
+    font-weight: 600 !important;
+    text-decoration: none;
+    display: block;
+    font-weight: bold;
+}
+.user-top-details a:visited
+{
+    color: #333333;
+}
+.post-settings
+{
+    border: none;
+    background-color: transparent;
+    font-size: 1.5rem;
+    color: #434344;
+    align-self: center;
+    position: relative;
+    top: -8px;
+}
+
+.visual
+{
+    height: 100%;
+    max-height: 70vh;
+    overflow: hidden;
+    border-right: 1px solid #e6e6e6;
+    border-left: 1px solid #e6e6e6;
+}
+.visual img
+{
+    display: block;
+    width: 100%;
+    position: relative;
+}
+.interaction
+{
+    border: 1px solid #e6e6e6;
+    border-radius: 0 0 3px 3px;
+    padding: .3em 1em;
+}
+.features
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+button
+{
+    border: none;
+    background-color: transparent;
+    min-height: 40px;
+    min-width: 40px;
+    cursor: pointer;
+    outline: none;
+}
+button span.like-btn
+{
+    display: block;
+    height: 24px;
+    width: 24px;
+    background: url('./61393e2520c3.png') -78px -203px;
+}
+button span.comment-btn
+{ 
+     display: block;
+    height: 24px;
+    width: 24px;
+    background: url('./61393e2520c3.png') -131px -146px;
+}
+button span.share-btn
+{ 
+     display: block;
+    height: 24px;
+    width: 24px;
+    background: url('./61393e2520c3.png') -26px -255px;
+}
+button span.save-btn
+{ 
+     display: block;
+    height: 24px;
+    width: 24px;
+    background: url('./61393e2520c3.png') -268px -130px;
+}
