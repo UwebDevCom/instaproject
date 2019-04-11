@@ -9,15 +9,16 @@ class AppRouter extends Component{
 				return(
 						<Router>
 						<div>
-								<nav className='navigation'>
-										<Link className='routerLink' to='/userpage'>Profile</Link>
-										<Link className='routerLink' to='/explore'>Explore</Link>
-
-								</nav>
-								<main className='mainRouter'>
-										<Route exact path='/userpage' component={UserPage} />
-										<Route exact path='/explore' component={Header} />
-								</main>
+							<nav className='navigation'>
+									<Link className='routerLink' to='/userpage'>Profile</Link>
+									<Link className='routerLink' to='/explore'>Explore</Link>
+									<Link className='routerLink' to='/'>homePage</Link>										
+							</nav>
+							<main className='mainRouter'>
+									<Route exact path='/userpage' component={UserPage} />
+									<Route exact path='/explore' component={Header} />
+									<Route exact path='/' component={AppRouter} />
+							</main>
 						</div>
 						</Router>
 				)
