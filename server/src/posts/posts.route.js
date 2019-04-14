@@ -4,7 +4,7 @@ const {Post} =require('./Post.model');
 const route = Router();
 
 
-route.get('/posts', async(req,res)=>{
+route.get('/api/posts', async(req,res)=>{
    try {
     if (req.query.title || req.query.hashtag)
     {
@@ -23,7 +23,7 @@ route.get('/posts', async(req,res)=>{
 });
 
 
-route.get('/posts/:postId',async (req,res)=>{
+route.get('/api/posts/:postId',async (req,res)=>{
     try {
         const post = await Post.findById(req.params.postId);
         res.send(post);
@@ -33,7 +33,7 @@ route.get('/posts/:postId',async (req,res)=>{
 });
 
 
-route.post('/posts',async (req,res)=>{
+route.post('/api/posts',async (req,res)=>{
     try {
         const posts = new Post(req.body);
         posts.save();
@@ -44,7 +44,7 @@ route.post('/posts',async (req,res)=>{
 });
 
 
-route.put('/posts/:postId', async (req,res)=>{
+route.put('/api/posts/:postId', async (req,res)=>{
     try {
   const post = await Post.findByIdAndUpdate(req.params.postId, req.body);
     res.send(post);
@@ -54,7 +54,7 @@ route.put('/posts/:postId', async (req,res)=>{
 });
 
 
-route.delete('/posts/:postId', async (req,res)=>{
+route.delete('/api/posts/:postId', async (req,res)=>{
     try {
     const post = await Post.findByIdAndDelete(req.params.postId);
     res.send(post);
