@@ -3,5 +3,24 @@
     min-height: 1000px; /* need to change to 100% */
     margin: 0 auto;
     padding: 50px 20px 0;
-    background-color: rgb(196, 233, 140);
+    background-color: rgb(180, 235, 227);
+}
+
+.userPage-link {
+    text-decoration: none;
+    color: inherit;
+    margin: 0 30px;
+}
+
+.userPage-link:focus {
+    color: black;
+    border-top: 1px solid black;
+    padding: 20px;
+}
+
+.userPage-linkDiv {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #999;
+    color: #999;
 }

@@ -1,0 +1,22 @@
+.userPosts {
+    width: 293px;
+    height: 293px;
+    position: relative;
+}
+
+.userPosts-img {
+    width: 293px;
+    height: 293px;
+}
+
+.userPosts::after {
+    content: '🐁';
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.userPosts-img:hover {
+    color: red;
+}

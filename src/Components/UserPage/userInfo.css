@@ -8,6 +8,7 @@ header.header {
 
 .userInfo-image {
     flex: 1;
+    padding-right: 40px;
 
 }
 
@@ -43,7 +44,7 @@ margin-right: 40px;
 
 
 
-img {
+.userInfo-img {
     display: block;
     border-radius: 50%;
     width: 150px;
