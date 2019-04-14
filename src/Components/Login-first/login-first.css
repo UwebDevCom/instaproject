@@ -1,0 +1,333 @@
+
+.container-login
+{
+ max-width: 935px;
+ margin: 0 auto;
+}
+
+
+
+
+/* ==== logo  ===== */
+
+.logo-login
+{
+
+    margin: 22px auto 12px;
+    background: url('./images/f01fcb405c10.png') -98px -150px;
+    height: 51px;
+    width: 175px;
+
+}
+
+/* ==== Footer  ===== */
+
+footer
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 130px;
+    margin-top: -130px; 
+}
+footer ul
+{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 3;
+}
+footer ul li 
+{
+    display: inline-block;
+    padding: 0 .4%;
+    margin: 1% .4%;
+}
+footer ul li a
+{
+    color: #003569;
+    text-transform: uppercase;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+}
+footer ul li a:visited
+{
+    color: #003569;
+}
+footer span
+{
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #999;
+}
+
+
+
+
+/* ==== login area  ===== */
+
+.inner-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    min-height: 800px;
+}
+
+.inner-container .image-slides
+{
+    background-image: url('./images/slides-bg.png');
+    background-repeat: no-repeat;
+    height: 60vh;
+    min-height: 600px;
+    width: 100%;
+    background-size: 92%;
+    position: relative;
+    flex: 1;
+    top: -30px;
+    left: 45px;
+}
+.inner-container .image-slides img
+{
+    display: inline-block;
+    position: absolute;
+    width: 232px;
+    top: 90px;
+    left: 140px;
+    opacity: 0;
+    z-index: 2;
+
+}
+.inner-container .image-slides img.fixed
+{
+    display: inline-block;
+    position: absolute;
+    width: 232px;
+    top: 90px;
+    left: 140px;
+    opacity: 1;
+    z-index: 1;
+}
+
+.img-fade
+{
+    -webkit-animation: fadein1 2s forwards; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein1 2s forwards; /* Firefox < 16 */
+        -ms-animation: fadein1 2s forwards; /* Internet Explorer */
+         -o-animation: fadein1 2s forwards; /* Opera < 12.1 */
+            animation: fadein1 2s forwards;
+}
+.fade
+{
+    
+    -webkit-animation: fadein 2s forwards; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 2s forwards; /* Firefox < 16 */
+        -ms-animation: fadein 2s forwards; /* Internet Explorer */
+         -o-animation: fadein 2s forwards; /* Opera < 12.1 */
+            animation: fadein 2s forwards;
+}
+@keyframes fadein1 {
+    0%    { opacity: 0; }
+    50%   { opacity: 1; }
+    100%  { opacity: 0; }
+}
+
+@keyframes fadein {
+    0%    { opacity: 0; }
+    50%   { opacity: 1; }
+    100%  { opacity: 0; }
+}
+
+
+
+.inner-container .login-area
+{
+  flex: 1;
+
+}
+.inner-login-area
+{
+    border: 1px solid #e6e6e6;
+    border-radius: 1px;
+    margin: 0 0 10px;
+    padding: 10px 0;
+    background-color: #fff;
+    width: 80%;
+}
+
+.login-area .login-form form input
+{
+    border: 1px solid #efefef;
+    background: #fafafa;
+    padding: 16px 10px 4px 10px;
+    margin: 6px auto;
+    text-overflow: ellipsis;
+    border-radius: 4px;
+    display: block;
+    width: 70%;
+}
+
+.login-form form
+{
+    padding: 20px;
+}
+.login-btn
+{
+    background-color: #3897f0;
+    border: 1px solid #3897f0;
+    padding: 10px;
+    margin: 10px auto;
+    text-overflow: ellipsis;
+    border-radius: 4px;
+    display: block;
+    width: 76%;
+    color: #fff;
+    font-weight: bold;
+}
+.login-btn:hover
+{
+    cursor: pointer;
+}
+.login-btn:disabled
+{
+   opacity: .4;
+}
+.field 
+{
+    position: relative;
+}
+form label
+{
+    color: #999;
+    font-size: 12px;
+    height: 36px;
+    left: 8px;
+    line-height: 36px;
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    left: 50px;
+    text-overflow: ellipsis;
+    -webkit-transform-origin: left;
+    transform-origin: left;
+    -webkit-transition: -webkit-transform ease-out .1s;
+    transition: transform ease-out .1s;
+    transition: transform ease-out .1s,-webkit-transform ease-out .1s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+}
+form label.label-up
+{
+    transform: scale(.8);
+    top: -8px;
+}
+
+.buffer
+{
+    display: flex;
+    margin: 4px 90px;
+    align-items: center;
+}
+.buffer p
+{
+    flex: 20%;
+    margin: 0;
+    text-align: center;
+    font-weight: 600;
+    font-size: .9rem;
+    color: #cccccc;
+}
+.buffer hr
+{
+    background: #cccccc;
+    border: 1px;
+    flex: 40%;
+    height: 1px;
+   
+}
+.fb-login
+{
+    margin: 20px 90px;
+    text-align: center;
+    color: #385185;
+    font-weight: 600;
+    font-size: .9rem;
+
+}
+.fb-login .icon-fb
+{
+    margin: 0px 10px;
+    position: relative;
+    top: 3px;
+    display: inline-block;
+    background: url('./images/f01fcb405c10.png') no-repeat;
+    background-position: -382px -399px;
+    height: 16px;
+    width: 16px;
+}
+.fb-login a
+{
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    margin-top: 12px;
+    text-align: center;
+    color: #003569;
+    display: block;
+    text-decoration: none;
+}
+.sign-up
+{
+    border: 1px solid #e6e6e6;
+    border-radius: 1px;
+    margin: 0 0 10px;
+    padding: 10px 0;
+    background-color: #fff;
+    text-align: center;
+    padding: 24px;
+    width: 70%;
+}
+.sign-up span
+{
+    font-size: 14px;
+    font-weight: 400;
+    color: #999;
+}
+.sign-up a
+{
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+    padding-left: 6px;
+    color: #003569;
+}
+.get-the-app
+{
+    text-align: center;
+    padding: 10px;
+    width: 80%;
+}
+.get-the-app p
+{
+    margin:0;
+    margin-bottom: 10px;
+}
+.get-apps a img
+{
+    width: 32%;
+    margin: 4px;
+    height: auto;
+}
+.get-apps a:last-child img
+{
+    width: 26%;
+}

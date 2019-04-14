@@ -1,0 +1,48 @@
+.header {
+  background: white;
+  height: 100px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.flexHeader{
+  display: flex;
+  margin: 10px;
+}
+
+.logoHeader {
+  margin: 10px;
+  color: aqua;
+  order: 1;
+ }
+
+.search {
+  flex: center;
+  order: 2;
+  background: rgb(255, 217, 0);
+
+}
+
+.exploreButton {
+  margin: 10px;
+  color: aqua;
+  order: 1;
+}
+
+.notification {
+  margin: 10px;
+  color: aqua;
+  order: 1;
+}
+
+.userButton {
+  margin: 10px;
+  color: aqua;
+  order: 1;
+}
+
+/* .loader {
+  
+} */
