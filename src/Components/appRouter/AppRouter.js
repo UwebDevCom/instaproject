@@ -6,9 +6,7 @@ import './appRouter.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class AppRouter extends Component{
-    state = {
-
-    }
+		
     render(){
         return(
             <Router>
@@ -33,4 +31,3 @@ class AppRouter extends Component{
     }
 }
 export default AppRouter;
-
