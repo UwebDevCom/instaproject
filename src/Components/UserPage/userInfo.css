@@ -43,7 +43,7 @@ margin-right: 40px;
 
 
 
-img {
+.userInfo-image img {
     display: block;
     border-radius: 50%;
     width: 150px;

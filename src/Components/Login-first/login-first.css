@@ -97,10 +97,54 @@ footer span
     display: inline-block;
     position: absolute;
     width: 232px;
-    top: 88px;
-    left: 140px
+    top: 90px;
+    left: 140px;
+    opacity: 0;
+    z-index: 2;
 
 }
+.inner-container .image-slides img.fixed
+{
+    display: inline-block;
+    position: absolute;
+    width: 232px;
+    top: 90px;
+    left: 140px;
+    opacity: 1;
+    z-index: 1;
+}
+
+.img-fade
+{
+    -webkit-animation: fadein1 2s forwards; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein1 2s forwards; /* Firefox < 16 */
+        -ms-animation: fadein1 2s forwards; /* Internet Explorer */
+         -o-animation: fadein1 2s forwards; /* Opera < 12.1 */
+            animation: fadein1 2s forwards;
+}
+.fade
+{
+    
+    -webkit-animation: fadein 2s forwards; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 2s forwards; /* Firefox < 16 */
+        -ms-animation: fadein 2s forwards; /* Internet Explorer */
+         -o-animation: fadein 2s forwards; /* Opera < 12.1 */
+            animation: fadein 2s forwards;
+}
+@keyframes fadein1 {
+    0%    { opacity: 0; }
+    50%   { opacity: 1; }
+    100%  { opacity: 0; }
+}
+
+@keyframes fadein {
+    0%    { opacity: 0; }
+    50%   { opacity: 1; }
+    100%  { opacity: 0; }
+}
+
+
+
 .inner-container .login-area
 {
   flex: 1;

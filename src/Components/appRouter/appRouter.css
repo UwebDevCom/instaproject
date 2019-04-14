@@ -1,17 +1,14 @@
-.navigation {
-    height: 77px;
-    background-color: white;
-    border-bottom: 1px solid grey;
+
+main
+{
+    width: 100%;
+    max-width: 935px;
+    margin: 0 auto;
 }
 
-.routerLink {
-    padding: 20px;
-    line-height: 50px;
-}
-
-.mainRouter {
-    min-height: 100%;
-    padding: 0px;
-    margin: 0px;
-    background-color: #e7e7e7;
+header
+{
+    background-color: #fff;
+    padding: 1.6em 0;
+    border-bottom: 1px solid #e6e6e6;
 }
