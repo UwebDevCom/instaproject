@@ -1,15 +1,29 @@
 import React, {Component} from 'react';
 import './feed.css';
-import {GetPosts} from './Posts.Service';
-
+//import {GetPosts} from './Posts.Service';
+import Post from '../post';
+import { ContextConsumer } from '../../../AppContext/AppContext';
 class Feed extends Component {
-    state = {
-        posts: []
-    } 
+    constructor(props) {
+        super(props);
+        this.state = {
+            posts: []
+        } 
+    }
+    
     render(){
         return(
          <React.Fragment>
-             <GetPosts likes={82} />
+             <ContextConsumer>
+             {(context)=> {
+                if  (context.state.allPosts) {
+                    return context.state.allPosts.map(post=><Post key={post._id} post={post} />)
+                }else {
+                    return <button>Refresh here</button>
+                }
+            }
+            }
+             </ContextConsumer>
          </React.Fragment>
         )
     }

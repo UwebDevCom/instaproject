@@ -87,13 +87,19 @@ class Slider extends Component{
                         }
                     this.setState({
                     image: images[i],
+                    imageOne: images[1],
                     imageClass: this.state.imageClass ==='fade' ? 'img-fade' : 'fade'
                     });
                     i++;
                 },2000);   
     };
     render(){
-        const img = <img className={this.state.imageClass} src={this.state.image} alt="image" style={this.style} />;
+        const img =(
+        <React.Fragment>
+        <img className={this.state.imageClass} src={this.state.image} alt="image" style={this.style} />
+        <img className={'fixed'} src={this.state.imageOne} alt="image" style={this.style} />
+        </React.Fragment>
+        );
         return (
             <React.Fragment>
               {img}

@@ -100,9 +100,19 @@ footer span
     top: 90px;
     left: 140px;
     opacity: 0;
+    z-index: 2;
 
 }
-
+.inner-container .image-slides img.fixed
+{
+    display: inline-block;
+    position: absolute;
+    width: 232px;
+    top: 90px;
+    left: 140px;
+    opacity: 1;
+    z-index: 1;
+}
 
 .img-fade
 {
@@ -123,13 +133,13 @@ footer span
 }
 @keyframes fadein1 {
     0%    { opacity: 0; }
-    98%   { opacity: 1; }
+    50%   { opacity: 1; }
     100%  { opacity: 0; }
 }
 
 @keyframes fadein {
     0%    { opacity: 0; }
-    98%   { opacity: 1; }
+    50%   { opacity: 1; }
     100%  { opacity: 0; }
 }
 

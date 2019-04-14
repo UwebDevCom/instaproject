@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export function GetPosts(props){
 
     const [posts, setPosts] = useState(['']);
-    const [likes, incLikes] = useState(props.likes);
+    const [isLiked, toggleLike] = useState(false);
     
     
     useEffect(async ()=>{
@@ -15,8 +15,10 @@ export function GetPosts(props){
     },[]);
 
 
-
-
+    function formatNumber(num) {
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+      }
+      
     return(  
         <React.Fragment>
             {posts && posts[0].author ? posts.map((post)=>
@@ -32,7 +34,7 @@ export function GetPosts(props){
            <div className="interaction">
            <div className="features">
               <div className="buttons">
-              <button><span className="like-btn"></span></button> 
+              <button><span onClick={()=>toggleLike(!isLiked)} className={isLiked? 'like-btn liked':'like-btn unliked'}></span></button> 
               <button><span className="comment-btn"></span></button> 
               <button><span className="share-btn"></span></button> 
               </div>
@@ -41,10 +43,19 @@ export function GetPosts(props){
               </div>
            </div>
            <div className="like-counter">
-               <p>{likes} likes</p>
+               <p>{formatNumber(post.likes)} likes</p>
+           </div>
+           <div className="caption">
+               <p><span>{post.author.userName}</span> {post.caption} likes</p>
            </div>
             <div className="comments"></div>
            </div>
+           <div className="add-a-comment">
+                <form className="add-comment" method="POST">
+                <textarea placeholder="Add a comment…"></textarea>
+                <button type="submit">Post</button>
+                </form>
+            </div>
         </article>
   ) 
  : <button>refresh</button>}
