@@ -5,7 +5,7 @@ export default function UserPagePosts() {
     const [posts, setPost] = useState();
     
     async function fetchUsers() {
-        let response = await fetch('http://localhost:8081/posts')
+        let response = await fetch('http://localhost:8080/api/posts')
         let data = await response.json();
         setPost(data);
         console.log(data, 'data')

@@ -4,10 +4,12 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/instaproject', { useNewUrlParser: true });
+const DB_URI = process.env.DB_URI || 'mongodb://localhost:27017/instaproject'
+mongoose.connect(DB_URI, { useNewUrlParser: true });
 
 const express = require('express');
 const app = express();
+const port = process.env.PORT || 8080;
 
 app.use(cors({
     origin:'http://localhost:3000'
@@ -15,6 +17,8 @@ app.use(cors({
 app.use(bodyParser.json());
 app.use(users.route);
 app.use(posts.route);
-app.listen(8081,
+app.use(express.static('build'));
+
+app.listen(port,
     ()=>console.log('server is running!')
     );   

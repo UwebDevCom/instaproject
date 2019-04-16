@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ContextConsumer } from '../../AppContext/AppContext';
-import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import UserInfo from './UserInfo';
 import './userPage.css';
 import UserPagePosts from './UserPagePosts';
@@ -14,25 +14,30 @@ class UserPage extends Component {
 		render() { 
 			return (
 				<ContextConsumer>
-					{(context) => (
-						<Router>
-							<div className='userPageMain'>
-								<UserInfo />
-								<div className='userPage-linkDiv'>
-									<Link className='userPage-link' to='username'>POSTS</Link>
-									<Link className='userPage-link' to='channel'>IGTV</Link>
-									<Link className='userPage-link' to='saved'>SAVED</Link>
-									<Link className='userPage-link' to='tagged'>TAGGED</Link>
+					{(context) => {
+						if (!context.state.allUsers) {
+							return <p>missing user data</p>
+						} else { 
+							return (
+							<Router>
+								<div className='userPageMain'>
+									<UserInfo />
+									<div className='userPage-linkDiv'>
+										<Link className='userPage-link' to='username'>POSTS</Link>
+										<Link className='userPage-link' to='channel'>IGTV</Link>
+										<Link className='userPage-link' to='saved'>SAVED</Link>
+										<Link className='userPage-link' to='tagged'>TAGGED</Link>
+									</div>
+									<div className='userPage'>
+											<Route exact path='/username' component={UserPagePosts} />
+											<Route exact path='/channel' component={Channel} />
+										{/* <Saved />
+										<Tagged /> */}
+									</div>
 								</div>
-								<div className='userPage'>
-									<Route exact path='/username' component={UserPagePosts} />
-									<Route exact path='/channel' component={Channel} />
-									{/* <Saved />
-									<Tagged /> */}
-								</div>
-							</div>
-						</Router>
-					)}
+							</Router>)
+						}
+					}}
 				</ContextConsumer>
 			);
 		}
