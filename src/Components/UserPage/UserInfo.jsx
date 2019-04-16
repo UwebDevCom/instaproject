@@ -7,9 +7,8 @@ class UserInfo extends Component {
 	render() {
 		return (
 			<ContextConsumer>
-				{({ ...context.state.allUsers }) => {
+				{({ ...context }) => {
 					if (!context.state.allUsers) {
-						console.log(author)
 						return <p>no userinfo to load</p>
 					} else { return (
 						<header className='userInfo-header'>
