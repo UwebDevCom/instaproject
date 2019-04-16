@@ -12,16 +12,20 @@ class AppRouter extends Component{
             <Router>
             <div>
                 <header>
-                <nav className="header">
-                    <div className="headerFlex">
-                        <Link to='/' className="home"></Link>
-                        <div>
-                            <input className="search" type="text" placeholder="search"></input>
+                <nav className="appRouterHeader">
+                    <div className="appRouterHeaderFlex">
+                        <Link to='/' className="appRouterLogoFlex">
+                            <div className="appRouterCameraLogo"></div>
+                            <div className="appRouterLine"></div>
+                            <div className="appRouterWordLogo"></div>
+                        </Link>
+                        <div className="appRouterSearchBox">
+                            <input type="text" placeholder="search"></input>
                         </div> 
-                        <div className="litleButtons">
-                            <Link to='/explore' className="explore"></Link> 
-                            <div className="activity"></div> 
-                            <Link to='/userpage' className="profile"></Link>           
+                        <div className="appRouterLitleButtons">
+                            <Link to='/explore' className="appRouterExplore"></Link> 
+                            <div className="appRouterActivity"></div> 
+                            <Link to='/userpage' className="appRouterProfile"></Link>           
                         </div>
                     </div>
                 </nav>
