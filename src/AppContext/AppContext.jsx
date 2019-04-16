@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
 import PostsService from '../posts/posts.Service';
+import UsersService from '../services/users.service';
 const AppContext = React.createContext();
 export const ContextConsumer = AppContext.Consumer;
 
 const postsData = new PostsService();
 const posts = postsData.fetchPosts();
 
+const usersData = new UsersService();
+const users = usersData.fetchUsers();
+
 class ContextProvider extends Component {
     state = {
         isLoggedIn: true,
-        allPosts:[]
+        allPosts:[],
+        allUsers:[]
     }
 
     componentDidMount() {
         posts.then(response => this.setState({ allPosts: response}))
+        users.then(response=> this.setState({ allUsers: response}))
      }
     render() { 
         return (

@@ -1,7 +1,31 @@
 .userPageMain {
-    width: 65%;
     min-height: 1000px; /* need to change to 100% */
     margin: 0 auto;
     padding: 50px 20px 0;
-    background-color: rgb(196, 233, 140);
+    background-color: inherit;
+}
+
+.userPage-link {
+    text-decoration: none;
+    color: inherit;
+    margin-top: -1px;
+    margin-right: 60px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 12px;
+    height: 52px;
+}
+
+.userPage-link:focus {
+    color: #262626;
+    border-top: 1px solid #262626;
+}
+
+.userPage-linkDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #999;
+    color: #999;
 }
