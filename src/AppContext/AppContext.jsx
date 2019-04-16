@@ -8,7 +8,7 @@ const posts = postsData.fetchPosts();
 
 class ContextProvider extends Component {
     state = {
-        isLoggedIn: false,
+        isLoggedIn: true,
         allPosts:[]
     }
 
