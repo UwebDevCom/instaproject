@@ -14,7 +14,7 @@ class ContextProvider extends Component {
     state = {
         isLoggedIn: true,
         allPosts:[],
-        allUserss:[]
+        allUsers:[]
     }
 
     componentDidMount() {
