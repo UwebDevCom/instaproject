@@ -12,11 +12,18 @@ class AppRouter extends Component{
             <Router>
             <div>
                 <header>
-                <nav className="Header">
-                <Link to='/'>Home</Link> 
-                    <Link to='/userpage'>Profile</Link>           
-                    <Link to='/explore'>Explore</Link>  
-
+                <nav className="header">
+                    <div className="headerFlex">
+                        <Link to='/' className="home"></Link>
+                        <div>
+                            <input className="search" type="text" placeholder="search"></input>
+                        </div> 
+                        <div className="litleButtons">
+                            <Link to='/explore' className="explore"></Link> 
+                            <div className="activity"></div> 
+                            <Link to='/userpage' className="profile"></Link>           
+                        </div>
+                    </div>
                 </nav>
                 </header>
                 <main>
