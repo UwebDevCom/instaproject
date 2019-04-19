@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import UserPage from '../UserPage/UserPage';
-import Header from '../header/Header';
 import Home from '../home/Home';
 import './appRouter.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import Search from './search/Search';
 
 class AppRouter extends Component{
 		
@@ -19,9 +19,7 @@ class AppRouter extends Component{
                             <div className="appRouterLine"></div>
                             <div className="appRouterWordLogo"></div>
                         </Link>
-                        <div className="appRouterSearchBox">
-                            <input type="text" placeholder="search"></input>
-                        </div> 
+                        <Search />
                         <div className="appRouterLitleButtons">
                             <Link to='/explore' className="appRouterExplore"></Link> 
                             <div className="appRouterActivity"></div> 
@@ -33,7 +31,6 @@ class AppRouter extends Component{
                 <main>
                     <Route exact path='/userpage' component={UserPage} />
                     <Route exact path='/' component={Home} />
-                    <Route exact path='/explore' component={Header} />
                     <Route exact path='/username' component={UserPage} />
                 </main>
             </div>
