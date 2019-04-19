@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './feed.css';
-//import {GetPosts} from './Posts.Service';
 import Post from '../post';
 import { ContextConsumer } from '../../../AppContext/AppContext';
 class Feed extends Component {

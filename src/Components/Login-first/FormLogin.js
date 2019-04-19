@@ -1,34 +1,35 @@
 import React, {Component} from 'react';
 import { ContextConsumer } from '../../AppContext/AppContext';
-
+import InputLogin from './InputLogin';
 
 
 
 class FormLogin extends Component{
     state = {
         fieldIsEmpty: true,
-        inputUsername: '',
-        inputPassword: '',
+        inputValueEmail: '',
+        inputValuePassword: '',
         labelGoesUp: ''
     }
-    fieldsHandler=(e)=>{
-        console.log(this.state.inputUsername)
-        if (this.state.inputUsername.length >=2 || this.state.inputPassword.length >= 2) {
+
+
+    /// ****** separate the inputs to the different components //  - and set the state with compunentwillUpdate
+    fieldsHandler=(email, password)=>{
             this.setState({
-                fieldIsEmpty: false,
-                labelGoesUp: 'label-up'
-            });
-        } else if (this.state.inputUsername.length <2 || this.state.inputUsername.length <2){
-            this.setState({
-                fieldIsEmpty: true,
-                labelGoesUp: ''
-            });
-        }
-        this.setState({
-            inputUsername: e.target.value,
-            // inputPassword:e.target.value
-          });
+                inputValueEmail: email,
+                inputValuePassword: password,
+             });
+             if (this.state.inputValueEmail.length >=1 || this.state.inputValuePassword.length >=1) {
+                this.setState({ labelGoesUp: 'label-up',  fieldIsEmpty: false});
+            } else{
+                this.setState({ labelGoesUp: '',  fieldIsEmpty: true});
+            }
     }
+    
+componentDidUpdate(){
+    console.log(this.state.inputValueEmail,this.state.inputValuePassword );
+}
+
     onClickForm = (e)=>{
         e.preventDefault();
     }
@@ -36,14 +37,8 @@ class FormLogin extends Component{
     return (
         <div>
             <form id="loginForm" onClick={this.onClickForm}>
-               <div className="field user-name">
-                   <label className={this.state.labelGoesUp} >Phone number, username, or email</label>
-               <input type="text" value={this.state.inputUsername} onChange={(e)=>this.fieldsHandler(e)} />
-               </div>
-               <div className="field user-pass">
-               <label>Password</label>
-                <input type="password" value={this.state.inputPassword} onChange={(e)=>this.fieldsHandler(e)} />
-                </div>
+              <InputLogin type="text" inputValue={this.state.inputValueEmail} labelClass={this.state.labelGoesUp} inputClass={"field user-email"} label = "Phone number, username, or email" change={(email)=>this.fieldsHandler(email,this.state.inputValuePassword)} />
+              <InputLogin type="password" inputValue={this.state.inputValuePassword} labelClass={this.state.labelGoesUp} inputClass={"field user-pass"} label = "Password" change={(password)=>this.fieldsHandler(this.state.inputValueEmail,password)} />
                 <ContextConsumer>
                     {(context)=>(
                         <React.Fragment>

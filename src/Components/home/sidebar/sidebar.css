@@ -1,0 +1,38 @@
+
+
+.me-profile
+{
+display: flex;
+align-items: center;
+}
+.me-profile-content
+{
+    padding-left: .6em;
+}
+.me-profile-content p
+{
+    margin: 0;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #c3c3c3;
+    padding-left: .2em;
+}
+.me-profile a
+{
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333333;
+    padding-left: .2em;
+}
+a.image-profile-sidebar
+{
+    width: 50px; 
+    display: inline-block;
+}
+a.image-profile-sidebar img
+{
+    width: 100%;
+    border-radius: 30px;  
+}

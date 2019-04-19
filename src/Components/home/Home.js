@@ -1,12 +1,20 @@
 import React, {Component} from 'react';
 import Feed from './feed/Feed';
+import Sidebar from './sidebar/Sidebar';
+import './home.css';
 
 class Home extends Component {
     render(){
         return(
             <React.Fragment>
-                <h1>this is home</h1>
-                <Feed />
+               <div className="wrapper-home-page">
+                   <div className="feeds-home-page">
+                   <Feed />
+                   </div>
+                   <div className="slider-homepage">
+                   <Sidebar />
+                   </div>
+               </div>
             </React.Fragment>
         )
     }
