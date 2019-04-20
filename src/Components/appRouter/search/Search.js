@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
+import {useSetat, useEffect} from 'react';
 import './search.css';
 
-const Search  = () => {
-
+const Search = () =>{
     const [search, setSearch] = useSetat(search);
-    let search = "search";
-
     
         return(
             <div className="appRouterSearchBox">
@@ -13,6 +11,7 @@ const Search  = () => {
             </div>   
         )
     }
+
  
 
  export default Search;
