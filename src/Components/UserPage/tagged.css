@@ -1,0 +1,33 @@
+.tagged-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 166px;
+    width: 335px;
+    padding: 0 44px;
+    margin: 60px auto 44px auto;
+}
+
+.tagged-container div {
+    width: 62px;
+    height: 62px;
+    background-image: url(https://www.instagram.com/static/bundles/es6/sprite_core_2x_6ba81dcece9b.png/6ba81dcece9b.png);
+    background-size: 410px 396px;
+    background-position-x: 0px;
+    background-position-y: -273px;
+    align-self: center;
+}
+
+.tagged-container h1 {
+    margin: 0px;
+    font-size: 28px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.tagged-container p {
+    margin: 0px;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+}
