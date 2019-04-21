@@ -1,0 +1,19 @@
+
+.appRouterSearchBox
+{
+    display: flex;
+}
+
+.appRouterSearchBox > input
+{
+    display: inline-block;
+}
+
+.appRouterMagnifyingGlass
+{
+    display: inline-block;
+    background-image: url('./../images/f01fcb405c10.png');
+    height: 14px;
+    width: 14px;
+    background-position: 22px -342px;
+}
