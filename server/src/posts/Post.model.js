@@ -9,6 +9,10 @@ const PostSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
+    saved:{
+        type: Boolean,
+        default: false
+    },
     image: {
         type: [String],
     },

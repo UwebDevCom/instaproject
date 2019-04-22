@@ -12,7 +12,7 @@ const users = usersData.fetchUsers();
 
 class ContextProvider extends Component {
     state = {
-        isLoggedIn: true,
+        isLoggedIn: false,
         allPosts:[],
         allUsers:[]
     }

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { ContextConsumer } from '../../AppContext/AppContext';
 import InputLogin from './InputLogin';
-
+import LoginFailed from './loginFailed';
 
 
 class FormLogin extends Component{
@@ -9,7 +9,8 @@ class FormLogin extends Component{
         fieldIsEmpty: true,
         inputValueEmail: '',
         inputValuePassword: '',
-        labelGoesUp: ''
+        labelGoesUp: '',
+        loginFailed: null
     }
 
 
@@ -25,10 +26,14 @@ class FormLogin extends Component{
                 this.setState({ labelGoesUp: '',  fieldIsEmpty: true});
             }
     }
-    
-componentDidUpdate(){
-    console.log(this.state.inputValueEmail,this.state.inputValuePassword );
-}
+    checkValidation(fnVal,usersEmail){
+        for (let userEmail of usersEmail)
+        if (this.state.inputValueEmail !== userEmail.email || this.state.inputValuePassword !== userEmail.password) {
+            this.setState({loginFailed: true})
+        }else{
+            fnVal();
+        }
+    }
 
     onClickForm = (e)=>{
         e.preventDefault();
@@ -37,18 +42,34 @@ componentDidUpdate(){
     return (
         <div>
             <form id="loginForm" onClick={this.onClickForm}>
-              <InputLogin type="text" inputValue={this.state.inputValueEmail} labelClass={this.state.labelGoesUp} inputClass={"field user-email"} label = "Phone number, username, or email" change={(email)=>this.fieldsHandler(email,this.state.inputValuePassword)} />
-              <InputLogin type="password" inputValue={this.state.inputValuePassword} labelClass={this.state.labelGoesUp} inputClass={"field user-pass"} label = "Password" change={(password)=>this.fieldsHandler(this.state.inputValueEmail,password)} />
-                <ContextConsumer>
+            <ContextConsumer>
                     {(context)=>(
                         <React.Fragment>
+                            <InputLogin
+                                validEmail = {context.state.allUsers.length > 0 ? context.state.allUsers[0].email: null}
+                                type="text"
+                                inputValue={this.state.inputValueEmail}
+                                labelClass={this.state.labelGoesUp}
+                                inputClass={"field user-email"}
+                                label = "Phone number, username, or email"
+                                change={(email)=>this.fieldsHandler(email,this.state.inputValuePassword)}
+                                />
+                            <InputLogin
+                                type="password"
+                                inputValue={this.state.inputValuePassword}
+                                labelClass={this.state.labelGoesUp}
+                                inputClass={"field user-pass"}
+                                label = "Password"
+                                change={(password)=>this.fieldsHandler(this.state.inputValueEmail,password)}
+                            />
                             <button
-                                onClick={context.isLoggedIn}
+                                onClick={()=>this.checkValidation(context.isLoggedIn,context.state.allUsers)}
                                 className="login-btn"
                                 type="submit"
                                 disabled={this.state.fieldIsEmpty}>
                                 Log In
                             </button>
+                            {this.state.loginFailed ? <LoginFailed /> : ''}
                         </React.Fragment>
                     )}
               
