@@ -37,6 +37,10 @@ const UserSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }],
+    followers: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }],
     savedPosts: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Post'

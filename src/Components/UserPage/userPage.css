@@ -5,7 +5,14 @@
     background-color: inherit;
 }
 
+.userPage-content {
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+}
+
 .userPage-link {
+    display: flex;
     text-decoration: none;
     color: inherit;
     margin-top: -1px;
@@ -14,6 +21,15 @@
     letter-spacing: 1px;
     font-size: 12px;
     height: 52px;
+}
+
+.userPage-link span {
+    align-self: center;
+    text-transform: uppercase;
+}
+
+.userPage-link div {
+    display: inline;
 }
 
 .userPage-link:focus {
@@ -26,6 +42,6 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border-top: 1px solid #999;
+    border-top: 1px solid #efefef;
     color: #999;
 }
