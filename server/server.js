@@ -20,5 +20,5 @@ app.use(posts.route);
 app.use(express.static('build'));
 
 app.listen(port,
-    ()=>console.log('server is running!')
+    ()=>console.log('server is running!') 
     );   
