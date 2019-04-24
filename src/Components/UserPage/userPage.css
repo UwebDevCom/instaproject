@@ -28,10 +28,6 @@
     text-transform: uppercase;
 }
 
-.userPage-link div {
-    display: inline;
-}
-
 .userPage-link:focus {
     color: #262626;
     border-top: 1px solid #262626;
@@ -44,4 +40,16 @@
     align-items: center;
     border-top: 1px solid #efefef;
     color: #999;
+}
+
+.userPageLink-posts {
+    display: inline;
+    background-image: url(https://www.instagram.com/static/bundles/es6/sprite_core_2x_6ba81dcece9b.png/6ba81dcece9b.png);
+    background-position-x: -177px;
+    background-position-y: -366px;
+    background-size: 410px 396px;
+}
+
+.userPageLink-channel {
+    display: inline;
 }

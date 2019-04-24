@@ -10,44 +10,79 @@ main
 /* ==== header ==== */
 
 
-.header
+.appRouterHeader
 {
-    background-color: inherit;
+    background-color: white;
     border-bottom: 1px solid #e6e6e6;
     height: 77px;
 }
 
-.headerFlex
+.appRouterHeaderFlex
 {
     display: flex;
-    justify-content: space-around;
-    margin-left: 15%;
-    margin-right: 15%;
+    justify-content: space-between;
+    width: 70%;
+    margin: 0 auto;
 }
 
-.home
+/* <==== headerLogo ====> */
+
+.appRouterLogoFlex
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.appRouterCameraLogo
 {
     display: inline-block;
     background-image : url('./images/instegram sprite.png');
     margin: 30px;
-    margin-right: 210px;
+    margin-right: 10px;
     justify-content: flex-start;
     background-position: -52px -177px;
     width: 24px;
     height: 24px;
 }
 
-.search
+.appRouterLine
 {
     display: inline-block;
-    background-image : url('./images/instegram sprite.png');
-    margin: 30px;
-    margin-right: 210px;
-    border: 1px solid black;
+    background-color: black;
+    width: 1px;
+    height: 40px;
+    margin-top: 20px;
+}
+
+.appRouterWordLogo
+ {
+    background-image: url('./images/instegram sprite.png');
+    background-position: 1px -144px;
+    height: 32px;
+    width: 105px;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+.appRouterSearchBox input
+{
+    display: flex;
+    /* margin: 20px; */
+    text-align: center;
+}
+
+.appRouterSearchBox::before 
+{
+    display: inline-block;
+    content: "";
+    background-image: url('./images/f01fcb405c10.png');
+    height: 5px;
+    width: 5px;
+    background-position: -100px -100px;
 }
 
 
-.explore
+.appRouterExplore
 {
     display: inline-block;
     background-image : url('./images/instegram sprite.png');
@@ -58,7 +93,7 @@ main
     background-position: -267px -26px;
 }
 
-.activity
+.appRouterActivity
 {
     display: inline-block;
     background-image : url('./images/instegram sprite.png');
@@ -69,7 +104,7 @@ main
     background-position: -78px -203px;
 }
 
-.profile
+.appRouterProfile
 {
     display: inline-block;
     background-image : url('./images/instegram sprite.png');
@@ -80,7 +115,7 @@ main
     background-position: -215px -104px;
 }
 
-.litleButtons
+.appRouterLitleButtons
 {
     justify-content: flex-end;
 }

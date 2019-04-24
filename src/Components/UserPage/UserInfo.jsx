@@ -19,9 +19,9 @@ class UserInfo extends Component {
 								<div className='userInfo-userName'>{context.state.allUsers[0].name}</div>
 								<div className='userInfo-stats'>
 									<ul>
-										<li>{`${context.state.allPosts.length} posts`}</li>
-										<li>{`${context.state.allUsers[0].followers.length} followers`}</li>
-										<li>{`${context.state.allUsers[0].following.length} following`}</li>
+										<li><span>{context.state.allPosts.length}</span> posts</li>
+										<li><span>{context.state.allUsers[0].followers.length}</span> followers</li>
+										<li><span>{context.state.allUsers[0].following.length}</span> following</li>
 									</ul>
 								</div>
 								<div className='userInfo-name'>{context.state.allUsers[0].userName}</div>
