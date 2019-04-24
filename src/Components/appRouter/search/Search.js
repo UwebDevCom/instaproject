@@ -2,12 +2,25 @@ import React, { useState, useEffect } from 'react';
 import './search.css';
 
 const Search = () =>{
-    const [search, setSearch] = useState("search");
+    const [search, setSearch] = useState('');
+
+
+    // const setSearch = (ref) => ref;
+
 
         return(
             <div className="appRouterSearchBox">
-                <input type="text" placeholder={search}></input>
-                <span className="appRouterMagnifyingGlass"></span>
+                <div>
+                    <span className="appRouterMagnifyingGlass"></span>
+                    <span>{search}
+                        <input 
+                        type="text" 
+                        placeholder="search"
+                        // ref={() => search = "search"}
+                        // onChange = {input => setSearch(input)}
+                        />
+                    </span>
+                </div>
             </div>   
         )
     }
