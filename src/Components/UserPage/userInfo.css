@@ -26,9 +26,15 @@ header.userInfo-header {
     flex-direction: row;
     justify-content: flex-start;    
 }
+
+.userInfo-stats span {
+    font-weight: bold;
+}
+
 .userInfo-data ul li {
 margin-right: 40px;    
 }
+
 .userInfo-userName {
     font-size: 28px;
     margin-bottom: 20px;
