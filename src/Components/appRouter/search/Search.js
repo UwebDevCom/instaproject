@@ -21,7 +21,6 @@ export default function Search() {
                     onChange = {(e) => setSearch(e.target.value)}
                     />
                 </span>
-                <p>{search}</p>
             </div>
         </div>   
     )
