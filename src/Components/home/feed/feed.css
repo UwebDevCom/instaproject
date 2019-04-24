@@ -41,17 +41,17 @@ header.post-header
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.user-top-details
+.post-user-top-details
 {
     padding-left: 1em;
     display: inline-block;
 }
-.user-top-details > *
+.post-user-top-details > *
 {
     margin: 0;
     font-size: .8rem;  
 }
-.user-top-details a
+.post-user-top-details a
 {
     font-size: 14px;
     font-weight: 600 !important;
@@ -59,7 +59,7 @@ header.post-header
     display: block;
     font-weight: bold;
 }
-.user-top-details a:visited
+.post-user-top-details a:visited
 {
     color: #333333;
 }

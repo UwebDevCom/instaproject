@@ -1,0 +1,20 @@
+@keyframes fadeit {
+    0%{opacity: 1}
+    100%{opacity: 0}
+}
+
+@keyframes fadeitout {
+    0%{opacity: 0}
+    100%{opacity: 1}
+}
+
+.fadeIt
+{
+    animation: fadeit 2s ease-in-out forwards;
+    z-index: 5;
+}
+.fadeItOut
+{
+    animation: fadeitout 2s ease-in-out forwards;
+    z-index: 5;
+}

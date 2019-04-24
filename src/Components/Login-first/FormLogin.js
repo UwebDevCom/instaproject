@@ -1,34 +1,40 @@
 import React, {Component} from 'react';
 import { ContextConsumer } from '../../AppContext/AppContext';
-
-
+import InputLogin from './InputLogin';
+import LoginFailed from './loginFailed';
 
 
 class FormLogin extends Component{
     state = {
         fieldIsEmpty: true,
-        inputUsername: '',
-        inputPassword: '',
-        labelGoesUp: ''
+        inputValueEmail: '',
+        inputValuePassword: '',
+        labelGoesUp: '',
+        loginFailed: null
     }
-    fieldsHandler=(e)=>{
-        console.log(this.state.inputUsername)
-        if (this.state.inputUsername.length >=2 || this.state.inputPassword.length >= 2) {
+
+
+    /// ****** separate the inputs to the different components //  - and set the state with compunentwillUpdate
+    fieldsHandler=(email, password)=>{
             this.setState({
-                fieldIsEmpty: false,
-                labelGoesUp: 'label-up'
-            });
-        } else if (this.state.inputUsername.length <2 || this.state.inputUsername.length <2){
-            this.setState({
-                fieldIsEmpty: true,
-                labelGoesUp: ''
-            });
+                inputValueEmail: email,
+                inputValuePassword: password,
+             });
+             if (this.state.inputValueEmail.length >=1 || this.state.inputValuePassword.length >=1) {
+                this.setState({ labelGoesUp: 'label-up',  fieldIsEmpty: false});
+            } else{
+                this.setState({ labelGoesUp: '',  fieldIsEmpty: true});
+            }
+    }
+    checkValidation(fnVal,usersEmail){
+        for (let userEmail of usersEmail)
+        if (this.state.inputValueEmail !== userEmail.email || this.state.inputValuePassword !== userEmail.password) {
+            this.setState({loginFailed: true})
+        }else{
+            fnVal();
         }
-        this.setState({
-            inputUsername: e.target.value,
-            // inputPassword:e.target.value
-          });
     }
+
     onClickForm = (e)=>{
         e.preventDefault();
     }
@@ -36,24 +42,34 @@ class FormLogin extends Component{
     return (
         <div>
             <form id="loginForm" onClick={this.onClickForm}>
-               <div className="field user-name">
-                   <label className={this.state.labelGoesUp} >Phone number, username, or email</label>
-               <input type="text" value={this.state.inputUsername} onChange={(e)=>this.fieldsHandler(e)} />
-               </div>
-               <div className="field user-pass">
-               <label>Password</label>
-                <input type="password" value={this.state.inputPassword} onChange={(e)=>this.fieldsHandler(e)} />
-                </div>
-                <ContextConsumer>
+            <ContextConsumer>
                     {(context)=>(
                         <React.Fragment>
+                            <InputLogin
+                                validEmail = {context.state.allUsers.length > 0 ? context.state.allUsers[0].email: null}
+                                type="text"
+                                inputValue={this.state.inputValueEmail}
+                                labelClass={this.state.labelGoesUp}
+                                inputClass={"field user-email"}
+                                label = "Phone number, username, or email"
+                                change={(email)=>this.fieldsHandler(email,this.state.inputValuePassword)}
+                                />
+                            <InputLogin
+                                type="password"
+                                inputValue={this.state.inputValuePassword}
+                                labelClass={this.state.labelGoesUp}
+                                inputClass={"field user-pass"}
+                                label = "Password"
+                                change={(password)=>this.fieldsHandler(this.state.inputValueEmail,password)}
+                            />
                             <button
-                                onClick={context.isLoggedIn}
+                                onClick={()=>this.checkValidation(context.isLoggedIn,context.state.allUsers)}
                                 className="login-btn"
                                 type="submit"
                                 disabled={this.state.fieldIsEmpty}>
                                 Log In
                             </button>
+                            {this.state.loginFailed ? <LoginFailed /> : ''}
                         </React.Fragment>
                     )}
               

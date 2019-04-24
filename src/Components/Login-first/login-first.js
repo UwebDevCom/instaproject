@@ -1,13 +1,10 @@
 import React, {Component} from 'react';
 import './login-first.css';
-import slide1 from './images/slide1.jpg';
-import slide2 from './images/slide2.jpg';
-import slide3 from './images/slide3.jpg';
-import slide4 from './images/slide4.jpg';
 import apple from './images/app-app.png';
 import android from './images/app-and.png';
 import windows from './images/app-win.png';
 import FormLogin from './FormLogin';
+import Slider from './Slider';
 
 
 class LoginFirst extends Component{
@@ -66,47 +63,5 @@ class LoginFirst extends Component{
         )
     }
 }
-
-class Slider extends Component{  
-    constructor(props){
-        super(props);
-        this.makeItMove();
-    }
-    state = {
-       image: slide1,
-       imageClass: 'fade',
-    };
-
-  
-    makeItMove() {
-        let i = 1;  
-        let images = [slide1,slide2,slide3,slide4];
-                setInterval(()=>{
-                    if (i == images.length) {
-                        i= 0;
-                        }
-                    this.setState({
-                    image: images[i],
-                    imageOne: images[1],
-                    imageClass: this.state.imageClass ==='fade' ? 'img-fade' : 'fade'
-                    });
-                    i++;
-                },2000);   
-    };
-    render(){
-        const img =(
-        <React.Fragment>
-        <img className={this.state.imageClass} src={this.state.image} alt="image" style={this.style} />
-        <img className={'fixed'} src={this.state.imageOne} alt="image" style={this.style} />
-        </React.Fragment>
-        );
-        return (
-            <React.Fragment>
-              {img}
-            </React.Fragment>
-        )
-    }
-}
-
 export default LoginFirst;
 

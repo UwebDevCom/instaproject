@@ -1,5 +1,8 @@
 import React , {Component} from 'react';
 import {Link } from 'react-router-dom';
+import PostsService from '../../posts/posts.Service';
+
+const updateLikeInPost = new PostsService();
 class Post extends Component{
     constructor(props) {
         super(props);
@@ -12,17 +15,29 @@ class Post extends Component{
         return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
       }
       toggleLike(){
-        this.setState({isLiked: !this.state.isLiked})
-      }
+        this.setState({
+            isLiked: !this.state.isLiked
+        })      
+    }
+    updateLikes(){
+        this.setState({
+            likes: this.state.isLiked ? this.state.likes - 1: this.state.likes +1
+        })
+    }
+    functionLike(){
+       this.toggleLike();
+       this.updateLikes();
+    }
 
     render() {
+        updateLikeInPost.updatePost({likes:this.state.likes}, this.state._id);
         return(
             <React.Fragment>
         <article id={this.state._id} className="post-wrap">
             <header className="post-header">
                <div className="header-flex">
                <a className="user-image"><img src={this.state.author.userImg} alt={this.state.author._id}/></a>
-                <div className="user-top-details"><Link to='/username'>{this.state.author.name}</Link><p>{this.state.author.location}</p></div>
+                <div className="post-user-top-details"><Link to='/username'>{this.state.author.name}</Link><p>{this.state.author.location}</p></div>
                </div>
                 <a className="post-settings">...</a>
             </header>
@@ -30,7 +45,7 @@ class Post extends Component{
            <div className="interaction">
            <div className="features">
               <div className="buttons">
-              <button><span onClick={()=>this.toggleLike()} className={this.state.isLiked? 'like-btn liked':'like-btn unliked'}></span></button> 
+              <button><span onClick={()=>this.functionLike()} className={this.state.isLiked? 'like-btn liked':'like-btn unliked'}></span></button> 
               <button><span className="comment-btn"></span></button> 
               <button><span className="share-btn"></span></button> 
               </div>
@@ -42,7 +57,7 @@ class Post extends Component{
                <p>{this.formatNumber(this.state.likes)} likes</p>
            </div>
            <div className="caption">
-               <p><span>{this.state.author.userName}</span> {this.state.caption} likes</p>
+               <p><span>{this.state.author.userName}</span> {this.state.caption}</p>
            </div>
             <div className="comments"></div>
            </div>

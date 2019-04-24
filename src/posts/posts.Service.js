@@ -8,6 +8,16 @@ async fetchPosts() {
     const posts = await data.json();
     return  posts;
 }
+async updatePost(post ,postId) {
+    await fetch(SERVER_URL +'posts/'+ postId, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(post)
+    });
+    console.log(post,postId);
+}
 }
 
 
