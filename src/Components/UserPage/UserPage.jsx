@@ -25,10 +25,30 @@ class UserPage extends Component {
 								<div className='userPageMain'>
 									<UserInfo />
 									<div className='userPage-linkDiv'>
-										<Link className='userPage-link' to='username'><span><div>⍰</div><span> Posts</span></span></Link>
-										<Link className='userPage-link' to='channel'><span><div>⍰</div><span> IGTV</span></span></Link>
-										<Link className='userPage-link' to='saved'><span><div>⍰</div><span> Saved</span></span></Link>
-										<Link className='userPage-link' to='tagged'><span><div>⍰</div><span> Tagged</span></span></Link>
+										<Link className='userPage-link' to='username'>
+											<span>
+												<div className='userPageLink-posts' />
+												<span> Posts</span>
+											</span>
+										</Link>
+										<Link className='userPage-link' to='channel'>
+											<span>
+												<div className='userPageLink-channel'>⍰</div>
+												<span> IGTV</span>
+											</span>
+										</Link>
+										<Link className='userPage-link' to='saved'>
+											<span>
+												<div className='userPageLink-saved'>⍰</div>
+												<span> Saved</span>
+											</span>
+										</Link>
+										<Link className='userPage-link' to='tagged'>
+											<span>
+												<div className='userPageLink-tagged'>⍰</div>
+												<span> Tagged</span>
+											</span>
+										</Link>
 									</div>
 									<div className='userPage-content'>
 											<Route exact path='/username' component={UserPagePosts} />

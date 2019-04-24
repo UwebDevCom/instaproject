@@ -8,7 +8,7 @@
     margin: 60px auto 44px auto;
 }
 
-.channel-container div {
+.channel-container .channel-icon {
     width: 62px;
     height: 62px;
     background-image: url(https://www.instagram.com/static/bundles/es6/sprite_felix_2x_90d41aa74a11.png/90d41aa74a11.png);
