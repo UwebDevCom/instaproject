@@ -2,20 +2,14 @@ import React, {Component} from 'react';
 import {Link } from 'react-router-dom';
 import imageMe from './yair_image.png';
 import './sidebar.css';
+import StoriesBar from './storiesBar';
+
 
 class Sidebar extends Component {
     render(){
-        const userId='fsdf';
         return(
             <React.Fragment>
-                <div className="me-profile">
-                    <Link className="image-profile-sidebar" to={`/${userId}`}> <img src={imageMe} alt="#" /> </Link>
-                   
-                   <div className="me-profile-content">
-                   <Link to={`/${userId}`}> user name here </Link>
-                    <p>full name</p>
-                   </div>
-                </div>
+                        <StoriesBar />                
                 <div className="stories-home-page">
                     <div className="header-sidebar">
                         <p>Stories</p>
@@ -46,6 +40,7 @@ class Sidebar extends Component {
                        </div>  
                     </div>
                 </div>
+               
                 <div className="footer-home-page">
                     <ul>
                         <li>About Us </li>
