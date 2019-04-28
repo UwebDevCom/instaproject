@@ -1,21 +1,21 @@
 
 const {Router} = require('express');
-const {Component} =require('./Component.model');
+const {Comment} =require('./Comment.model');
 const route = Router();
 
 
-route.get('/components', async(req,res)=>{
+route.get('/api/comments', async(req,res)=>{
    try {
     if (req.query.title || req.query.hashtag)
     {
-        const components = await Component.find({
+        const comments = await Comment.find({
             title: new RegExp(req.query.title, 'i'),
             hashtag: new RegExp(req.query.title, 'i'),
         });
-        res.send(components);
+        res.send(comments);
     }else {
-        const components = await Component.find({});
-    res.send(components);
+        const comments = await Comment.find({});
+    res.send(comments);
     }
    }catch(e) {
        res.status(409).send(e.message);
@@ -23,41 +23,40 @@ route.get('/components', async(req,res)=>{
 });
 
 
-route.get('/components/:componentId',async (req,res)=>{
+route.get('/api/comments/:commentId',async (req,res)=>{
     try {
-        const component = await Component.findById(req.params.componentId);
-        res.send(Component);
+        const comments = await Comment.findById(req.params.commentId);
+        res.send(comments);
     }catch(e){
         res.status(409).send(e.message);
     }
 });
 
 
-route.component('/components',async (req,res)=>{
+route.post('/api/comments',async (req,res)=>{
     try {
-        const components = new Component(req.body);
-        components.save();
-        res.send(components);
+        const comment = new Comment(req.body);
+        comment.save();
+        res.send(comment);
     }catch(e){
         res.status(409).send(e.message);
     }
 });
 
 
-route.put('/components/:componentId', async (req,res)=>{
+route.put('/api/comments/:commentId', async (req,res)=>{
     try {
-        const components = new omponent(req.body);
-  const component = await Component.findByIdAndUpdate(req.params.componentId, req.body);
-    res.send(component);
+  const comment = await Comment.findByIdAndUpdate(req.params.commentId, req.body);
+    res.send(comment);
     }catch(e){
         res.status(400).send(e.message);
     }
 });
 
 
-route.delete('/components/:componentId', async (req,res)=>{
+route.delete('/api/comments/:commentId', async (req,res)=>{
     try {
-    const component = await component.findByIdAndDelete(req.params.componentId);
+    const component = await Comment.findByIdAndDelete(req.params.commentId);
     res.send(component);
     }catch(e){
         res.status(400).send(e.message);

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const autopopulate = require('mongoose-autopopulate');
 
 const CommentSchema = mongoose.Schema({
-    caption: {
+    body: {
         type: String,
         required: true
     },
@@ -18,11 +18,6 @@ const CommentSchema = mongoose.Schema({
     published: {
         type: Date,
         default: Date.now()
-    },
-    comments: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Comment',
-        // autopopulate: true
     }
 });
 

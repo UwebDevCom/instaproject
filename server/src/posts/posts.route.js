@@ -22,6 +22,15 @@ route.get('/api/posts', async(req,res)=>{
    }
 });
 
+route.get('/api/posts/:postId/comments', async(req,res)=>{
+    try {
+    const posts = await Post.findById(req.params.postId);
+    res.send(posts.comments);
+    }catch(e) {
+        res.status(409).send(e.message);
+    }
+});
+
 
 route.get('/api/posts/:postId',async (req,res)=>{
     try {

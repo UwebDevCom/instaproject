@@ -125,6 +125,10 @@ button span.unliked
     background: url('./61393e2520c3.png') -78px -203px;
 }
 
+.comments
+{
+    padding-top: .6em;
+}
 button span.comment-btn
 { 
      display: block;
@@ -211,4 +215,53 @@ button span.save-btn
 {
     color: #3897f0;
     font-weight: 700;
+}
+.view-all-comments
+{
+    margin-bottom: .8em;
+}
+.view-all-comments a
+{
+    text-decoration: none;
+    color: #cccccc;
+    font-size: .8rem;
+    font-weight: bold;
+}
+
+/* comments component */
+
+.comments-area
+{
+    font-size: .8rem;
+    color: #333333;
+    padding: .2em 0;
+    display: flex;
+}
+.comments-area span:first-child
+{
+    font-weight: bold;
+}
+.date-format-comment
+{
+    text-transform: uppercase;
+    color: #cccccc;
+    font-size: .6rem;
+}
+.self-comment
+{
+    width: 100%;
+}
+.comment-like
+{
+    width: 12px;
+    height: 11px;
+    background: url('./61393e2520c3.png') -392px -255px;
+    cursor: pointer;
+}
+.comment-liked
+{
+    width: 12px;
+    height: 11px;
+    background: url('./61393e2520c3.png') -406px -255px;
+    cursor: pointer;
 }
