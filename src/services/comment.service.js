@@ -16,7 +16,6 @@ async updatePost(post ,postId) {
         },
         body: JSON.stringify(post)
     });
-    console.log(post,postId);
 }
 }
 

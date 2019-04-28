@@ -1,6 +1,7 @@
 import React , {Component} from 'react';
-import {Link } from 'react-router-dom';
-import PostsService from '../../posts/posts.Service';
+import {Link} from 'react-router-dom';
+import PostsService from '../../../../services/posts.Service';
+import Comments from './comments';
 
 const updateLikeInPost = new PostsService();
 class Post extends Component{
@@ -30,6 +31,7 @@ class Post extends Component{
     }
 
     render() {
+        console.log(this.state);
         updateLikeInPost.updatePost({likes:this.state.likes}, this.state._id);
         return(
             <React.Fragment>
@@ -59,7 +61,12 @@ class Post extends Component{
            <div className="caption">
                <p><span>{this.state.author.userName}</span> {this.state.caption}</p>
            </div>
-            <div className="comments"></div>
+            <div className="comments">
+                <div className="view-all-comments">
+                  {this.state.comments.length > 1 ? <Link to={`/${this.state._id.toString()}`}>View all {this.state.comments.length} comments</Link> : '' }  
+                </div>
+                {this.state.comments.length > 1 ? this.state.comments.map((comment,i,arr)=> i > arr.length-2 ? <Comments key={comment._id} comment={comment.body} author={comment.author.userName} commentDate={comment.published} />: ''): ''}
+            </div>
            </div>
            <div className="add-a-comment">
                 <form className="add-comment" method="POST">

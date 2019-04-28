@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PostsService from '../posts/posts.Service';
+import PostsService from '../services/posts.Service';
 import UsersService from '../services/users.service';
 const AppContext = React.createContext();
 export const ContextConsumer = AppContext.Consumer;

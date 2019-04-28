@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './feed.css';
-import Post from '../post';
+import Post from './post/post';
 import { ContextConsumer } from '../../../AppContext/AppContext';
 class Feed extends Component {
     constructor(props) {
