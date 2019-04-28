@@ -10,6 +10,9 @@ margin-bottom: 1em;
 {
     padding-left: 1.4em;
     flex: 1;
+    position: sticky;
+    top: 10%;
+    align-self: end;
 }
 .me-profile-content
 {
@@ -34,8 +37,8 @@ margin-bottom: 1em;
 }
 a.image-profile-sidebar
 {
-    width: 60px;
-    height: 60px; 
+    width: 54px;
+    height: 54px; 
     display: inline-block;
     overflow: hidden;
     border-radius: 65px;
