@@ -17,7 +17,7 @@ const Search = () =>{
                         type="text" 
                         placeholder="search"
                         // ref={() => search = "search"}
-                        // onChange = {input => setSearch(input)}
+                        onChange = {event => setSearch(event.target.value)}
                         />
                     </span>
                 </div>

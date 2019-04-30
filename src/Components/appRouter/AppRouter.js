@@ -31,7 +31,7 @@ class AppRouter extends Component{
                 <main>
                     <Route exact path='/userpage' component={UserPage} />
                     <Route exact path='/' component={Home} />
-                    <Route exact path='/username' component={UserPage} />
+                    <Route exact path='/explore' render={() => <h1>explore</h1>} />
                 </main>
             </div>
             </Router>
