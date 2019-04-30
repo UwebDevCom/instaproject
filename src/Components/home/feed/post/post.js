@@ -1,15 +1,20 @@
 import React , {Component} from 'react';
 import {Link} from 'react-router-dom';
 import PostsService from '../../../../services/posts.Service';
+import UserService from '../../../../services/users.service';
 import Comments from './comments';
+import { ContextConsumer } from '../../../../AppContext/AppContext';
 
 const updateLikeInPost = new PostsService();
+const updateSavedPost = new UserService();
 class Post extends Component{
     constructor(props) {
         super(props);
         this.state = {
             ...this.props.post,
-            isLiked: false}
+            isLiked: false,
+            saved: false
+        }
     }
     
     formatNumber(num) {
@@ -25,16 +30,28 @@ class Post extends Component{
             likes: this.state.isLiked ? this.state.likes - 1: this.state.likes +1
         })
     }
+    
+    savedPost(myUserId,saved){
+        saved.push(this.state._id);
+        this.setState({
+            saved: this.state.saved ? false : true
+        })
+        console.log(saved);
+        updateSavedPost.savePost(myUserId,{savedPosts: saved});
+    }
+
     functionLike(){
        this.toggleLike();
        this.updateLikes();
     }
 
     render() {
-        console.log(this.state);
         updateLikeInPost.updatePost({likes:this.state.likes}, this.state._id);
         return(
             <React.Fragment>
+                <ContextConsumer>
+                    {(context)=>{
+                    return(
         <article id={this.state._id} className="post-wrap">
             <header className="post-header">
                <div className="header-flex">
@@ -52,7 +69,7 @@ class Post extends Component{
               <button><span className="share-btn"></span></button> 
               </div>
               <div className="save-it">
-              <button><span className="save-btn"></span></button> 
+              <button onClick={()=>{this.savedPost(context.state.myUser._id,context.state.myUser.savedPosts)}}><span className={ this.state.saved ? "post-saved" : "save-btn"}></span></button> 
               </div>
            </div>
            <div className="like-counter">
@@ -75,6 +92,8 @@ class Post extends Component{
                 </form>
             </div>
         </article>
+        )}}
+        </ContextConsumer>
             </React.Fragment>
         )
     }
