@@ -31,13 +31,8 @@ class AppRouter extends Component{
                 </header>
                 <main>
                     <Route exact path='/userpage' component={UserPage} />
-<<<<<<< HEAD
-                    <Route exact path='/' component={Home} />
-                    <Route exact path='/explore' render={() => <h1>explore</h1>} />
-=======
                     <Route exact path='/' component={Home}  />
                     <Route exact path='/explore' component={Explore} />
->>>>>>> 3e87c2ac1d8d8fbad2e361fd6e263cc3ea86f251
                 </main>
             </div>
             </Router>

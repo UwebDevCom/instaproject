@@ -10,27 +10,6 @@ export default function Search() {
     //     setSearch(e.target.value)
     // }
 
-<<<<<<< HEAD
-    // const setSearch = (ref) => ref;
-
-
-        return(
-            <div className="appRouterSearchBox">
-                <div>
-                    <span className="appRouterMagnifyingGlass"></span>
-                    <span>{search}
-                        <input 
-                        type="text" 
-                        placeholder="search"
-                        // ref={() => search = "search"}
-                        onChange = {event => setSearch(event.target.value)}
-                        />
-                    </span>
-                </div>
-            </div>   
-        )
-    }
-=======
     return(
         <div className="appRouterSearchBox">
             <div>
@@ -46,7 +25,6 @@ export default function Search() {
         </div>   
     )
 }
->>>>>>> 3e87c2ac1d8d8fbad2e361fd6e263cc3ea86f251
 
  
 
