@@ -4,6 +4,7 @@ import Home from '../home/Home';
 import './appRouter.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Search from './search/Search';
+import Explore from '../explore/Explore';
 
 class AppRouter extends Component{
 		
@@ -11,7 +12,7 @@ class AppRouter extends Component{
         return(
             <Router>
             <div>
-                <header>
+                <header className="sticky">
                 <nav className="appRouterHeader">
                     <div className="appRouterHeaderFlex">
                         <Link to='/' className="appRouterLogoFlex">
@@ -30,8 +31,8 @@ class AppRouter extends Component{
                 </header>
                 <main>
                     <Route exact path='/userpage' component={UserPage} />
-                    <Route exact path='/' component={Home} />
-                    <Route exact path='/username' component={UserPage} />
+                    <Route exact path='/' component={Home}  />
+                    <Route exact path='/explore' component={Explore} />
                 </main>
             </div>
             </Router>

@@ -18,7 +18,7 @@ export default function Search() {
                     <input 
                     type="text" 
                     placeholder="search"
-                    onChange = {(e) => setSearch(e.target.value)}
+                    onChange = {(event) => setSearch(event.target.value)}
                     />
                 </span>
             </div>
