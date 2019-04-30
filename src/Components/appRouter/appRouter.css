@@ -10,6 +10,13 @@ main
 /* ==== header ==== */
 
 
+.sticky {
+    position: sticky;
+    top: 0%;
+    z-index: 1;
+}
+
+
 .appRouterHeader
 {
     background-color: white;
