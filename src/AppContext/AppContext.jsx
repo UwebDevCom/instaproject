@@ -13,6 +13,7 @@ const users = usersData.fetchUsers();
 class ContextProvider extends Component {
     state = {
         isLoggedIn: false,
+        myUser: null,
         allPosts:[],
         allUsers:[]
     }
@@ -25,7 +26,8 @@ class ContextProvider extends Component {
         return (
             <AppContext.Provider value={{
                 state: this.state,
-                isLoggedIn: () => this.setState({isLoggedIn: !this.state.isLoggedIn})
+                isLoggedIn: () => this.setState({isLoggedIn: !this.state.isLoggedIn}),
+                myUser: (myUser) => this.setState({myUser: myUser})
             }} >
                 {this.props.children}
             </AppContext.Provider>
