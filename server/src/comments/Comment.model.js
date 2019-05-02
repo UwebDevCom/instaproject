@@ -11,13 +11,10 @@ const CommentSchema = mongoose.Schema({
         ref: 'User',
         autopopulate: true
     },
-    hashtages: {
-        type: [String],
-        default: undefined
-    },
+    hashtages: [String],
     published: {
         type: Date,
-        default: Date.now()
+        default: Date.now
     }
 });
 

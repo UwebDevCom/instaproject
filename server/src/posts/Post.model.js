@@ -44,6 +44,6 @@ PostSchema.plugin(autopopulate);
 
 const Post = mongoose.model('Post',PostSchema);
 
-module.exports ={
+module.exports = {
     Post
 }
