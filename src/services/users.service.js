@@ -1,3 +1,5 @@
+import { isArray } from "util";
+
 const serverUrl = 'http://localhost:8080/api/'
 
 export default class UsersService {
@@ -7,7 +9,6 @@ export default class UsersService {
         return users;
     }
     async savePost(userId,saved) {
-        console.log(saved);
         await fetch(serverUrl +'users/'+ userId, {
             method: 'PUT',
             headers: {

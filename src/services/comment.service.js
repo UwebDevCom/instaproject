@@ -1,6 +1,6 @@
 const SERVER_URL = 'http://localhost:8080/api/';
 
-class PostsService{
+class CommentService{
 constructor(){}
 
 async fetchPosts() {
@@ -21,4 +21,4 @@ async updatePost(post ,postId) {
 
 
 
-export default PostsService;
+export default CommentService;

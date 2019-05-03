@@ -4,6 +4,7 @@ import PostsService from '../../../../services/posts.Service';
 import UserService from '../../../../services/users.service';
 import Comments from './comments';
 import { ContextConsumer } from '../../../../AppContext/AppContext';
+import CommentForm from './CommentForm';
 
 const updateLikeInPost = new PostsService();
 const updateSavedPost = new UserService();
@@ -32,12 +33,17 @@ class Post extends Component{
     }
     
     savedPost(myUserId,saved){
-        saved.push(this.state._id);
-        this.setState({
-            saved: this.state.saved ? false : true
-        })
-        console.log(saved);
-        updateSavedPost.savePost(myUserId,{savedPosts: saved});
+        
+
+        const isSaved = saved.includes(this.state._id);
+        console.log(isSaved);
+        if (!isSaved) {
+            saved.push(this.state._id);
+            this.setState({
+                saved: this.state.saved ? false : true
+            });
+            updateSavedPost.savePost(myUserId,{savedPosts: saved});
+        }
     }
 
     functionLike(){
@@ -86,10 +92,7 @@ class Post extends Component{
             </div>
            </div>
            <div className="add-a-comment">
-                <form className="add-comment" method="POST">
-                <textarea placeholder="Add a comment…"></textarea>
-                <button type="submit">Post</button>
-                </form>
+              <CommentForm />
             </div>
         </article>
         )}}

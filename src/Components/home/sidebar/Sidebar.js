@@ -16,13 +16,12 @@ class Sidebar extends Component {
                         <p>Watch All</p>
                     </div>
                     <div className="stories-container-sidebar">
-                        <div className="story-sidebar">
-                       
-               <div className="header-flex">
-               <a className="user-image"><img src={imageMe} alt='#' /></a>
-                <div className="story-top-details"><Link to='/username'>Username</Link><p>19 hours ago</p></div>
-               </div>  
-                        </div>
+                        <div className="story-sidebar">        
+                        <div className="header-flex">
+                            <a className="user-image"><img src={imageMe} alt='#' /></a>
+                        <div className="story-top-details"><Link to='/username'>Username</Link><p>19 hours ago</p></div>
+                    </div>  
+                    </div>
                     </div>
                 </div>
                 <div className="sugestions-friends-homepage">
@@ -31,11 +30,11 @@ class Sidebar extends Component {
                         <p>See All</p>
                     </div>
                 <div className="sugestions-sidebar">   
-                       <div className="header-flex">
+                    <div className="header-flex">
                        <a className="user-image"><img src={imageMe} alt='#' /></a>
-                        <div className="user-top-details">
+                       <div className="user-top-details">
                             <div><Link to='/username'>Username</Link><p>Follows you</p></div>
-                            <button> Follow</button>
+                                 <button> Follow</button>
                             </div>
                        </div>  
                     </div>
