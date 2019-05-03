@@ -8,7 +8,7 @@ export default class UsersService {
     }
     async savePost(userId,saved) {
         console.log(saved);
-        await fetch(serverUrl +'users/'+ userId, {
+        await fetch(SERVER_URL +'users/'+ userId, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
