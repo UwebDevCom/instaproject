@@ -7,10 +7,7 @@ export default class UsersService {
         return users;
     }
     async savePost(userId,saved) {
-<<<<<<< HEAD
-=======
         console.log(saved);
->>>>>>> a5dcf253450650ee3766e130e0ad03cc6bfb302c
         await fetch(SERVER_URL +'users/'+ userId, {
             method: 'PUT',
             headers: {
