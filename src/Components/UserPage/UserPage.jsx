@@ -26,25 +26,25 @@ class UserPage extends Component {
 									<UserInfo />
 									<div className='userPage-linkDiv'>
 										<Link className='userPage-link' to='username'>
-											<span>
+											<span className='userPage-link-span'>
 												<div className='userPageLink-posts' />
 												<span> Posts</span>
 											</span>
 										</Link>
 										<Link className='userPage-link' to='channel'>
-											<span>
+											<span className='userPage-link-span'>
 												<div className='userPageLink-channel'>⍰</div>
 												<span> IGTV</span>
 											</span>
 										</Link>
 										<Link className='userPage-link' to='saved'>
-											<span>
+											<span className='userPage-link-span'>
 												<div className='userPageLink-saved'>⍰</div>
 												<span> Saved</span>
 											</span>
 										</Link>
 										<Link className='userPage-link' to='tagged'>
-											<span>
+											<span className='userPage-link-span'>
 												<div className='userPageLink-tagged'>⍰</div>
 												<span> Tagged</span>
 											</span>
