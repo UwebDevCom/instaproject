@@ -4,7 +4,7 @@ import Home from '../home/Home';
 import './appRouter.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Search from './search/Search';
-import Explore from '../explore/Explore';
+import Explore from '../explore/Explore.js';
 
 class AppRouter extends Component{
 		

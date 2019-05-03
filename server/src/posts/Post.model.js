@@ -1,49 +1,44 @@
 const mongoose = require('mongoose');
 const autopopulate = require('mongoose-autopopulate');
 const PostSchema = mongoose.Schema({
+    
     caption: {
         type: String,
         required: true
     },
-    likes:{
-        type: Number,
-        default: 0
-    },
-    saved:{
-        type: Boolean,
-        default: false
-    },
-    image: {
-        type: [String],
-    },
+
+    likes:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }],
+
+    image: [String],
+
     author: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         autopopulate: true
     },
-    hashtages: {
-        type: [String],
-        default: undefined
-    },
-    usertags: {
-        type: [String],
-        default: undefined
-    },
+    hashtages: [String],
+
+    usertags: [String],
+
     published: {
         type: Date,
-        default: Date.now()
+        default: Date.now
     },
-    comments: {
+
+    comments: [{
         type: [mongoose.Schema.Types.ObjectId],
         ref: 'Comment',
         autopopulate: true
-    }
+    }]
 });
 
 PostSchema.plugin(autopopulate);
 
 const Post = mongoose.model('Post',PostSchema);
 
-module.exports ={
+module.exports = {
     Post
 }

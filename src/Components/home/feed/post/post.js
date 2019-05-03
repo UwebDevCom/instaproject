@@ -43,6 +43,10 @@ class Post extends Component{
                 saved: this.state.saved ? false : true
             });
             updateSavedPost.savePost(myUserId,{savedPosts: saved});
+        }else{
+            this.setState({
+                saved: this.state.saved ? false : true
+            });
         }
     }
 
