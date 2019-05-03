@@ -44,10 +44,16 @@ const UserSchema = mongoose.Schema({
     savedPosts: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Post'
+    }],
+    taggedInPosts: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Post'
     }]
 })
 
+
 const User = mongoose.model('User', UserSchema);
+
 module.exports = {
     User
 }

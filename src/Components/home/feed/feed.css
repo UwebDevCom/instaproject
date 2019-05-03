@@ -145,10 +145,19 @@ button span.share-btn
 }
 button span.save-btn
 { 
-     display: block;
+    display: block;
     height: 24px;
     width: 24px;
     background: url('./61393e2520c3.png') -268px -130px;
+}
+
+
+button span.post-saved
+{
+    display: block;
+    height: 24px;
+    width: 24px;
+    background: url('./61393e2520c3.png') -268px -52px;
 }
 .like-counter p 
 {

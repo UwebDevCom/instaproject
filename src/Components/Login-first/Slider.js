@@ -14,7 +14,6 @@ function Slider(){
     const imamgesSliderMain = document.querySelectorAll('.image-slides .fixed');
     imamgesSliderMainArr =  Array.from(imamgesSliderMain).reverse();
     let i = 0;
-    console.log(imamgesSliderMainArr);
     setInterval(()=>{
         imamgesSliderMainArr[i].setAttribute('class','fadeIt');
         i++

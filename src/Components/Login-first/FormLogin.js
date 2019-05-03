@@ -10,7 +10,8 @@ class FormLogin extends Component{
         inputValueEmail: '',
         inputValuePassword: '',
         labelGoesUp: '',
-        loginFailed: null
+        loginFailed: null,
+        myUser: null
     }
 
 
@@ -26,12 +27,14 @@ class FormLogin extends Component{
                 this.setState({ labelGoesUp: '',  fieldIsEmpty: true});
             }
     }
-    checkValidation(fnVal,usersEmail){
+    checkValidation(fnVal,usersEmail,myUser){
         for (let userEmail of usersEmail)
         if (this.state.inputValueEmail !== userEmail.email || this.state.inputValuePassword !== userEmail.password) {
             this.setState({loginFailed: true})
+            
         }else{
             fnVal();
+            myUser(userEmail);
         }
     }
 
@@ -63,7 +66,7 @@ class FormLogin extends Component{
                                 change={(password)=>this.fieldsHandler(this.state.inputValueEmail,password)}
                             />
                             <button
-                                onClick={()=>this.checkValidation(context.isLoggedIn,context.state.allUsers)}
+                                onClick={()=>this.checkValidation(context.isLoggedIn,context.state.allUsers,context.myUser)}
                                 className="login-btn"
                                 type="submit"
                                 disabled={this.state.fieldIsEmpty}>
