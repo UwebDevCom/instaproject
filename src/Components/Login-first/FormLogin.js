@@ -7,8 +7,8 @@ import LoginFailed from './loginFailed';
 class FormLogin extends Component{
     state = {
         fieldIsEmpty: true,
-        inputValueEmail: '',
-        inputValuePassword: '',
+        inputValueEmail: 'test@gmail.com',
+        inputValuePassword: '1234',
         labelGoesUp: '',
         loginFailed: null,
         myUser: null
