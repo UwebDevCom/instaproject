@@ -3,7 +3,7 @@ import {Link } from 'react-router-dom';
 import imageMe from './yair_image.png';
 import './sidebar.css';
 import MyDetailsBar from './myDetailsBar';
-import StoriesBar from './StoriesBar';
+import StoriesBar from './storiesBar';
 
 class Sidebar extends Component {
     render(){
