@@ -6,6 +6,17 @@ class CommentForm extends Component{
       super(props);
       this.commentInput = React.createRef();
   }
+
+
+//   async createComment(event) {
+//     event.preventDefault();
+//     await commentsService.createUser({
+//       _id: this.inputName.current.value,
+//       lastName: this.inputLast.current.value
+//     });
+//   }
+
+
     render(){
         return(
             <form className="add-comment" method="POST">

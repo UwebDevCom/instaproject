@@ -5,7 +5,7 @@ import android from './images/app-and.png';
 import windows from './images/app-win.png';
 import FormLogin from './FormLogin';
 import Slider from './Slider';
-
+import Footer from '../footer/footer';
 
 class LoginFirst extends Component{
     render(){
@@ -42,23 +42,7 @@ class LoginFirst extends Component{
                     </div>
                 </div>
                </div>
-                <footer>
-                <ul>
-                        <li><a href={'/'}>About us</a></li>
-                        <li><a href={'/'}>Support</a></li>
-                        <li><a href={'/'}>Press</a></li>
-                        <li><a href={'/'}>API</a></li>
-                        <li><a href={'/'}>Jobs</a></li>
-                        <li><a href={'/'}>privacy</a></li>
-                        <li><a href={'/'}>Tearms</a></li>
-                        <li><a href={'/'}>Directory</a></li>
-                        <li><a href={'/'}>Profiles</a></li>
-                        <li><a href={'/'}>Hashtags</a></li>
-                        <li><a href={'/'}>Language</a></li>
-                      
-                    </ul>
-                    <span>© 2019 INSTAGRAM</span>
-                </footer>
+               <Footer />
             </div>
         )
     }
