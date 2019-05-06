@@ -45,7 +45,7 @@ const UserSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Post'
     }],
-    taggedInPosts: [{
+    postMentions: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Post'
     }]
