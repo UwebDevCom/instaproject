@@ -30,6 +30,7 @@ export default class UsersService {
 
     
     async savePost(userId,saved) {
+        console.log(saved);
         await fetch(SERVER_URL +'users/'+ userId, {
             method: 'PUT',
             headers: {
