@@ -1,18 +1,18 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, useContext} from 'react';
 import './channel.css';
-import ContentLoader from '../ContentLoader'
-import ListBox from '../listBox/'
+import { BrowserRouter as Router, Link} from 'react-router-dom';
 
 export default function Channel() {
     return ( 
-         <div className='channel-container'>
-         {/* <ContentLoader /> */}
-            {/* <div className='channel-icon' />    
-            <h1>Upload a Video</h1>
-            <p>Videos must be vertical and between 15 seconds and 10 minutes long.</p>
-            <button>Upload</button> */}
-            <ListBox />
-
-        </div>
+        <Router>
+            <div className='channel-container'>
+                <div className='channel-icon' />    
+                <h1>Upload a Video</h1>
+                <p>Videos must be vertical and between 15 seconds and 10 minutes long.</p>
+                <button>
+                    <Link to=''>Upload</Link>
+                    </button>
+            </div>
+        </Router>
     )    
 }

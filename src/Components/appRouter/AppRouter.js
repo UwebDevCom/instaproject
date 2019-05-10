@@ -2,10 +2,13 @@ import React, {Component} from 'react';
 import UserPage from '../UserPage/';
 import Home from '../home/Home';
 import './appRouter.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Search from './search/Search';
 import Explore from '../explore/Explore.js';
-import { ContextConsumer } from '../../AppContext/'
+import { ContextConsumer } from '../../AppContext/';
+import Footer from '../footer/Footer';
+import ListBox from '../listBox/ListBox';
+import Tagged from '../UserPage/Tagged';
 
 class AppRouter extends Component{
 		
@@ -33,10 +36,14 @@ class AppRouter extends Component{
                                 </nav>
                             </header>
                             <main>
-                                <Route exact path={`/${context.state.allUsers[0].userName}/`} render={(context) => <UserPage {...context} />} />
-                                <Route exact path='/' component={Home}  />
-                                <Route exact path='/explore/' component={Explore} />
+                                <Switch>
+                                    <Route exact path='/' component={Home}  />
+                                    <Route exact path={`/${context.state.allUsers[0].userName}/`} component={UserPage} />
+                                    <Route path='/explore/' component={Explore} />
+                                    <Route  path={`/${context.state.allUsers[0].userName}/followers`} component={ListBox} />
+                                </Switch>
                             </main>
+                            <Footer />
                         </div>
                     </Router>)
                 }}
