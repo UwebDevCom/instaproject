@@ -16,6 +16,7 @@ class AppRouter extends Component{
         return(
             <ContextConsumer>
                 {(context) => {
+                    if (context.state.myLoggedInUser) {
                    return( <Router>
                         <div>
                             <header className="sticky">
@@ -30,22 +31,21 @@ class AppRouter extends Component{
                                         <div className="appRouterLitleButtons">
                                             <Link to='/explore' className="appRouterExplore"></Link> 
                                             <div className="appRouterActivity"></div> 
-                                            <Link to={`/${context.state.allUsers[0].userName}/`} className="appRouterProfile"></Link>           
+                                            <Link to={`/${context.state.myLoggedInUser.userName}/`} className="appRouterProfile"></Link>           
                                         </div>
                                     </div>
                                 </nav>
                             </header>
                             <main>
-                                <Switch>
-                                    <Route exact path='/' component={Home}  />
-                                    <Route exact path={`/${context.state.allUsers[0].userName}/`} component={UserPage} />
-                                    <Route path='/explore/' component={Explore} />
-                                    <Route  path={`/${context.state.allUsers[0].userName}/followers`} component={ListBox} />
-                                </Switch>
+
+                                <Route exact path={`/${context.state.myLoggedInUser.userName}/`} render={(context) => <UserPage {...context} />} />
+                                <Route exact path='/' component={Home}  />
+                                <Route exact path='/explore/' component={Explore} />
                             </main>
                             <Footer />
                         </div>
                     </Router>)
+                }else console.log(context.state.allUsers);
                 }}
             </ContextConsumer>
         )

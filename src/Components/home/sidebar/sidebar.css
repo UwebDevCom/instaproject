@@ -102,6 +102,10 @@ a.image-profile-sidebar img
     padding: 1em;
     margin: .6em 0;
 }
+.sugestions-sidebar
+{
+    padding-bottom: 1em; 
+}
 .user-top-details
 {
     padding-left: 1em;
