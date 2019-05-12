@@ -1,6 +1,7 @@
 
 const {Router} = require('express');
 const {Post} =require('./Post.model');
+const {User} = require('../users/User.model');
 const route = Router();
 
 
@@ -21,6 +22,22 @@ route.get('/api/posts', async(req,res)=>{
        res.status(409).send(e.message);
    }
 });
+
+
+route.get('/api/posts/:userId/following', async (req,res)=>{
+    try {    
+        const user = await User.findById(req.params.userId);
+        if (user.following) {
+            let postsByUser =[];
+            for (Followed of user.following ) {
+               postsByUser.push( await Post.find({  author:  Followed} ));
+            } res.send(postsByUser);     
+        }
+        }catch(e) {
+            res.status(409).send(e.message);
+        }
+ });
+
 
 route.get('/api/posts/:postId/comments', async(req,res)=>{
     try {

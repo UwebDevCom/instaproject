@@ -4,6 +4,7 @@ import imageMe from './yair_image.png';
 import './sidebar.css';
 import MyDetailsBar from './myDetailsBar';
 import StoriesBar from './storiesBar';
+import Suggestions from './suggestions';
 
 class Sidebar extends Component {
     render(){
@@ -11,22 +12,7 @@ class Sidebar extends Component {
             <React.Fragment>
                         <MyDetailsBar /> 
                         <StoriesBar />               
-                <div className="sugestions-friends-homepage">
-                <div className="header-sidebar">
-                        <p>Suggestions For You</p>
-                        <p>See All</p>
-                    </div>
-                <div className="sugestions-sidebar">   
-                    <div className="header-flex">
-                       <a className="user-image"><img src={imageMe} alt='#' /></a>
-                       <div className="user-top-details">
-                            <div><Link to='/username'>Username</Link><p>Follows you</p></div>
-                                 <button> Follow</button>
-                            </div>
-                       </div>  
-                    </div>
-                </div>
-               
+                        <Suggestions />
                 <div className="footer-home-page">
                     <ul>
                         <li>About Us </li>

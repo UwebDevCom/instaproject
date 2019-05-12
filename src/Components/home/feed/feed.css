@@ -110,6 +110,14 @@ button
     margin: 0;
     padding: 0;
 }
+
+@keyframes btn-liked {
+
+    0%{transform:scale(1);}
+    50%{transform:scale(1.1);}
+    100%{transform:scale(1);}
+
+}
 button span.like-btn
 {
     display: block;
@@ -119,6 +127,7 @@ button span.like-btn
 button span.liked
 {
     background: url('./61393e2520c3.png') -52px -203px;
+    animation: btn-liked .4s alternate backwards;
 }
 button span.unliked
 {

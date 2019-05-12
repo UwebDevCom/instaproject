@@ -4,9 +4,9 @@ export default function loginFailed(props){
 
     const [isValid, setValidate] = useState(false);
     const style = {
-    'text-align': 'center',
+    'textAlign': 'center',
     'color': 'red',
-    'font-size': '0.8rem',
+    'fontSize': '0.8rem',
     'padding': '1em 1em 0em 1em',
     'margin': '0'
     }
