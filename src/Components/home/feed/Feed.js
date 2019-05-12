@@ -13,7 +13,7 @@ class Feed extends Component {
              <ContextConsumer>
              {(context)=> {
                 if  (context.state.myLoggedInUser) {
-                    return context.state.allPosts.map((post)=><Post userId ={context.state.myLoggedInUser._id}  key={post._id} post={post[0]} />)
+                    return context.state.allPosts.map((post)=>post.map(inPost=><Post userId ={context.state.myLoggedInUser._id}  key={post._id} post={inPost} />))
                 }else {
                     return <button>Refresh here</button>
                 }
