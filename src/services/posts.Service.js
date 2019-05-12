@@ -4,7 +4,9 @@ export default class PostsService{
 
     async fetchPosts(userId) {
         const data = await fetch(SERVER_URL + 'posts/'+userId+'/following');
+        console.log('data is:', data)
         const posts = await data.json();
+        console.log('posts is:', posts)
         return  posts;
     };
 

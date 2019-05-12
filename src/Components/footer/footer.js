@@ -1,8 +1,8 @@
 
 import React from 'react';
 import './footer.css';
-export default function footer(){
-    return (
+export default function Footer(){
+    return (        
         <footer>
             <ul>
                 <li><a href={'/'}>About us</a></li>

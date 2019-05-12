@@ -11,12 +11,7 @@ class Explore extends Component{
                 {(context) =>{
                     return ( 
                         <div className="explorContainer">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-
+                        hello
                             {/* <div>{context.state.allUsers.name}</div> */}
                         </div>
                     )
