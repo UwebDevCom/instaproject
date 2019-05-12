@@ -16,7 +16,9 @@ class Explore extends Component{
                                     <a className="seeAll" href="">see all</a> 
                                     {/* need href */}
                                 </div>
+                                <div className="dicoverAllUser">
                                     {context.state.allUsers.map(user => <DiscoverUser props={user} />)}
+                                </div>
                             </div>
                             <div className="exploreContianer">
                                 <div className=""></div>
