@@ -61,7 +61,7 @@ class Post extends Component{
         <article id={this.state._id} className="post-wrap">
             <header className="post-header">
                <div className="header-flex">
-               <a className="user-image"><img src={this.state.author.userImg} alt={context.state.myLoggedInUser._id}/></a>
+               <a className="user-image"><img src={this.state.author} alt={context.state.myLoggedInUser._id}/></a>
                 <div className="post-user-top-details"><Link to='/username'>{this.state.author.name}</Link><p>{this.state.author.location}</p></div>
                </div>
                 <a className="post-settings">...</a>
