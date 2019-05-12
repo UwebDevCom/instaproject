@@ -9,6 +9,7 @@ const mongoAtlas = 'mongodb+srv://tomermatmon:tomermatmondb@instaproject-1ogpw.m
 const DB_URI = process.env.DB_URI || mongoAtlas || 'mongodb://localhost:27017/instaproject'
 mongoose.connect(DB_URI, { useNewUrlParser: true });
 
+
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 8080;

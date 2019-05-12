@@ -8,7 +8,6 @@ class Feed extends Component {
     }
 
     render(){
-        
         return(
          <React.Fragment>
              <ContextConsumer>

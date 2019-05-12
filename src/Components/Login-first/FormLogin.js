@@ -9,8 +9,8 @@ const theUser =  usersData.fetchUser;
 class FormLogin extends Component{
     state = {
         fieldIsEmpty: true,
-        inputValueEmail: 'test@gmail.com',
-        inputValuePassword: '1234',
+        inputValueEmail: '1',
+        inputValuePassword: '1',
         labelGoesUp: '',
         loginFailed: null,
         myUser: null
@@ -37,7 +37,6 @@ class FormLogin extends Component{
             fnVal();
             myUser(istheUser);
             postss(istheUser._id);
-
         }else{
             this.setState({loginFailed: true})
 
