@@ -5,8 +5,11 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
-const DB_URI = process.env.DB_URI || 'mongodb://localhost:27017/instaproject'
+
+const monAtlas = 'mongodb+srv://yairv:yairv@instaproject-1ogpw.mongodb.net/test?retryWrites=true';
+const DB_URI = process.env.DB_URI || monAtlas || 'mongodb://localhost:27017/instaproject';
 mongoose.connect(DB_URI, { useNewUrlParser: true });
+
 
 const express = require('express');
 const app = express();

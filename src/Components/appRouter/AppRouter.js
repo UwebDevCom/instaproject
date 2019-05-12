@@ -41,7 +41,7 @@ class AppRouter extends Component{
                             </main>
                         </div>
                     </Router>)
-                }else console.log(context.state.allUsers);
+                }else return <p>waiting...</p>;
                 }}
             </ContextConsumer>
         )

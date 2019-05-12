@@ -14,16 +14,16 @@ class Post extends Component{
         this.state = {
             ...this.props.post,
             isLiked: null,
-            saved: false,
+            saved: null,
             userLoggedIn: null
         }
     }
-    
     
     savedPost(myUserId,saved){
         
 
         const isSaved = saved.includes(this.state._id);
+        console.log(isSaved);
         if (!isSaved) {
             saved.push(this.state._id);
             this.setState({
@@ -31,6 +31,7 @@ class Post extends Component{
             });
             updateSavedPost.savePost(myUserId,{savedPosts: saved});
         }else{
+            saved.filter(postId=> postId !== this.state._id );
             this.setState({
                 saved: this.state.saved ? false : true
             });
@@ -48,20 +49,23 @@ class Post extends Component{
     });
     }
     componentDidMount(){
+        if (this.state.likes) {
             this.setState({
                 isLiked: this.state.likes.includes(this.props.userId) ? true : false, 
                  })  
+                }
     }
     render() { 
         return(
             <React.Fragment>
                 <ContextConsumer>
                     {(context)=>{
+                        if (this.state.author) {
                     return(
         <article id={this.state._id} className="post-wrap">
             <header className="post-header">
                <div className="header-flex">
-               <a className="user-image"><img src={this.state.author.userImg} alt={context.state.myLoggedInUser._id}/></a>
+             <a className="user-image"><img src={this.state.author.userImg} alt={context.state.myLoggedInUser._id}/></a>
                 <div className="post-user-top-details"><Link to='/username'>{this.state.author.name}</Link><p>{this.state.author.location}</p></div>
                </div>
                 <a className="post-settings">...</a>
@@ -95,7 +99,7 @@ class Post extends Component{
               <CommentForm />
             </div>
         </article>
-        )}}
+        )} else return (<p>no posts</p>)}}
         </ContextConsumer>
             </React.Fragment>
         )
