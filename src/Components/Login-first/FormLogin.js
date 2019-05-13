@@ -2,13 +2,15 @@ import React, {Component} from 'react';
 import { ContextConsumer } from '../../AppContext/AppContext';
 import InputLogin from './InputLogin';
 import LoginFailed from './loginFailed';
-
+import UsersService from '../../services/users.service';
+const usersData = new UsersService();
+const theUser =  usersData.fetchUser;
 
 class FormLogin extends Component{
     state = {
         fieldIsEmpty: true,
-        inputValueEmail: 'test@gmail.com',
-        inputValuePassword: '1234',
+        inputValueEmail: '1',
+        inputValuePassword: '1',
         labelGoesUp: '',
         loginFailed: null,
         myUser: null
@@ -27,15 +29,18 @@ class FormLogin extends Component{
                 this.setState({ labelGoesUp: '',  fieldIsEmpty: true});
             }
     }
-    checkValidation(fnVal,usersEmail,myUser){
-        for (let userEmail of usersEmail)
-        if (this.state.inputValueEmail !== userEmail.email || this.state.inputValuePassword !== userEmail.password) {
-            this.setState({loginFailed: true})
-            
-        }else{
+    async checkValidation(fnVal,myUser,postss){
+       
+        let istheUser = await theUser(this.state.inputValueEmail,this.state.inputValuePassword);
+        if (istheUser) {
+            this.setState({loginFailed: false})
             fnVal();
-            myUser(userEmail);
-        }
+            myUser(istheUser);
+            postss(istheUser._id);
+        }else{
+            this.setState({loginFailed: true})
+
+             }
     }
 
     onClickForm = (e)=>{
@@ -45,11 +50,11 @@ class FormLogin extends Component{
     return (
         <div>
             <form id="loginForm" onClick={this.onClickForm}>
-            <ContextConsumer>
-                    {(context)=>(
-                        <React.Fragment>
-                            <InputLogin
-                                validEmail = {context.state.allUsers.length > 0 ? context.state.allUsers[0].email: null}
+                <ContextConsumer>
+                            {(context)=>{
+                                return(
+                                    <div>
+                                    <InputLogin
                                 type="text"
                                 inputValue={this.state.inputValueEmail}
                                 labelClass={this.state.labelGoesUp}
@@ -66,17 +71,17 @@ class FormLogin extends Component{
                                 change={(password)=>this.fieldsHandler(this.state.inputValueEmail,password)}
                             />
                             <button
-                                onClick={()=>this.checkValidation(context.isLoggedIn,context.state.allUsers,context.myUser)}
+                                onClick={()=>this.checkValidation(context.isLoggedIn,context.myUser, context.getPosts)}
                                 className="login-btn"
                                 type="submit"
                                 disabled={this.state.fieldIsEmpty}>
                                 Log In
                             </button>
                             {this.state.loginFailed ? <LoginFailed /> : ''}
-                        </React.Fragment>
-                    )}
-              
-                </ContextConsumer>
+                                    </div>
+                                )
+                            }}
+                            </ContextConsumer>
             </form>
         </div>
     )

@@ -21,7 +21,10 @@ const PostSchema = mongoose.Schema({
     },
     hashtages: [String],
 
-    usertags: [String],
+    mentions: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }],
 
     published: {
         type: Date,

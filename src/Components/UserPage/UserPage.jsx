@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { ContextConsumer } from '../../AppContext/AppContext';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import UserInfo from './UserInfo';
 import './userPage.css';
 import UserPagePosts from './UserPagePosts';
 import Channel from './Channel';
 import Saved from './Saved';
 import Tagged from './Tagged';
+import ListBox from '../listBox/ListBox';
+import Explore from '../explore/Explore';
 
 class UserPage extends Component {
 		constructor(props) {
@@ -25,7 +27,7 @@ class UserPage extends Component {
 								<div className='userPageMain'>
 									<UserInfo />
 									<div className='userPage-linkDiv'>
-										<Link className='userPage-link' to='username'>
+										<Link className='userPage-link' to={`/${context.state.allUsers[0].userName}/`}>
 											<span className='userPage-link-span'>
 												<div className='userPageLink-posts' />
 												<span> Posts</span>
@@ -51,10 +53,12 @@ class UserPage extends Component {
 										</Link>
 									</div>
 									<div className='userPage-content'>
-											<Route exact path='/username' component={UserPagePosts} />
-											<Route exact path='/channel' component={Channel} />
-											<Route exact path='/saved' component={Saved} />
-											<Route excat path='/tagged' component={Tagged} />
+										<Switch>
+											<Route exact path={`/${context.state.allUsers[0].userName}/`} component={UserPagePosts} />
+											<Route  path={`/${context.state.allUsers[0].userName}/channel`} component={Channel} />
+											<Route  path={`/${context.state.allUsers[0].userName}/saved`} component={Saved} />
+											<Route  path={`/${context.state.allUsers[0].userName}/tagged`} component={Tagged} />
+										</Switch>
 									</div>
 								</div>
 							</Router>)

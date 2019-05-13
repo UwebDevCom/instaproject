@@ -6,7 +6,6 @@ route.get('/api/users', async (req, res) => {
     try {
        const users = await User.find({
            name: new RegExp(req.query.name, 'i')
-           
        })
        res.send(users);
     } catch(err) {
