@@ -37,7 +37,7 @@ const usersData = new UsersService();
                                         <div className="header-flex">
                                             <a className="user-image"><img src={userSug.userImg} alt='#' /></a>
                                         <div className="user-top-details">
-                                            <div><Link to='/username'>{userSug.userName} </Link><p>Follows you</p></div>
+                                            <div><Link to={`/${userSug._id}`}>{userSug.userName} </Link><p>Follows you</p></div>
                                                 <ContextConsumer>
                                                 {
                                                     (context) => {
