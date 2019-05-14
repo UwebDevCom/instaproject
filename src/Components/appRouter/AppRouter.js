@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Search from './search/Search';
 import Explore from '../explore/Explore.js';
 import { ContextConsumer } from '../../AppContext/';
-import Footer from '../footer/Footer';
+import Footer from '../footer/footer';
 import ListBox from '../listBox/ListBox';
 import Tagged from '../UserPage/Tagged';
 
