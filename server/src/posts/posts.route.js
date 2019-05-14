@@ -31,9 +31,10 @@ route.get('/api/posts/:userId/following', async (req,res)=>{
             let postsByUser =[];
             for (Followed of user.following ) {
                postsByUser.push( await Post.find({  author:  Followed} ));
-            } res.send(postsByUser);     
+            } 
+            res.send(postsByUser);     
         }
-        }catch(e) {
+        } catch(e) {
             res.status(409).send(e.message);
         }
  });
