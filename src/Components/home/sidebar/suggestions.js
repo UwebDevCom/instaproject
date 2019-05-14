@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-import {Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import UsersService from '../../../services/users.service';
 import { ContextConsumer } from '../../../AppContext/AppContext';
 
 const usersData = new UsersService();
    
-
  class Suggestions extends Component{
     constructor(props){
         super(props);
@@ -18,7 +17,6 @@ const usersData = new UsersService();
         this.setState({
             getSuggestions: await users
         });
-        console.log(this.state.getSuggestions)
     }
     componentDidMount(){
         this.getSuggestions()
