@@ -7,23 +7,15 @@ import UserPagePosts from './UserPagePosts';
 import Channel from './Channel';
 import Saved from './Saved';
 import Tagged from './Tagged';
-import ListBox from '../listBox/ListBox';
-import Explore from '../explore/Explore';
 
-class UserPage extends Component {
-		constructor(props) {
-			super(props);
-			this.state = {  }
-		}
+export default class UserPage extends Component {
 		render() { 
 			return (
 				<ContextConsumer>
 					{(context) => {
 						if (!context.state.myLoggedInUser) {
-							
 							return <p>missing user data</p>
 						} else { 
-							console.log('who am i ?' ,context.state.allPosts)
 							return (
 							<Router>
 								<div className='userPageMain'>
@@ -70,7 +62,3 @@ class UserPage extends Component {
 			);
 		}
 }
-
-
-
-export default UserPage ;

@@ -39,16 +39,10 @@ margin-right: 40px;
     font-size: 28px;
     margin-bottom: 20px;
 }
-.userInfo-stats {
-}
-.userInfo-name {
-}
-
-
-
 
 .userInfo-image img {
     display: block;
+    object-fit: cover;
     border-radius: 50%;
     width: 150px;
     height: 150px;
