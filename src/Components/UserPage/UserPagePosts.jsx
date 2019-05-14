@@ -10,7 +10,7 @@ export default function UserPagePosts() {
                     if (!context) {
                         return <p>no data to load</p>
                     } else {
-                    return context.state.allPosts.map(post =>  
+                    return context.state.allPosts[0].map(post =>  
                         <div key={post._id} className='userPosts-div'>
                                 <img className='userPosts-img' alt='' src={post.image[0]}/>
                         </div>

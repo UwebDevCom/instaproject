@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import {Link } from 'react-router-dom';
-import imageMe from './yair_image.png';
 import './sidebar.css';
 import MyDetailsBar from './myDetailsBar';
 import StoriesBar from './storiesBar';

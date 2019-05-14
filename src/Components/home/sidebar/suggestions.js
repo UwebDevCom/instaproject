@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {Link } from 'react-router-dom';
+import {Link, BrowserRouter as Router, Route} from 'react-router-dom';
 import UsersService from '../../../services/users.service';
 import { ContextConsumer } from '../../../AppContext/AppContext';
-
+import UserPage from '../../UserPage/UserPage';
 const usersData = new UsersService();
    
 
@@ -26,6 +26,7 @@ const usersData = new UsersService();
     
     render() {  
     return (
+        <Router>
            <div className="sugestions-friends-homepage">
                 <div className="header-sidebar">
                         <p>Suggestions For You</p>
@@ -37,7 +38,7 @@ const usersData = new UsersService();
                                         <div className="header-flex">
                                             <a className="user-image"><img src={userSug.userImg} alt='#' /></a>
                                         <div className="user-top-details">
-                                            <div><Link to={`/${userSug._id}`}>{userSug.userName} </Link><p>Follows you</p></div>
+                                            <div><Link to={`/${userSug.userName}`}>{userSug.userName} </Link><p>Follows you</p></div>
                                                 <ContextConsumer>
                                                 {
                                                     (context) => {
@@ -51,12 +52,13 @@ const usersData = new UsersService();
                                                 </ContextConsumer>
                                         </div>
                                         </div>  
+                                        {/* <Route exact path={`/${userSug.userName}/`} render={(context) => <UserPage {...context} />} /> */}
                                     </div>
                         )
                         })
                         : 'try Again..'}
                       
-                </div>
+                </div></Router>
     )
 }
 }

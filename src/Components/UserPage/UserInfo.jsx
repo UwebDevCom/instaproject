@@ -13,8 +13,11 @@ class UserInfo extends Component {
 			<ContextConsumer>
 				{(context) => {
 					if (!context.state.allUsers) {
+				
 						return <p>no userinfo to load</p>
-					} else { return (
+					} else {
+						
+						 return ( 
 						<Router>
 							<header className='userInfo-header'>
 								<div className='userInfo-image'>

@@ -19,15 +19,17 @@ class UserPage extends Component {
 			return (
 				<ContextConsumer>
 					{(context) => {
-						if (!context.state.allUsers) {
+						if (!context.state.myLoggedInUser) {
+							
 							return <p>missing user data</p>
 						} else { 
+							console.log('who am i ?' ,context.state.allPosts)
 							return (
 							<Router>
 								<div className='userPageMain'>
 									<UserInfo />
 									<div className='userPage-linkDiv'>
-										<Link className='userPage-link' to={`/${context.state.allUsers[0].userName}/`}>
+										<Link className='userPage-link' to={`/${context.state.myLoggedInUser.userName}/`}>
 											<span className='userPage-link-span'>
 												<div className='userPageLink-posts' />
 												<span> Posts</span>
@@ -54,10 +56,10 @@ class UserPage extends Component {
 									</div>
 									<div className='userPage-content'>
 										<Switch>
-											<Route exact path={`/${context.state.allUsers[0].userName}/`} component={UserPagePosts} />
-											<Route  path={`/${context.state.allUsers[0].userName}/channel`} component={Channel} />
-											<Route  path={`/${context.state.allUsers[0].userName}/saved`} component={Saved} />
-											<Route  path={`/${context.state.allUsers[0].userName}/tagged`} component={Tagged} />
+											<Route exact path={`/${context.state.myLoggedInUser.userName}/`} component={UserPagePosts} />
+											<Route  path={`/${context.state.myLoggedInUser.userName}/channel`} component={Channel} />
+											<Route  path={`/${context.state.myLoggedInUser.userName}/saved`} component={Saved} />
+											<Route  path={`/${context.state.myLoggedInUser.userName}/tagged`} component={Tagged} />
 										</Switch>
 									</div>
 								</div>
