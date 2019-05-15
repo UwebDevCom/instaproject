@@ -16,7 +16,7 @@ class App extends Component {
           <ContextConsumer>
             {(context)=>(
               <React.Fragment>
-                <Route path='/' exact={true} render={()=>context.state.isLoggedIn ? <AppRouter /> : <LoginFirst />} />
+                { context.state.isLoggedIn ? <AppRouter /> : <LoginFirst /> }
               </React.Fragment>
             )}
           </ContextConsumer>

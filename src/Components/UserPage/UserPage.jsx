@@ -9,7 +9,8 @@ import Saved from './Saved';
 import Tagged from './Tagged';
 
 export default class UserPage extends Component {
-		render() { 
+	render() { 
+		console.log(this.props.match)
 			return (
 				<ContextConsumer>
 					{(context) => {
@@ -22,7 +23,7 @@ export default class UserPage extends Component {
 								<div className='userPageMain'>
 									<UserInfo />
 									<div className='userPage-linkDiv'>
-										<Link className='userPage-link' to={`/${context.state.myLoggedInUser.userName}/`}>
+										<Link className='userPage-link' to={`/${this.props.match.url}/`}>
 											<span className='userPage-link-span'>
 												<div className='userPageLink-posts' />
 												<span> Posts</span>
@@ -49,10 +50,10 @@ export default class UserPage extends Component {
 									</div>
 									<div className='userPage-content'>
 										<Switch>
-											<Route exact path={`/${context.state.myLoggedInUser.userName}/`} component={UserPagePosts} />
-											<Route  path={`/${context.state.myLoggedInUser.userName}/channel`} component={Channel} />
-											<Route  path={`/${context.state.myLoggedInUser.userName}/saved`} component={Saved} />
-											<Route  path={`/${context.state.myLoggedInUser.userName}/tagged`} component={Tagged} />
+											<Route exact path={`/:name/`} component={UserPagePosts} />
+											<Route  path={`/:name/channel`} component={Channel} />
+											<Route  path={`/:name/saved`} component={Saved} />
+											<Route  path={`/:name/tagged`} component={Tagged} />
 										</Switch>
 									</div>
 								</div>

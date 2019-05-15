@@ -34,7 +34,7 @@
 
 .channel-container button {
     width: 99px;
-    height: 30px;;
+    height: 30px;
     background-color: #3897f0;
     border: 1px solid #3897f0;
     color: white;
@@ -42,4 +42,9 @@
     font-weight: 600;
     font-size: 14px;
     align-self: center;    
+}
+
+.channel-container a {
+    color: white;
+    text-decoration: none;
 }

@@ -8,7 +8,6 @@ import Explore from '../explore/Explore.js';
 import { ContextConsumer } from '../../AppContext/';
 import Footer from '../footer/Footer';
 import ListBox from '../listBox/ListBox';
-import Tagged from '../UserPage/Tagged';
 
 class AppRouter extends Component{
 		
@@ -37,10 +36,12 @@ class AppRouter extends Component{
                                 </nav>
                             </header>
                             <main>
-
-                                <Route exact path={`/${context.state.myLoggedInUser.userName}/`} render={(context) => <UserPage {...context} />} />
-                                <Route exact path='/' component={Home}  />
-                                <Route exact path='/explore/' component={Explore} />
+                                <Switch>
+                                    <Route exact path={'/:name/'} component={UserPage} />
+                                    <Route exact path='/' component={Home}  />
+                                    <Route path='/explore/' component={Explore} />
+                                    <Route exact path={'/:name/followers'} component={ListBox} />
+                                </Switch>
                             </main>
                             <Footer />
                         </div>
