@@ -6,13 +6,11 @@ import AppRouter from './Components/appRouter/AppRouter';
 import Context from './AppContext/AppContext';
 import { ContextConsumer } from './AppContext/AppContext';
 
-class App extends Component {
-  render() {
+export default function App() {
     return (
       <Context>
         <BrowserRouter>
           <div className="App">
-          <Link to='/'></Link>
           <ContextConsumer>
             {(context)=>(
               <React.Fragment>
@@ -24,9 +22,5 @@ class App extends Component {
       </BrowserRouter>
       </Context>
     );
-  }
 }
-
-export default App;
-
 

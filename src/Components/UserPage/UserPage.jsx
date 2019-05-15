@@ -15,7 +15,6 @@ export default class UserPage extends Component {
 				<ContextConsumer>
 					{(context) => {
 						if (!context.state.myLoggedInUser) {
-							console.log(context.state.myLoggedInUser)
 							return <p>missing user data</p>
 						} else { 
 							return (
