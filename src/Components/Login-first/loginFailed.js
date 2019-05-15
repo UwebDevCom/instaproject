@@ -1,8 +1,8 @@
-import React , {useState, useEffect } from 'react';
+import React , {useState } from 'react';
 
-export default function loginFailed(props){
+export default function loginFailed(){
 
-    const [isValid, setValidate] = useState(false);
+    const [isValid] = useState(false);
     const style = {
     'textAlign': 'center',
     'color': 'red',

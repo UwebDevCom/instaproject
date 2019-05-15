@@ -1,5 +1,5 @@
 import React from 'react';
-import './channel.css';
+import './channel.scss';
 import { BrowserRouter as Router, Link} from 'react-router-dom';
 
 export default function Channel() {
@@ -11,7 +11,7 @@ export default function Channel() {
                 <p>Videos must be vertical and between 15 seconds and 10 minutes long.</p>
                 <button>
                     <Link to=''>Upload</Link>
-                    </button>
+                </button>
             </div>
         </Router>
     )    

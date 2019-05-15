@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
+import {Link, BrowserRouter as Router} from 'react-router-dom';
 import UsersService from '../../../services/users.service';
 import { ContextConsumer } from '../../../AppContext/AppContext';
-
 const usersData = new UsersService();
    
  class Suggestions extends Component{
@@ -24,18 +23,19 @@ const usersData = new UsersService();
     
     render() {  
     return (
+        <Router>
            <div className="sugestions-friends-homepage">
                 <div className="header-sidebar">
                         <p>Suggestions For You</p>
                         <p>See All</p>
                         </div>
-                        {this.state.getSuggestions ? this.state.getSuggestions.map((userSug,i)=>{
+                        {this.state.getSuggestions ? this.state.getSuggestions.map((userSug)=>{
                             return (
-                                    <div className="sugestions-sidebar">   
+                                    <div className="sugestions-sidebar" key={userSug._id}>   
                                         <div className="header-flex">
-                                            <a className="user-image"><img src={userSug.userImg} alt='#' /></a>
+                                            <Link to={`/${userSug.userName}`} className="user-image" ><img src={userSug.userImg} alt='#' /></Link>
                                         <div className="user-top-details">
-                                            <div><Link to='/username'>{userSug.userName} </Link><p>Follows you</p></div>
+                                            <div><Link to={`/${userSug.userName}`}>{userSug.userName} </Link><p>Follows you</p></div>
                                                 <ContextConsumer>
                                                 {
                                                     (context) => {
@@ -49,12 +49,12 @@ const usersData = new UsersService();
                                                 </ContextConsumer>
                                         </div>
                                         </div>  
-                                    </div>
+                                       </div>
                         )
                         })
                         : 'try Again..'}
                       
-                </div>
+                </div></Router>
     )
 }
 }

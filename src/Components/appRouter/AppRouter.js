@@ -7,8 +7,14 @@ import Search from './search/Search';
 import Explore from '../explore/Explore.js';
 import { ContextConsumer } from '../../AppContext/';
 import Footer from '../footer/footer';
+<<<<<<< HEAD
 import ListBox from '../listBox/ListBox';
 import Tagged from '../UserPage/Tagged';
+=======
+import ListBox from '../listBox';
+import PageNotFound from '../page-not-found';
+
+>>>>>>> d3da6f5f7380bcc790eadedb034b72395de5af12
 
 class AppRouter extends Component{
 		
@@ -29,7 +35,7 @@ class AppRouter extends Component{
                                         </Link>
                                         <Search />
                                         <div className="appRouterLitleButtons">
-                                            <Link to='/explore' className="appRouterExplore"></Link> 
+                                            <Link to='/explore/' className="appRouterExplore"></Link> 
                                             <div className="appRouterActivity"></div> 
                                             <Link to={`/${context.state.myLoggedInUser.userName}/`} className="appRouterProfile"></Link>           
                                         </div>
@@ -37,12 +43,15 @@ class AppRouter extends Component{
                                 </nav>
                             </header>
                             <main>
-
-                                <Route exact path={`/${context.state.myLoggedInUser.userName}/`} render={(context) => <UserPage {...context} />} />
-                                <Route exact path='/' component={Home}  />
-                                <Route exact path='/explore/' component={Explore} />
+                                <Switch>
+                                    <Route exact path='/' component={Home}  />
+                                    <Route exact path={`/${context.state.myLoggedInUser.userName}/`} component={UserPage} />
+                                    <Route exact path='/explore/' component={Explore} />
+                                    <Route exact path={'/:name/followers'} component={ListBox} />
+                                    <Route component={PageNotFound} />
+                                </Switch>
                             </main>
-                            <Footer />
+                            <Footer margin = "0px" />
                         </div>
                     </Router>)
                 }else return <p>waiting...</p>;

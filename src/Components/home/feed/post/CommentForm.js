@@ -1,25 +1,29 @@
 import React, {Component} from 'react';
-
+import CommentService from '../../../../services/comment.service'
 
 class CommentForm extends Component{
   constructor(props){
       super(props);
-      this.commentInput = React.createRef();
+      this.textInput = React.createRef();
   }
 
 
-//   async createComment(event) {
-//     event.preventDefault();
-//     await commentsService.createUser({
-//       _id: this.inputName.current.value,
-//       lastName: this.inputLast.current.value
-//     });
-//   }
+  createComment(event,txt) {
+    const commentsService = new CommentService();
+    event.preventDefault();
+    const comment = {
+        body: txt,
+        author: this.props.authorId
+    }
+    const x = commentsService.createComment(comment);
+    console.log(x);
+
+  }
 
 
     render(){
         return(
-            <form className="add-comment" method="POST">
+            <form className="add-comment" method="POST" onSubmit={(event)=>this.createComment(event,this.textInput.current.value)}>
                 <textarea
                 ref={this.textInput}
                 placeholder="Add a comment…"></textarea>
