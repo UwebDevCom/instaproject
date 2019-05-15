@@ -1,5 +1,5 @@
 import React , {Component} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, BrowserRouter as Router} from 'react-router-dom';
 import PostsService from '../../../../services/posts.Service';
 import UserService from '../../../../services/users.service';
 import Comments from './comments';
@@ -15,15 +15,13 @@ class Post extends Component{
             ...this.props.post,
             isLiked: null,
             saved: null,
-            userLoggedIn: null
+            userLoggedIn: this.props.user
         }
     }
     
     savedPost(myUserId,saved){
-        
-
         const isSaved = saved.includes(this.state._id);
-        console.log(isSaved);
+
         if (!isSaved) {
             saved.push(this.state._id);
             this.setState({
@@ -31,10 +29,11 @@ class Post extends Component{
             });
             updateSavedPost.savePost(myUserId,{savedPosts: saved});
         }else{
-            saved.filter(postId=> postId !== this.state._id );
+            saved = saved.filter(postId=> postId !== this.state._id );
             this.setState({
                 saved: this.state.saved ? false : true
             });
+            updateSavedPost.savePost(myUserId,{savedPosts: saved});
         }
     }
 
@@ -48,15 +47,28 @@ class Post extends Component{
         isLiked: x.likes.includes(userId) ? true : false
     });
     }
+
+  whosSaved() {
+   
+    }
+
     componentDidMount(){
+        console.log(this.state)
         if (this.state.likes) {
             this.setState({
-                isLiked: this.state.likes.includes(this.props.userId) ? true : false, 
-                 })  
-                }
+                isLiked: this.state.likes.includes(this.props.userId) ? true : false,
+                 }) 
+        }
+        if (this.state.userLoggedIn.savedPosts.includes(this.state._id)) {
+            this.setState({
+                saved: this.state.saved ? false : true
+                 }) 
+         }
     }
+
     render() { 
         return(
+            <Router>
             <React.Fragment>
                 <ContextConsumer>
                     {(context)=>{
@@ -65,10 +77,10 @@ class Post extends Component{
         <article id={this.state._id} className="post-wrap">
             <header className="post-header">
                <div className="header-flex">
-             <a className="user-image"><img src={this.state.author.userImg} alt={context.state.myLoggedInUser._id}/></a>
+             <Link to={`/${context.state.myLoggedInUser.userName}`} className="user-image"><img src={this.state.author.userImg} alt={context.state.myLoggedInUser._id}/></Link>
                 <div className="post-user-top-details"><Link to='/username'>{this.state.author.name}</Link><p>{this.state.author.location}</p></div>
                </div>
-                <a className="post-settings">...</a>
+                <p href="#" className="post-settings">...</p>
             </header>
             <div className="visual"><img src={this.state.image} alt="" /></div>
            <div className="interaction">
@@ -92,16 +104,17 @@ class Post extends Component{
                 <div className="view-all-comments">
                   {this.state.comments.length > 1 ? <Link to={`/${this.state._id.toString()}`}>View all {this.state.comments.length} comments</Link> : '' }  
                 </div>
-                {this.state.comments.length > 1 ? this.state.comments.map((comment,i,arr)=> i > arr.length-2 ? <Comments key={comment._id} comment={comment.body} author={comment.author.userName} commentDate={comment.published} />: ''): ''}
+                {this.state.comments.length >= 1 ? this.state.comments.map((comment,i,arr)=> i > arr.length-2 ? <Comments key={comment._id} comment={comment.body} author={comment.author.userName} commentDate={comment.published} />: ''): ''}
             </div>
            </div>
            <div className="add-a-comment">
-              <CommentForm />
+              <CommentForm authorId={context.state.myLoggedInUser._id} />
             </div>
         </article>
         )} else return (<p>no posts</p>)}}
         </ContextConsumer>
             </React.Fragment>
+            </Router>
         )
     }
 }

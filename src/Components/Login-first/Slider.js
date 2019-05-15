@@ -1,4 +1,4 @@
-import React, { useState, useEffect  }  from 'react';
+import React, { useEffect  }  from 'react';
 import './slider.css';
 import slide1 from './images/slide1.jpg';
 import slide2 from './images/slide2.jpg';
@@ -22,7 +22,7 @@ function Slider(){
         {
             for (let a = 0 ; a < imamgesSliderMainArr.length ; a++) {
                 imamgesSliderMainArr[a].setAttribute('class','fadeItOut');
-                if (a==2){
+                if (a===2){
                     imamgesSliderMainArr[a].style.opacity = 1;
                 }
             }

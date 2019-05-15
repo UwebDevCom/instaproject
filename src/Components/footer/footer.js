@@ -1,23 +1,67 @@
 
 import React from 'react';
-import './footer.css';
-export default function Footer(){
+ import './footer.css';
+import styled from 'styled-components';
+export default function Footer(props){
+    const Footer = styled.footer`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 130px;
+    margin-top: ${props.margin}; 
+    `;
+    const Ul = styled.ul`
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 3;
+    `;
+    const Li = styled.li`
+    display: inline-block;
+    padding: 0 .4%;
+    margin: 1% .4%;
+    `;
+    const A = styled.a`
+    color: #003569;
+    text-transform: uppercase;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    &:visited {
+        color: #003569;
+        text-transform: uppercase;
+        text-align: center;
+        display: inline-block;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    `;
+    const Span = styled.span`
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #999;
+    `;
+
     return (        
-        <footer>
-            <ul>
-                <li><a href={'/'}>About us</a></li>
-                <li><a href={'/'}>Support</a></li>
-                <li><a href={'/'}>Press</a></li>
-                <li><a href={'/'}>API</a></li>
-                <li><a href={'/'}>Jobs</a></li>
-                <li><a href={'/'}>privacy</a></li>
-                <li><a href={'/'}>Tearms</a></li>
-                <li><a href={'/'}>Directory</a></li>
-                <li><a href={'/'}>Profiles</a></li>
-                <li><a href={'/'}>Hashtags</a></li>
-                <li><a href={'/'}>Language</a></li>      
-            </ul>
-            <span>© 2019 INSTAGRAM</span>
-        </footer>
+        <Footer>
+            <Ul>
+                <Li><A href={'/'}>About us</A></Li>
+                <Li><A href={'/'}>Support</A></Li>
+                <Li><A href={'/'}>Press</A></Li>
+                <Li><A href={'/'}>API</A></Li>
+                <Li><A href={'/'}>Jobs</A></Li>
+                <Li><A href={'/'}>privacy</A></Li>
+                <Li><A href={'/'}>Tearms</A></Li>
+                <Li><A href={'/'}>Directory</A></Li>
+                <Li><A href={'/'}>Profiles</A></Li>
+                <Li><A href={'/'}>Hashtags</A></Li>
+                <Li><A href={'/'}>Language</A></Li>      
+            </Ul>
+            <Span>© 2019 INSTAGRAM</Span>
+        </Footer>
     )
 } 

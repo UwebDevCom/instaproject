@@ -1,7 +1,11 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { AppContext } from '../../AppContext'
 
 export default function ListBox() {
+
+    const context = useContext(AppContext);
+
     const Wrapper = styled.div`
         position: absolute;
         top: 1px;
@@ -14,6 +18,7 @@ export default function ListBox() {
     return (
         <Wrapper>
           <h1>hello</h1>  
+          <p>context.myLoggedInUser.name</p>
         </Wrapper>
     )
 }

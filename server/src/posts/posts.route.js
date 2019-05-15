@@ -2,6 +2,7 @@
 const {Router} = require('express');
 const {Post} =require('./Post.model');
 const {User} = require('../users/User.model');
+var ObjectId = require('mongoose').Types.ObjectId;
 const route = Router();
 
 
@@ -23,8 +24,17 @@ route.get('/api/posts', async(req,res)=>{
    }
 });
 
+route.get('/api/posts/:userId/loggedUserPosts', async (req,res) => {
+    try {
+        const posts = await Post.find({author: req.params.userId});
+        res.send(posts);
+    } catch(e) {
+        res.status(400).send(e.message);
+    }
+});
 
-route.get('/api/posts/:userId/following', async (req,res)=>{
+
+route.get('/api/posts/:userId/following', async (req,res) => {
     try {    
         const user = await User.findById(req.params.userId);
         if (user.following) {
