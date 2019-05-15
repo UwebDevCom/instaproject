@@ -42,7 +42,7 @@ class LoginFirst extends Component{
                     </div>
                 </div>
                </div>
-               <Footer />
+               <Footer margin = "-130px" />
             </div>
         )
     }

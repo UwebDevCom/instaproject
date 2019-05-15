@@ -1,4 +1,4 @@
-import React , {useState} from 'react';
+import React from 'react';
 import { ContextConsumer } from '../../../AppContext/AppContext';
 import {Link } from 'react-router-dom';
 export default function myDetailsBar(props) {
