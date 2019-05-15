@@ -1,18 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PostsService from '../services/posts.Service';
 import UserService from '../services/users.service'; 
-const AppContext = React.createContext();
+
+export const AppContext = React.createContext();
 export const ContextConsumer = AppContext.Consumer;
 
 const postsData = new PostsService();
 const userData = new UserService();
 
-class ContextProvider extends Component {
+export default class Context extends React.Component {
     state = {
         isLoggedIn: false,
         myLoggedInUser: null,
         allPosts: [],
         allUsers: [],
+        allPosts:[],
+        loggedUserPosts:[]
     }
      
     render() { 
@@ -28,6 +31,11 @@ class ContextProvider extends Component {
                         console.log(response)
                         this.setState({ allUsers: response })}
                     ),
+                getUserPosts: (userId) => postsData.fetchLoggedUserPosts(userId)
+                .then(response => this.setState({
+                        loggedUserPosts: response
+                    })
+                )
             }} >
                 {this.props.children}
             </AppContext.Provider>
@@ -35,5 +43,3 @@ class ContextProvider extends Component {
         );
     }
 }
- 
-export default ContextProvider;

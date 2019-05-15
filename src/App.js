@@ -3,13 +3,13 @@ import './App.css';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
 import LoginFirst from './Components/Login-first/login-first';
 import AppRouter from './Components/appRouter/AppRouter';
-import ContextProvider from './AppContext/AppContext';
+import Context from './AppContext/AppContext';
 import { ContextConsumer } from './AppContext/AppContext';
 
 class App extends Component {
   render() {
     return (
-      <ContextProvider>
+      <Context>
         <BrowserRouter>
           <div className="App">
           <Link to='/'></Link>
@@ -22,7 +22,7 @@ class App extends Component {
           </ContextConsumer>
           </div>
       </BrowserRouter>
-      </ContextProvider>
+      </Context>
     );
   }
 }

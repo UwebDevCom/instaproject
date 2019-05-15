@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext} from 'react';
+import React from 'react';
 import './channel.css';
 import { BrowserRouter as Router, Link} from 'react-router-dom';
 
