@@ -3,6 +3,7 @@ import { AppContext } from '../../AppContext';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import './userPagePosts.css';
+import DisplayGrid from '../displayGrid/'
 
 export default function UserPagePosts() {
     const context = useContext(AppContext);
@@ -46,11 +47,7 @@ export default function UserPagePosts() {
     `
 
     if (context) {
-        return context.state.loggedUserPosts.map(post =>  
-            <div key={post._id} className='userPosts-div'>
-                    <img className='userPosts-img' alt='' src={post.image}/>
-            </div>
-        )
+        return <DisplayGrid path={context.state.loggedUserPosts} />
     } else {
         return (
             <Router>
