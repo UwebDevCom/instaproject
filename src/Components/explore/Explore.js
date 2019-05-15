@@ -26,7 +26,6 @@ export default function Explore() {
                 <div className="exploreContianer">
                     <div className=""></div>
                 </div>
-                {/* <div>{context.state.allUsers.name}</div> */}
             </div>
         </div>
     )

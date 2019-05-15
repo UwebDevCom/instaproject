@@ -37,17 +37,16 @@
     background: white;
     padding: 16px;
     display: flex;
-    /* justify-content: center; */
-    align-items: center;
     flex-direction: column;
+    align-items: center;
     display: inline-block;
-
+    
 }
 
 .userPctuar
 {
-    height: 60px;
-    width: 60px;
+    height: 56px;
+    width: 56px;
     border-radius: 50%;
     /* background: red; */
     margin: 10px auto;
