@@ -8,22 +8,20 @@ class CommentForm extends Component{
   }
 
 
-  createComment(event,txt) {
+  createComment(event,txt,postId,commentsArr) {
     const commentsService = new CommentService();
     event.preventDefault();
     const comment = {
         body: txt,
         author: this.props.authorId
     }
-    const x = commentsService.createComment(comment);
-    console.log(x);
-
+    commentsService.createComment(comment,postId,commentsArr);
   }
 
 
     render(){
         return(
-            <form className="add-comment" method="POST" onSubmit={(event)=>this.createComment(event,this.textInput.current.value)}>
+            <form className="add-comment" method="POST" onSubmit={(event)=>this.createComment(event,this.textInput.current.value,this.props.postId, this.props.commentsArr)}>
                 <textarea
                 ref={this.textInput}
                 placeholder="Add a comment…"></textarea>

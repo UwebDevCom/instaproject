@@ -2,10 +2,7 @@ import React, {Component} from 'react';
 import './sidebar.css';
 import MyDetailsBar from './myDetailsBar';
 import StoriesBar from './storiesBar';
-<<<<<<< HEAD
-=======
 import Suggestions from './suggestions';
->>>>>>> dev
 
 class Sidebar extends Component {
     render(){

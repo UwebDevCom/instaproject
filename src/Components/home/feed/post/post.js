@@ -15,7 +15,8 @@ class Post extends Component{
             ...this.props.post,
             isLiked: null,
             saved: null,
-            userLoggedIn: this.props.user
+            userLoggedIn: this.props.user,
+            hasComments: false
         }
     }
     
@@ -48,12 +49,7 @@ class Post extends Component{
     });
     }
 
-  whosSaved() {
-   
-    }
-
     componentDidMount(){
-        console.log(this.state)
         if (this.state.likes) {
             this.setState({
                 isLiked: this.state.likes.includes(this.props.userId) ? true : false,
@@ -65,7 +61,11 @@ class Post extends Component{
                  }) 
          }
     }
-
+    spillComments(){
+        this.setState({
+            hasComments: !this.state.hasComments,
+             }) 
+    }
     render() { 
         return(
             <Router>
@@ -102,13 +102,34 @@ class Post extends Component{
            </div>
             <div className="comments">
                 <div className="view-all-comments">
-                  {this.state.comments.length > 1 ? <Link to={`/${this.state._id.toString()}`}>View all {this.state.comments.length} comments</Link> : '' }  
+                  {this.state.comments.length > 1 && !this.state.hasComments ?
+                  <button
+                  onClick={()=>this.spillComments()}>
+                  View all {this.state.comments.length} comments</button> : '' }
                 </div>
-                {this.state.comments.length >= 1 ? this.state.comments.map((comment,i,arr)=> i > arr.length-2 ? <Comments key={comment._id} comment={comment.body} author={comment.author.userName} commentDate={comment.published} />: ''): ''}
+                
+
+                {this.state.hasComments ?
+                    this.state.comments.map((comment,i,arr)=>
+                        <Comments
+                            key={comment._id}
+                            comment={comment.body}
+                            author={comment.author.userName}
+                            commentDate={comment.published} /> ) :
+                            this.state.comments.length >= 1 ? 
+                <Comments
+                key={this.state.comments[this.state.comments.length-1]._id}
+                comment={this.state.comments[this.state.comments.length-1].body}
+                author={this.state.comments[this.state.comments.length-1].author.userName}
+                commentDate={this.state.comments[this.state.comments.length-1].published} />  : '' }
+                    
+
+
+                {}
             </div>
            </div>
            <div className="add-a-comment">
-              <CommentForm authorId={context.state.myLoggedInUser._id} />
+              <CommentForm authorId={context.state.myLoggedInUser._id} postId={this.state._id} commentsArr={this.state.comments} />
             </div>
         </article>
         )} else return (<p>no posts</p>)}}

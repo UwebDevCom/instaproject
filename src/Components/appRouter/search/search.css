@@ -6,8 +6,22 @@
     height: 25px;
     width: 195px;
     margin-top: 25px;
+    border: 1px solid #eeeeee;
+    border-radius: 4px; 
 }
-
+.appRouterSearchBox > div
+{
+    position: relative;
+}
+.appRouterSearchBox > div > span:last-child
+{
+    position: absolute;
+}
+.appRouterSearchBox > div > span:last-child input
+{
+    border: none;
+    background-color: transparent;
+}
 .appRouterSearchBox > input
 {
     background: inherit;

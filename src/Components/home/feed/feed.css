@@ -72,6 +72,7 @@ header.post-header
     align-self: center;
     position: relative;
     top: -8px;
+    margin: 0;
 }
 
 .visual
@@ -238,7 +239,7 @@ button span.post-saved
 {
     margin-bottom: .8em;
 }
-.view-all-comments a
+.view-all-comments button
 {
     text-decoration: none;
     color: #cccccc;
