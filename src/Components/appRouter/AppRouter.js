@@ -2,11 +2,13 @@ import React, {Component} from 'react';
 import UserPage from '../UserPage/';
 import Home from '../home/Home';
 import './appRouter.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Search from './search/Search';
 import Explore from '../explore/Explore.js';
 import { ContextConsumer } from '../../AppContext/';
 import Footer from '../footer/footer';
+import ListBox from '../listBox';
+import PageNotFound from '../page-not-found';
 
 
 class AppRouter extends Component{
@@ -28,7 +30,7 @@ class AppRouter extends Component{
                                         </Link>
                                         <Search />
                                         <div className="appRouterLitleButtons">
-                                            <Link to='/explore' className="appRouterExplore"></Link> 
+                                            <Link to='/explore/' className="appRouterExplore"></Link> 
                                             <div className="appRouterActivity"></div> 
                                             <Link to={`/${context.state.myLoggedInUser.userName}/`} className="appRouterProfile"></Link>           
                                         </div>
@@ -36,10 +38,13 @@ class AppRouter extends Component{
                                 </nav>
                             </header>
                             <main>
-
-                                <Route exact path={`/${context.state.myLoggedInUser.userName}/`} render={(context) => <UserPage {...context} />} />
-                                <Route exact path='/' component={Home}  />
-                                <Route exact path='/explore/' component={Explore} />
+                                <Switch>
+                                    <Route exact path='/' component={Home}  />
+                                    <Route exact path={`/${context.state.myLoggedInUser.userName}/`} component={UserPage} />
+                                    <Route exact path='/explore/' component={Explore} />
+                                    <Route exact path={'/:name/followers'} component={ListBox} />
+                                    <Route component={PageNotFound} />
+                                </Switch>
                             </main>
                             <Footer margin = "0px" />
                         </div>
