@@ -10,10 +10,6 @@ export default class UsersService {
         const users = await data.json();
             return users;
 }
-
-
-
-
     async fetchUser(userEmail,password) {
 
             const data = await fetch(SERVER_URL + 'users/');
@@ -30,7 +26,6 @@ export default class UsersService {
 
     
     async savePost(userId,saved) {
-        console.log(saved);
         await fetch(SERVER_URL +'users/'+ userId, {
             method: 'PUT',
             headers: {

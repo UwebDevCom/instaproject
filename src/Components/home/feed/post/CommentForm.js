@@ -16,8 +16,10 @@ class CommentForm extends Component{
         author: this.props.authorId
     }
     commentsService.createComment(comment,postId,commentsArr);
+    const com = this.props.addCommentFn(this.textInput.current.value);
+    console.log(com, this.textInput.current.value)
+    this.textInput.current.value = '';
   }
-
 
     render(){
         return(

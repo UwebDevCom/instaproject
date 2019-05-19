@@ -16,7 +16,8 @@ class Post extends Component{
             isLiked: null,
             saved: null,
             userLoggedIn: this.props.user,
-            hasComments: false
+            hasComments: false,
+            newComment: ''
         }
     }
     
@@ -66,6 +67,13 @@ class Post extends Component{
             hasComments: !this.state.hasComments,
              }) 
     }
+
+    addComment(comment){
+        this.setState({
+            newComment: comment
+        });
+    }
+ 
     render() { 
         return(
             <Router>
@@ -108,7 +116,6 @@ class Post extends Component{
                   View all {this.state.comments.length} comments</button> : '' }
                 </div>
                 
-
                 {this.state.hasComments ?
                     this.state.comments.map((comment,i,arr)=>
                         <Comments
@@ -122,14 +129,14 @@ class Post extends Component{
                 comment={this.state.comments[this.state.comments.length-1].body}
                 author={this.state.comments[this.state.comments.length-1].author.userName}
                 commentDate={this.state.comments[this.state.comments.length-1].published} />  : '' }
-                    
-
-
-                {}
+                {this.state.newComment !== "" ?  <Comments
+                comment={this.state.newComment}
+                author={this.state.comments[this.state.comments.length-1].author.userName}
+                commentDate={this.state.comments[this.state.comments.length-1].published} /> : '' }
             </div>
            </div>
            <div className="add-a-comment">
-              <CommentForm authorId={context.state.myLoggedInUser._id} postId={this.state._id} commentsArr={this.state.comments} />
+              <CommentForm authorId={context.state.myLoggedInUser._id} postId={this.state._id} commentsArr={this.state.comments} addCommentFn={(com)=>this.addComment(com)} />
             </div>
         </article>
         )} else return (<p>no posts</p>)}}

@@ -12,11 +12,24 @@ import PageNotFound from '../page-not-found';
 
 
 class AppRouter extends Component{
-		
+        
+    fetchLocalStorage(myUser, postss){
+        if (!localStorage.getItem('myUserData')) {
+            localStorage.setItem('myUserData', JSON.stringify(myUser));
+            }
+            console.log(myUser,JSON.parse(localStorage.getItem('myUserData')));
+            myUser(JSON.parse(localStorage.getItem('myUserData')));
+            postss(JSON.parse(localStorage.getItem('istheUser'))); 
+        }
+        
     render(){
         return(
             <ContextConsumer>
                 {(context) => {
+                    if (!context.state.myLoggedInUser) { 
+                        this.fetchLocalStorage(context.myUser, context.getPosts);
+                    }
+                    
                     if (context.state.myLoggedInUser) {
                    return( <Router>
                         <div>
@@ -32,7 +45,7 @@ class AppRouter extends Component{
                                         <div className="appRouterLitleButtons">
                                             <Link to='/explore/' className="appRouterExplore"></Link> 
                                             <div className="appRouterActivity"></div> 
-                                            <Link to={`/${context.state.myLoggedInUser.userName}/`} className="appRouterProfile"></Link>           
+                                            <Link to={`/${context.state.myLoggedInUser.userName} /`} className="appRouterProfile"></Link>           
                                         </div>
                                     </div>
                                 </nav>
