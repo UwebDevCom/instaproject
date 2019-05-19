@@ -1,17 +1,11 @@
 import React, {Component} from 'react';
-import UserPage from '../UserPage/';
-import Home from '../home/Home';
-import './appRouter.css';
+import './nav.css';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Search from './search/Search';
-import Explore from '../explore/Explore.js';
-import { ContextConsumer } from '../../AppContext/';
-import Footer from '../footer/footer';
-import ListBox from '../listBox';
-import PageNotFound from '../page-not-found';
+import { ContextConsumer } from '../../AppContext/AppContext';
 
 
-class AppRouter extends Component{
+export default class Nav extends Component{
 		
     render(){
         return(
@@ -37,22 +31,13 @@ class AppRouter extends Component{
                                     </div>
                                 </nav>
                             </header>
-                            <main>
-                                <Switch>
-                                    <Route exact path='/' component={Home}  />
-                                    <Route exact path={`/${context.state.myLoggedInUser.userName}/`} component={UserPage} />
-                                    <Route exact path='/explore/' component={Explore} />
-                                    <Route exact path={'/:name/followers'} component={ListBox} />
-                                    <Route component={PageNotFound} />
-                                </Switch>
-                            </main>
-                            <Footer margin = "0px" />
                         </div>
                     </Router>)
-                }else return <p>waiting...</p>;
+                } else {
+                    return <p>waiting...</p>;
+                }
                 }}
             </ContextConsumer>
         )
     }
 }
-export default AppRouter;

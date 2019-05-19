@@ -1,23 +1,29 @@
-import React, {Component} from 'react';
+import React, { useContext } from 'react';
+import { AppContext } from '../../AppContext';
+import { BrowserRouter as Router, Redirect } from 'react-router-dom';
 import './login-first.css';
 import apple from './images/app-app.png';
 import android from './images/app-and.png';
 import windows from './images/app-win.png';
 import FormLogin from './FormLogin';
 import Slider from './Slider';
-import Footer from '../footer/footer';
+import Footer from '../footer/Footer';
 
-class LoginFirst extends Component{
-    render(){
+export default function LoginFirst() {
+    const context = useContext(AppContext);
+
+    if(context.state.isLoggedIn) {
+        return <Redirect to='/'/>
+    } else {
         return(
             <div className="container-login">
-               <div className="inner-container">
-               <div className="image-slides">
-                   <Slider />    
+                <div className="inner-container">
+                <div className="image-slides">
+                    <Slider />    
                 </div>
                 <div className="login-area">
-                   <div className="inner-login-area">
-                   <div className="logo-login"></div>
+                    <div className="inner-login-area">
+                    <div className="logo-login"></div>
                     <div className="login-form">
                         <FormLogin />
                         <div className="buffer">
@@ -28,8 +34,8 @@ class LoginFirst extends Component{
                             <a href="https://link.link.co">Forgot password?</a>
                         </div>
                     </div>
-                   </div>
-                   <div className="sign-up">
+                    </div>
+                    <div className="sign-up">
                         <span>Don't have an account?</span><a href="https://link.link.co">Sign Up</a>
                     </div>
                     <div className="get-the-app">
@@ -41,11 +47,11 @@ class LoginFirst extends Component{
                     </div>
                     </div>
                 </div>
-               </div>
-               <Footer margin = "-130px" />
+                </div>
+                <Footer margin = "-130px" />
             </div>
         )
     }
+
 }
-export default LoginFirst;
 

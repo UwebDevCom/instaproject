@@ -4,7 +4,7 @@ import { ContextConsumer } from '../../AppContext/AppContext';
 
 
 
-class Explore extends Component{
+class Explore extends Component {
     render(){
         return(
             <ContextConsumer>

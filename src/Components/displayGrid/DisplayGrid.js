@@ -1,9 +1,13 @@
-import React, { useContext } from 'react';
-import { AppContext } from '../../AppContext/'
+import React from 'react';
 import styled from 'styled-components';
 
 export default function DisplayGrid(props) {
     const GridContainer = styled.div`
+        display: flex;
+        flex-direction: row;
+        flex-flow: wrap;
+    `
+    const ImageContainer = styled.div`
         width: 293px;
         height: 293px;
         position: relative;
@@ -14,8 +18,10 @@ export default function DisplayGrid(props) {
         height: 100%;
     `
     return props.path.map(post =>  
-            <GridContainer key={post._id}>
-                    <GridImage alt={post.caption} src={post.image}/>
+        <GridContainer>            
+                <ImageContainer key={post._id}>
+                        <GridImage alt={post.caption} src={post.image}/>
+                </ImageContainer>
             </GridContainer>
             )
 

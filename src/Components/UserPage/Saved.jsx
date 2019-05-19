@@ -1,7 +1,31 @@
-import React from 'react';
+import React, { useContext, useState, useEffect }from 'react';
+import Context, { AppContext } from '../../AppContext';
+import DisplayGrid from '../displayGrid';
+import PostsService from '../../services/posts.Service';
 import './saved.css';
 
 export default function Saved() {
+    const context = useContext(AppContext);
+    const [ fetchedPosts, setPosts ] = useState();
+    
+
+    async function fetchPosts(userId) {
+        const postsData = new PostsService();
+        const response = await postsData.loggedUserSavedPosts(userId);
+        console.log('response', response);
+        return response
+    }
+
+    useEffect(() => {
+        const posts = fetchPosts(context.state.myLoggedInUser._id);
+        console.log('effect posts', posts)
+        setPosts(posts)
+    }, [])
+
+    if(context.state.myLoggedInUser) {
+        console.log('this state',fetchedPosts)
+        // return <DisplayGrid path={context.state.myLoggedInUser.savedPosts} />
+    }
     return (
         <div className='saved-container'>
             <div/>    

@@ -3,15 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import Context from './AppContext/AppContext';
-import {BrowserRouter} from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 
 ReactDOM.render(
-<BrowserRouter>
+<Router>
     <Context>
         <App />
     </Context>
-</BrowserRouter>
+</Router>
 , document.getElementById('root'));
 
 

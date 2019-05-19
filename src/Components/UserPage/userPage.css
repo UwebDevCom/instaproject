@@ -5,11 +5,11 @@
     background-color: inherit;
 }
 
-.userPage-content {
+/* .userPage-content {
     display: flex;
     flex-direction: row;
     flex-flow: wrap;
-}
+} */
 
 .userPage-link {
     display: flex;
