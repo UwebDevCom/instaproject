@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './feed.css';
 import Post from './post/post';
 import { ContextConsumer } from '../../../AppContext/AppContext';
-import CreatePost from './create-post/CreatePost';
+
 class Feed extends Component {
     constructor(props) {
         super(props);
@@ -26,7 +26,6 @@ class Feed extends Component {
             }
             }
              </ContextConsumer>
-             <CreatePost />
          </React.Fragment>
         )
     }

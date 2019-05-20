@@ -1,25 +1,25 @@
 import React ,{useState, useEffect}  from 'react';
-import AppContext from '../../../../AppContext/AppContext';
+import AddPostButton from './AddPostButton';
+import CreatePostForm from './CreatePostForm';
+import './create-post.css';
 
 
 
-
-export default function createPost(){
-    //const [post , addPost] = useState({});
- 
-    console.log(AppContext);
-    // hooks with context
-    // and add an action for adding the new post to the user
-
-    // ==== form 
-    // form of adding data 
-    // send the data by service
-    // return data from server to context and state for updating 
+export default function createPost(props){
     
+    const [isClicked, changeIt] = useState(false);
+   
+    // useEffect(()=>{
+    //     isClickedFn()
+    // },[])
 
-    // button to open the lightbox form 
-
-    // close the popup form 
-
-           return(<React.Fragment>E#</React.Fragment>)
+    function isClickedFn(changeByClick){
+        changeIt(changeByClick)
+    }    
+    
+    return(
+        <React.Fragment>
+            {isClicked ? <CreatePostForm /> : <AddPostButton clickBtn={(changeByClick)=>isClickedFn(changeByClick)} /> }
+        </React.Fragment>
+    )
 }

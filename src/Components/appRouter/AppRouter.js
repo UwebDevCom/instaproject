@@ -9,6 +9,7 @@ import { ContextConsumer } from '../../AppContext/';
 import Footer from '../footer/footer';
 import ListBox from '../listBox';
 import PageNotFound from '../page-not-found';
+import CreatePost from '../home/feed/create-post/CreatePost';
 
 
 class AppRouter extends Component{
@@ -48,6 +49,7 @@ class AppRouter extends Component{
                                             <Link to={`/${context.state.myLoggedInUser.userName} /`} className="appRouterProfile"></Link>           
                                         </div>
                                     </div>
+                                    <CreatePost />
                                 </nav>
                             </header>
                             <main>
