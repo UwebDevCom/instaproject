@@ -8,7 +8,6 @@ export default class CommentService {
         return  posts;
     }
 
-
 async updatePost(post ,postId) {
     await fetch(SERVER_URL +'posts/'+ postId, {
         method: 'PUT',
@@ -18,7 +17,6 @@ async updatePost(post ,postId) {
         body: JSON.stringify(post)
     });
 };
-
 
 async createComment(comment,postId) {
     await fetch(SERVER_URL +'comments/', {
@@ -35,7 +33,8 @@ async createComment(comment,postId) {
                         dataPost.comments.push(data._id)
                         this.updatePost(dataPost, postId)
                     }))
-                })  
-            );
-        }
+                }
+            )  
+        );
+    }
 }

@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from 'react';
-import { AppContext } from '../../AppContext';
+import { AppContext } from '../../AppContext/AppContext';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import styled from 'styled-components';
-import './userPagePosts.css';
-import DisplayGrid from '../displayGrid/'
+import './userPagePosts.scss';
+import DisplayGrid from '../displayGrid/DisplayGrid'
 
 export default function UserPagePosts() {
     const context = useContext(AppContext);

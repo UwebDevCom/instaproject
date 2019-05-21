@@ -1,0 +1,67 @@
+.userPage {
+    min-height: 1000px; /* need to change to 100% */
+    margin: 0 auto;
+    padding: 50px 20px 0;
+    background-color: inherit;
+
+    /* .userPage-content {
+        display: flex;
+        flex-direction: row;
+        flex-flow: wrap;
+    } */
+
+    .userPage-link {
+        display: flex;
+        text-decoration: none;
+        color: inherit;
+        margin-top: -1px;
+        margin-right: 60px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        font-size: 12px;
+        height: 52px;
+    }
+
+    .userPage-link span {
+        display: flex;
+        align-items: center;
+        margin-left: 6px;
+        text-transform: uppercase;
+    }
+
+    span.userPage-link-span {
+        margin: 0px;
+    }
+
+    .userPage-link:focus {
+        color: #262626;
+        border-top: 1px solid #262626;
+    }
+
+    .userPage-linkDiv {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        border-top: 1px solid #efefef;
+        color: #999;
+    }
+
+    .userPageLink-posts {
+        display: inline-block;
+        height: 12px;
+        width: 12px;
+        background-image: url(https://www.instagram.com/static/bundles/es6/sprite_core_2x_6ba81dcece9b.png/6ba81dcece9b.png);
+        background-position-x: -177px;
+        background-position-y: -366px;
+        background-size: 410px 396px;
+    }
+
+    .userPageLink-posts:active {
+        background-position-x: -189px;
+    }
+
+    .userPageLink-channel {
+        display: inline;
+    }
+}

@@ -2,11 +2,12 @@ import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext/AppContext';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import UserInfo from './UserInfo';
-import './userPage.css';
+import './userPage.scss';
 import UserPagePosts from './UserPagePosts';
 import Channel from './Channel';
 import Saved from './Saved';
 import Tagged from './Tagged';
+import ListBox from '../listBox/ListBox';
 
 export default function UserPage() {
 	const context = useContext(AppContext);
@@ -14,7 +15,7 @@ export default function UserPage() {
 	if (context.state.myLoggedInUser) {
 		return (
 			<Router>
-				<div className='userPageMain'>
+				<div className='userPage'>
 					<UserInfo />
 					<div className='userPage-linkDiv'>
 						<Link className='userPage-link' to={`/${context.state.myLoggedInUser.userName}/`}>
@@ -44,10 +45,11 @@ export default function UserPage() {
 					</div>
 					<div className='userPage-content'>
 						<Switch>
-							<Route exact path={`/:name/`} component={UserPagePosts} />
-							<Route  path={`/:name/channel`} component={Channel} />
-							<Route  path={`/:name/saved`} component={Saved} />
-							<Route  path={`/:name/tagged`} component={Tagged} />
+							<Route exact path={`/`} component={UserPagePosts} />
+							<Route  path={`/channel`} component={Channel} />
+							<Route  path={`/saved`} component={Saved} />
+							<Route  path={`/tagged`} component={Tagged} />
+							<Route  path={`/followers`} component={ListBox} />
 						</Switch>
 					</div>
 				</div>

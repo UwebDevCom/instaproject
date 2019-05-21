@@ -18,17 +18,19 @@ export default class UsersService {
             return users;
     }
 
-    async userAuth(userEmail,password) {
-
-        const data = await fetch(SERVER_URL + 'users/');
-        const users = await data.json();
-
-        let id = users.filter((user)=>user.email === userEmail && user.password === password );
-        if (id.length > 0 ) {
-            const userData = await fetch(SERVER_URL + 'users/' + id[0]._id);
-            const user = await userData.json();
-            return user;
-        }else {return undefined;}
+    async userAuth(userEmail,userPassword) {
+        const result = await fetch(SERVER_URL + 'auth/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: userEmail,
+                password: userPassword
+            })
+        });
+        const user = await result.json();
+        return user;
     }
 
     async savePost(userId,saved) {

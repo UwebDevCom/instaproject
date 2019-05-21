@@ -13,7 +13,11 @@ export default function LoginFirst() {
     const context = useContext(AppContext);
 
     if(context.state.isLoggedIn) {
-        return <Redirect to='/'/>
+        return (
+            <Router>
+                <Redirect to='/'/>
+            </Router>
+        )
     } else {
         return(
             <div className="container-login">

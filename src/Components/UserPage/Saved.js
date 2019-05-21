@@ -1,8 +1,8 @@
 import React, { useContext, useState, useEffect }from 'react';
-import Context, { AppContext } from '../../AppContext';
-import DisplayGrid from '../displayGrid';
+import Context, { AppContext } from '../../AppContext/AppContext';
+import DisplayGrid from '../displayGrid/DisplayGrid';
 import PostsService from '../../services/posts.Service';
-import './saved.css';
+import './saved.scss';
 
 export default function Saved() {
     const context = useContext(AppContext);

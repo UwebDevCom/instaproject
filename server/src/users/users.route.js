@@ -5,17 +5,17 @@ const jwt = require('jsonwebtoken');
 const { Router } = require ('express');
 const route = Router();
 
-route.get('/api/users/', async (req, res) => {
-    try {
-
-       const users = await User.find({
-           email: new RegExp(req.query.name, 'i')
-       })
-    } catch(err) {
-        console.log(err.message)
-        res.status(400).send(err.message);
-    }
-});
+// route.get('/api/users/', async (req, res) => {
+//     try {
+//        const user = await User.find({
+//            email: new RegExp(req.query.name, 'i')
+//         })
+//         res.send(user)
+//     } catch(err) {
+//         console.log(err.message)
+//         res.status(400).send(err.message);
+//     }
+// });
 
 
 route.get('/api/users/:userId', async (req, res) => {
@@ -29,7 +29,7 @@ route.get('/api/users/:userId', async (req, res) => {
     }
 });
 
-
+// create new user
 route.post('/api/users',async (req,res)=>{
     try {
         //validate request
@@ -49,15 +49,12 @@ route.post('/api/users',async (req,res)=>{
             "password": req.body.password
         });
         // hash new user password
-        const salt = await bcrypt.genSalt(10);
-        user.password = await bcrypt.hash(user.password, salt)
+        // const salt = await bcrypt.genSalt(10);
+        // user.password = await bcrypt.hash('user.password', salt)
         //save new user
         await user.save()
         //create token for response
-        const token = jwt.sign({
-            _id: user._id
-        },
-        config.get('jwtPrivateKey'));
+        const token = user.generateAuthToken();
         //return new user to client
         res.header('x-auth-token', token).send(user);
     } catch(err) {

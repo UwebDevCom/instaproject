@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext/';
-import './userInfo.css';
+import './userInfo.scss';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 export default function UserInfo() {	

@@ -3,14 +3,13 @@ import { ContextConsumer } from '../../AppContext/AppContext';
 import InputLogin from './InputLogin';
 import LoginFailed from './loginFailed';
 import UsersService from '../../services/users.service';
-const usersData = new UsersService();
-const theUser =  usersData.fetchUser;
+const UserService = new UsersService();
 
 class FormLogin extends Component{
     state = {
-        fieldIsEmpty: true,
-        inputValueEmail: '1',
-        inputValuePassword: '1',
+        inputValueEmail: 'gal123@gmail.com',
+        inputValuePassword: 'gal123',
+        fieldIsEmpty: false,
         labelGoesUp: '',
         loginFailed: null,
         myUser: null
@@ -31,7 +30,7 @@ class FormLogin extends Component{
     }
     async checkValidation(fnVal,myUser,postss){
        
-        let istheUser = await theUser(this.state.inputValueEmail,this.state.inputValuePassword);
+        let istheUser = await UserService.userAuth(this.state.inputValueEmail,this.state.inputValuePassword);
         if (istheUser) {
             localStorage.setItem('myUserData', JSON.stringify(istheUser));
             localStorage.setItem('istheUser', JSON.stringify(istheUser._id));
@@ -48,6 +47,7 @@ class FormLogin extends Component{
     onClickForm = (e)=>{
         e.preventDefault();
     }
+    
    render(){
     return (
         <div>

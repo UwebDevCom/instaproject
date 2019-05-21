@@ -25,7 +25,7 @@ export default class Nav extends Component{
                                         <div className="appRouterLitleButtons">
                                             <Link to='/explore/' className="appRouterExplore"></Link> 
                                             <div className="appRouterActivity"></div> 
-                                            <Link to={`/${context.state.myLoggedInUser.userName} /`} className="appRouterProfile"></Link>           
+                                            {/* <Link to={`/${context.state.myLoggedInUser.userName} /`} className="appRouterProfile"></Link>            */}
                                         </div>
                                     </div>
                                 </nav>

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { AppContext } from '../../AppContext';
-import DisplayGrid from '../displayGrid';
-import './tagged.css';
+import { AppContext } from '../../AppContext/AppContext';
+import DisplayGrid from '../displayGrid/DisplayGrid';
+import './tagged.scss';
 
 export default function Saved() {
     const context = useContext(AppContext);

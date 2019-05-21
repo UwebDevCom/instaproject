@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 const Joi = require('@hapi/joi');
+const jwt = require('jsonwebtoken');
+const config = require('config')
+ 
 
-const UserSchema = mongoose.Schema({
+const UserSchema =  mongoose.Schema({
     name: {
         type: String,
         require: true
@@ -52,6 +55,15 @@ const UserSchema = mongoose.Schema({
         ref: 'Post'
     }]
 });
+
+UserSchema.methods.generateAuthToken = function() {
+    const token = jwt.sign({
+        _id: this._id
+    },
+    config.get('jwtPrivateKey'));
+    return token
+}
+
 const User = mongoose.model('User', UserSchema);
 
 function validateUserReq(reqBody) {
