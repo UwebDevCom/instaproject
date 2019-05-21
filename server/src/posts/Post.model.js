@@ -30,7 +30,7 @@ const PostSchema = mongoose.Schema({
         default: Date.now
     },
     comments: [{
-        type: [mongoose.Schema.Types.ObjectId],
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Comment',
         autopopulate: true
     }]

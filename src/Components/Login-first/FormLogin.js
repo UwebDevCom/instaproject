@@ -33,6 +33,8 @@ class FormLogin extends Component{
        
         let istheUser = await theUser(this.state.inputValueEmail,this.state.inputValuePassword);
         if (istheUser) {
+            localStorage.setItem('myUserData', JSON.stringify(istheUser));
+            localStorage.setItem('istheUser', JSON.stringify(istheUser._id));
             this.setState({loginFailed: false})
             fnVal();
             myUser(istheUser);
@@ -49,7 +51,7 @@ class FormLogin extends Component{
    render(){
     return (
         <div>
-            <form id="loginForm" onClick={this.onClickForm}>
+            <form id="loginForm" onSubmit={this.onClickForm}>
                 <ContextConsumer>
                             {(context)=>{
                                 return(

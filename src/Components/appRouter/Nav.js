@@ -1,18 +1,17 @@
 import React, {Component} from 'react';
 import './nav.css';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Link} from 'react-router-dom';
 import Search from './search/Search';
 import { ContextConsumer } from '../../AppContext/AppContext';
 
 
-export default class Nav extends Component{
-		
-    render(){
+export default class Nav extends Component{        
+    render() {
         return(
             <ContextConsumer>
                 {(context) => {
-                    if (context.state.myLoggedInUser) {
-                   return( <Router>
+                   return( 
+                       <Router>
                         <div>
                             <header className="sticky">
                                 <nav className="appRouterHeader">
@@ -26,16 +25,13 @@ export default class Nav extends Component{
                                         <div className="appRouterLitleButtons">
                                             <Link to='/explore/' className="appRouterExplore"></Link> 
                                             <div className="appRouterActivity"></div> 
-                                            <Link to={`/${context.state.myLoggedInUser.userName}/`} className="appRouterProfile"></Link>           
+                                            <Link to={`/${context.state.myLoggedInUser.userName} /`} className="appRouterProfile"></Link>           
                                         </div>
                                     </div>
                                 </nav>
                             </header>
                         </div>
                     </Router>)
-                } else {
-                    return <p>waiting...</p>;
-                }
                 }}
             </ContextConsumer>
         )
