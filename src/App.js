@@ -4,6 +4,7 @@ import LoginFirst from './Components/Login-first/login-first';
 import Nav from './Components/appRouter/Nav';
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { AppContext } from './AppContext/AppContext';
+<<<<<<< HEAD
 import Footer from './Components/footer/Footer';
 import UserPage from './Components/UserPage/';
 import Home from './Components/home/Home';
@@ -32,3 +33,18 @@ export default function App() {
 		</Router>
 	);
 }
+=======
+
+export default function App() {
+  
+  const context = useContext(AppContext);
+
+    return (
+      <div className="App">
+        { context.state.isLoggedIn ? <AppRouter /> : <LoginFirst />  }
+      </div>
+    );
+}
+
+
+>>>>>>> 7146d069e2afb99a2c9702984c52e022415bb271

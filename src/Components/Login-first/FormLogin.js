@@ -16,7 +16,7 @@ class FormLogin extends Component{
     }
 
 
-    /// ****** separate the inputs to the different components //  - and set the state with compunentwillUpdate
+
     fieldsHandler=(email, password)=>{
             this.setState({
                 inputValueEmail: email,
@@ -28,19 +28,18 @@ class FormLogin extends Component{
                 this.setState({ labelGoesUp: '',  fieldIsEmpty: true});
             }
     }
+
+
     async checkValidation(fnVal,myUser,postss){
        
         let istheUser = await UserService.userAuth(this.state.inputValueEmail,this.state.inputValuePassword);
         if (istheUser) {
-            localStorage.setItem('myUserData', JSON.stringify(istheUser));
-            localStorage.setItem('istheUser', JSON.stringify(istheUser._id));
             this.setState({loginFailed: false})
             fnVal();
             myUser(istheUser);
             postss(istheUser._id);
         }else{
             this.setState({loginFailed: true})
-
              }
     }
 
