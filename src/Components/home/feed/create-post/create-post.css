@@ -19,6 +19,7 @@ p.title-create-post
     max-height: 50vh;  
     border-radius: 1.4em;
     overflow: hidden;
+    position: relative;
 }
 .create-post-preview
 {
@@ -30,7 +31,12 @@ p.title-create-post
 {
     padding: 2em;
 }
-
+.pop-container button.close-pop
+{
+ position: absolute;
+ right: 10px;
+ top: 10px;
+}
 .flex-and-split
 {
     display: flex;

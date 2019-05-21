@@ -9,8 +9,8 @@ const posts = postsData.fetchPosts;
 
 export default class Context extends React.Component {
     state = {
-        isLoggedIn: false,
-        myLoggedInUser: null,
+        isLoggedIn: false || JSON.parse(localStorage.getItem('myData')),
+        myLoggedInUser: null || JSON.parse(localStorage.getItem('userId')),
         allPosts:[],
         loggedUserPosts:[]
     }

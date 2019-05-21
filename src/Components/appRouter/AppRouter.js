@@ -10,28 +10,17 @@ import Footer from '../footer/footer';
 import ListBox from '../listBox';
 import PageNotFound from '../page-not-found';
 import CreatePost from '../home/feed/create-post/CreatePost';
-
+import SaveLocalStorage from '../../services/localStorage.service';
 
 class AppRouter extends Component{
-        
-    fetchLocalStorage(myUser, postss){
-        if (!localStorage.getItem('myUserData')) {
-            localStorage.setItem('myUserData', JSON.stringify(myUser));
-            }
-            console.log(myUser,JSON.parse(localStorage.getItem('myUserData')));
-            myUser(JSON.parse(localStorage.getItem('myUserData')));
-            postss(JSON.parse(localStorage.getItem('istheUser'))); 
-        }
         
     render(){
         return(
             <ContextConsumer>
-                {(context) => {
-                    if (!context.state.myLoggedInUser) { 
-                        this.fetchLocalStorage(context.myUser, context.getPosts);
-                    }
-                    
+                {(context) => {              
                     if (context.state.myLoggedInUser) {
+                        const LocalStorage = new SaveLocalStorage(context.state.isLoggedIn, context.state.myLoggedInUser);
+                        LocalStorage.saveUserOnLogin();
                    return( <Router>
                         <div>
                             <header className="sticky">
