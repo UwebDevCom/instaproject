@@ -15,10 +15,9 @@ route.post('/api/auth',async (req,res)=>{
         //if user exist - compare password
         const isPasswordValid = await (await bcrypt.compare(req.body.password, user.password) || req.body.password === user.password);
         if(!isPasswordValid) return res.status(400).send('Invalid email or password');
-
         //create token
         const token = user.generateAuthToken()
-        res.send(token);
+        res.send(user);
     } catch(err) {
     console.log(err.message)
     res.status(400).send(err.message);

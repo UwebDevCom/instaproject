@@ -15,7 +15,7 @@ export default function LoginFirst() {
     if(context.state.isLoggedIn) {
         return (
             <Router>
-                <Redirect to='/'/>
+                <Redirect to='/' />
             </Router>
         )
     } else {
@@ -52,7 +52,7 @@ export default function LoginFirst() {
                     </div>
                 </div>
                 </div>
-                <Footer margin = "-130px" />
+                {/* <Footer margin = "-130px" /> */}
             </div>
         )
     }
