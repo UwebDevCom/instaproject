@@ -13,7 +13,7 @@ export default function loginFailed(){
     if (!isValid) {
         return (
             <p style = {style}>
-            Sorry, your password was incorrect. Please double-check your password.
+            Invalid email or password
             </p>
         )
     }

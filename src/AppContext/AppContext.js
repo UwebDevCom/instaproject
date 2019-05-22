@@ -9,20 +9,31 @@ const posts = postsData.fetchPosts;
 
 export default class Context extends React.Component {
     state = {
-        isLoggedIn: false || JSON.parse(localStorage.getItem('myData')),
-        myLoggedInUser: null || JSON.parse(localStorage.getItem('userId')),
+        isLoggedIn: false,  //|| JSON.parse(localStorage.getItem('myData')),
+        loggedUser: null, //|| JSON.parse(localStorage.getItem('userId')),
         allPosts:[],
         loggedUserPosts:[]
+    }
+
+    actions = {
+        logUser: (user) => {
+            this.setState({
+                isLoggedIn: !this.state.isLoggedIn,
+                loggedUser: user
+            })
+            
+            },
+        myUser: (myUser) => this.setState({myLoggedInUser: myUser}),
+        getPosts: (userId) => posts(userId).then(response => this.setState({ allPosts: response})),
+        getUserPosts: (userId) => postsData.fetchLoggedUserPosts(userId).then(response => this.setState({loggedUserPosts: response})),
+
     }
      
     render() { 
         return (
             <AppContext.Provider value={{
                 state: this.state,
-                isLoggedIn: () => this.setState({isLoggedIn: !this.state.isLoggedIn}),
-                myUser: (myUser) => this.setState({myLoggedInUser: myUser}),
-                getPosts: (userId) => posts(userId).then(response => this.setState({ allPosts: response})),
-                getUserPosts: (userId) => postsData.fetchLoggedUserPosts(userId).then(response => this.setState({loggedUserPosts: response})),
+                actions: this.actions
             }} >
                 {this.props.children}
             </AppContext.Provider>

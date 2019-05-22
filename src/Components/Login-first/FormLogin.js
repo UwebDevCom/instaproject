@@ -1,89 +1,75 @@
-import React, { Component } from 'react';
-import { ContextConsumer } from '../../AppContext/AppContext';
-import InputLogin from './InputLogin';
+import React, { useState, useContext } from 'react';
+import { AppContext } from '../../AppContext/AppContext';
 import LoginFailed from './loginFailed';
 import UsersService from '../../services/users.service';
 const UserService = new UsersService();
 
-class FormLogin extends Component{
-    
-    state = {
-        email: 'gal123@gmail.com',
-        password: 'gal123',
-        fieldIsEmpty: true,
-        labelGoesUp: '',
-        loginFailed: null,
-        myUser: null
-    }
+function FormLogin() {
+    const context = useContext(AppContext);
+    const [email, setEmail] = useState('gal123@gmail.com')
+    const [password, setPassword] = useState('gal123')
+    const [isFieldEmpty, setField] = useState(false);
+    const [labelGoesUp, setLable] = useState('false');
+    const [loginFailed, setLogin] = useState(null);
 
-    fieldsHandler=(email, password)=>{
-        this.setState({
-            inputValueEmail: email,
-            inputValuePassword: password,
-            });
-            if (this.state.inputValueEmail.length >=1 || this.state.inputValuePassword.length >=1) {
-            this.setState({ labelGoesUp: 'label-up',  fieldIsEmpty: false});
-        } else{
-            this.setState({ labelGoesUp: '',  fieldIsEmpty: true});
+    //run handleSubmit on form submit - 
+    //<form id="loginForm" onSubmit={handleSubmit}>
+    async function handleSubmit(e) {
+        e.preventDefault();
+        const validUser = await UserService.userAuth(email, password) 
+        //validUser returns user object and
+        if (validUser) {
+            return context.actions.logUser(validUser);
+        } else {
+            setLogin(true)
         }
     }
 
-    async checkValidation(fnVal,myUser,postss){
-       
-        let istheUser = await UserService.userAuth(this.state.inputValueEmail,this.state.inputValuePassword);
-        if(istheUser) {
-            this.setState({loginFailed: false})
-            fnVal();
-            myUser(istheUser);
-            postss(istheUser._id);
-        } else {
-            this.setState({loginFailed: true})
-            }
+    function handleChange(e) {
+        if (email.length >=1 || password.length >=1) {
+            setLable('label-up')
+            setField(true);
+        } else{
+            setLable('');
+            setField(true);
+        }
     }
 
-    onClickForm = (e)=>{
-        e.preventDefault();
-    }
-    
-   render(){
+    // async function authUser(fnVal,myUser,postss) {
+    //     let user = await UserService.userAuth(state.email, state.password);
+    //     if(user) {
+    //         setState({loginFailed: false})
+    //         fnVal();
+    //         myUser(user);
+    //         postss(user._id);
+    //     } else {
+    //         setState({loginFailed: true})
+    //         }
+    // }
+
     return (
         <div>
-            <form id="loginForm" onSubmit={this.onClickForm}>
-                <ContextConsumer>
-                    {(context)=>{
-                        return(
-                            <div>
-                            <InputLogin
-                        type="email"
-                        inputValue={this.state.inputValueEmail}
-                        labelClass={this.state.labelGoesUp}
-                        inputClass={"field user-email"}
-                        label = "Phone number, username, or email"
-                        change={(email)=>this.fieldsHandler(email,this.state.inputValuePassword)}
-                        />
-                    <InputLogin
-                        type="password"
-                        inputValue={this.state.inputValuePassword}
-                        labelClass={this.state.labelGoesUp}
-                        inputClass={"field user-pass"}
-                        label = "Password"
-                        change={(password)=>this.fieldsHandler(this.state.inputValueEmail,password)}
-                    />
+            <form id="loginForm" onSubmit={handleSubmit}>
+                <div>
+                    <div className="field user-email">
+                        <label className={labelGoesUp + " label-form"} >"Phone number, username, or email"</label>
+                        <input type="text" name='email' value={email} onChange={(e) => setEmail(e.target.value)} />
+                    </div>
+                    <div className="field user-email">
+                        <label className={labelGoesUp + " label-form"} >"Password"</label>
+                        <input type="password" name='password' value={password} onChange={(e) => setPassword(e.target.value)} />
+                    </div>
                     <button
-                        onClick={()=>this.checkValidation(context.isLoggedIn,context.myUser, context.getPosts)}
                         className="login-btn"
                         type="submit"
-                        disabled={this.state.fieldIsEmpty}>
+                        disabled={isFieldEmpty}>
                         Log In
                     </button>
-                    {this.state.loginFailed ? <LoginFailed /> : ''}
-                            </div>
-                        )
-                    }}
-                    </ContextConsumer>
+                    {loginFailed ? <LoginFailed /> : ''}
+                </div>
             </form>
         </div>
     )
-   }
+   
 }
 export default FormLogin;
