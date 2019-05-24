@@ -21,9 +21,8 @@ export default class Context extends React.Component {
                 isLoggedIn: !this.state.isLoggedIn,
                 loggedUser: user
             })
-            
+            this.actions.getPosts(user._id);          
             },
-        myUser: (myUser) => this.setState({myLoggedInUser: myUser}),
         getPosts: (userId) => posts(userId).then(response => this.setState({ allPosts: response})),
         getUserPosts: (userId) => postsData.fetchLoggedUserPosts(userId).then(response => this.setState({loggedUserPosts: response})),
 

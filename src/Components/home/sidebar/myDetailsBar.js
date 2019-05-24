@@ -8,11 +8,11 @@ export default function myDetailsBar(props) {
      {
         (context)=>{
             return(
-                context.state.myLoggedInUser ? ( <div className="me-profile">
-                    <Link className="image-profile-sidebar" to={`/${context.state.myLoggedInUser._id}`}> <img src={context.state.myLoggedInUser.userImg} alt="#" /> </Link>
+                context.state.loggedUser ? ( <div className="me-profile">
+                    <Link className="image-profile-sidebar" to={`/${context.state.loggedUser._id}`}> <img src={context.state.loggedUser.userImg} alt="#" /> </Link>
                    <div className="me-profile-content">
-                   <Link to={`/${context.state.myLoggedInUser.userName}`}> {context.state.myLoggedInUser.userName} </Link>
-                    <p>{context.state.myLoggedInUser.name + ' ' + context.state.myLoggedInUser.lastName}</p>
+                   <Link to={`/${context.state.loggedUser.userName}`}> {context.state.loggedUser.userName} </Link>
+                    <p>{context.state.loggedUser.name + ' ' + context.state.loggedUser.lastName}</p>
                    </div>
                 </div>) :  console.log(context.state)
            

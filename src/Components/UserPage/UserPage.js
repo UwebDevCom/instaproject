@@ -9,16 +9,17 @@ import Saved from './Saved';
 import Tagged from './Tagged';
 import ListBox from '../listBox/ListBox';
 
-export default function UserPage() {
+export default function UserPage(props) {
 	const context = useContext(AppContext);
 	
-	if (context.state.myLoggedInUser) {
+	if (context.state.loggedUser) {
 		return (
 			<Router>
 				<div className='userPage'>
 					<UserInfo />
 					<div className='userPage-linkDiv'>
-						<Link className='userPage-link' to={`/${context.state.myLoggedInUser.userName}/`}>
+						<Link className='userPage-link' to={props.match}>
+						{console.log(props.match)}
 							<span className='userPage-link-span'>
 								<div className='userPageLink-posts' />
 								<span> Posts</span>
@@ -45,7 +46,7 @@ export default function UserPage() {
 					</div>
 					<div className='userPage-content'>
 						<Switch>
-							<Route exact path={`/`} component={UserPagePosts} />
+							<Route exact path={`/u/`} component={UserPagePosts} />
 							<Route  path={`/channel`} component={Channel} />
 							<Route  path={`/saved`} component={Saved} />
 							<Route  path={`/tagged`} component={Tagged} />

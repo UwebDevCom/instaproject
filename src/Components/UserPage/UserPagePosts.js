@@ -9,7 +9,7 @@ export default function UserPagePosts() {
     const context = useContext(AppContext);
 
     useEffect(() => {
-        context.getUserPosts(context.state.myLoggedInUser._id) 
+        context.getUserPosts(context.state.loggedUser._id) 
     },[])
 
     const UlContainer = styled.ul`
@@ -46,7 +46,7 @@ export default function UserPagePosts() {
         align-self: center;    
     `
 
-    if (context) {
+    if (!context) {
         return <DisplayGrid path={context.state.loggedUserPosts} />
     } else {
         return (

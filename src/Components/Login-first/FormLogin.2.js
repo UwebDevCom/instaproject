@@ -14,7 +14,7 @@ class FormLogin extends Component{
         myUser: null
     }
 
-    async handleSubmit(e, context) {
+    async handleSubmit(e, callback) {
         e.preventDefault();
         const validUser = await UserService.userAuth(this.state.email, this.state.password)
         console.log(context)

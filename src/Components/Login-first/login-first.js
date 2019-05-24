@@ -9,15 +9,11 @@ import FormLogin from './FormLogin';
 import Slider from './Slider';
 import Footer from '../footer/Footer';
 
-export default function LoginFirst() {
+export default function LoginFirst(props) {
     const context = useContext(AppContext);
-
-    if(context.state.isLoggedIn) {
-        return (
-            <Router>
-                <Redirect to='/' />
-            </Router>
-        )
+    
+    if(context.state.isLoggedIn && context.state.LoggedUser) {
+        props.history.push('/') 
     } else {
         return(
             <div className="container-login">
@@ -29,7 +25,7 @@ export default function LoginFirst() {
                         <div className="inner-login-area">
                         <div className="logo-login"></div>
                         <div className="login-form">
-                            <FormLogin />
+                            <FormLogin {...props} />
                             <div className="buffer">
                                 <hr /><p>OR</p><hr />
                             </div>
@@ -55,6 +51,5 @@ export default function LoginFirst() {
             </div>
         )
     }
-
 }
 

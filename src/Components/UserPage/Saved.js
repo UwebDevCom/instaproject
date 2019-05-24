@@ -12,19 +12,19 @@ export default function Saved() {
     async function fetchPosts(userId) {
         const postsData = new PostsService();
         const response = await postsData.loggedUserSavedPosts(userId);
-        console.log('response', response);
+        console.log('response posts', response);
         return response
     }
 
     useEffect(() => {
-        const posts = fetchPosts(context.state.myLoggedInUser._id);
+        const posts = fetchPosts(context.state.loggedUser._id);
         console.log('effect posts', posts)
         setPosts(posts)
     }, [])
 
-    if(context.state.myLoggedInUser) {
+    if(context.state.loggedUser) {
         console.log('this state',fetchedPosts)
-        // return <DisplayGrid path={context.state.myLoggedInUser.savedPosts} />
+        // return <DisplayGrid path={context.state.loggedUser.savedPosts} />
     }
     return (
         <div className='saved-container'>

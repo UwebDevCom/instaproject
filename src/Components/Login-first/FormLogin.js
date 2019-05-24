@@ -1,10 +1,11 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useReducer } from 'react';
 import { AppContext } from '../../AppContext/AppContext';
 import LoginFailed from './loginFailed';
 import UsersService from '../../services/users.service';
+import { Redirect } from 'react-router-dom';
 const UserService = new UsersService();
 
-function FormLogin() {
+function FormLogin(props) {
     const context = useContext(AppContext);
     const [email, setEmail] = useState('gal123@gmail.com')
     const [password, setPassword] = useState('gal123')
@@ -16,12 +17,15 @@ function FormLogin() {
     //<form id="loginForm" onSubmit={handleSubmit}>
     async function handleSubmit(e) {
         e.preventDefault();
-        const validUser = await UserService.userAuth(email, password) 
-        //validUser returns user object and
-        if (validUser) {
-            return context.actions.logUser(validUser);
-        } else {
-            setLogin(true)
+        try {
+            await UserService.userAuth(email, password)
+                .then(result => {
+                    context.actions.logUser(result)
+                    props.history.push("/")
+                })
+        } catch(err) {
+            console.log(err)
+            setLogin(false)
         }
     }
 
