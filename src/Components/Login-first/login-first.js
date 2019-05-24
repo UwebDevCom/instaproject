@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext';
-import { BrowserRouter as Router, Redirect } from 'react-router-dom';
 import './login-first.css';
 import apple from './images/app-app.png';
 import android from './images/app-and.png';
 import windows from './images/app-win.png';
 import FormLogin from './FormLogin';
 import Slider from './Slider';
+import SignUp from '../sign-up/SignUp';
 
 export default function LoginFirst(props) {
     const context = useContext(AppContext);
@@ -21,7 +21,8 @@ export default function LoginFirst(props) {
                         <Slider />    
                     </div>
                     <div className="login-area">
-                        <div className="inner-login-area">
+                        <SignUp />
+                        {/* <div className="inner-login-area">
                         <div className="logo-login"></div>
                         <div className="login-form">
                             <FormLogin {...props} />
@@ -44,7 +45,7 @@ export default function LoginFirst(props) {
                             <a href='https://link.link.co'><img alt='' src={android} /></a>
                             <a href='https://link.link.co'><img alt='' src={windows} /></a>
                         </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
