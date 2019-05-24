@@ -7,14 +7,9 @@ import Search from './search/Search';
 import Explore from '../explore/Explore.js';
 import { ContextConsumer } from '../../AppContext/';
 import Footer from '../footer/footer';
-<<<<<<< HEAD
 import ListBox from '../listBox/ListBox';
 import Tagged from '../UserPage/Tagged';
-=======
-import ListBox from '../listBox';
-import PageNotFound from '../page-not-found';
-
->>>>>>> d3da6f5f7380bcc790eadedb034b72395de5af12
+import PageNotFound from '../page-not-found/PageNotFound';
 
 class AppRouter extends Component{
 		

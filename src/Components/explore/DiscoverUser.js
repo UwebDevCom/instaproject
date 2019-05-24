@@ -1,14 +1,15 @@
 import React from 'react';
 import './Explore.css';
+import BlueButton from '../blueButton/BlueButton';
 
-export default function DiscoverUser({ props }) {
+export default function DiscoverUser({ user }) {
     return(
-        <div className="discoverUser">
-            <img className="userPctuar" src={props.userImg} />
-            <div className="discoverUserName">{props.userName}</div>
-            <div className="userDescription">{props.location}</div>
-            <button className="exploreFollowButton">follow</button>
-        </div>
+        <li className="discoverUser">
+            <img className="userPctuar" src={user.userImg} />
+            <div className="discoverUserName">{user.userName}</div>
+            <div className="userDescription">{user.location}</div>
+            <BlueButton name={"follow"}/>
+        </li>
     )
 };
 
