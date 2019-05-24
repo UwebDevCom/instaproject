@@ -17,7 +17,7 @@ class FormLogin extends Component{
     }
 
 
-    /// ****** separate the inputs to the different components //  - and set the state with compunentwillUpdate
+
     fieldsHandler=(email, password)=>{
             this.setState({
                 inputValueEmail: email,
@@ -29,6 +29,8 @@ class FormLogin extends Component{
                 this.setState({ labelGoesUp: '',  fieldIsEmpty: true});
             }
     }
+
+
     async checkValidation(fnVal,myUser,postss){
        
         let istheUser = await theUser(this.state.inputValueEmail,this.state.inputValuePassword);
@@ -39,7 +41,6 @@ class FormLogin extends Component{
             postss(istheUser._id);
         }else{
             this.setState({loginFailed: true})
-
              }
     }
 
@@ -49,7 +50,7 @@ class FormLogin extends Component{
    render(){
     return (
         <div>
-            <form id="loginForm" onClick={this.onClickForm}>
+            <form id="loginForm" onSubmit={this.onClickForm}>
                 <ContextConsumer>
                             {(context)=>{
                                 return(

@@ -5,11 +5,14 @@ import AppRouter from './Components/appRouter/AppRouter';
 import { AppContext } from './AppContext/AppContext';
 
 export default function App() {
+  
   const context = useContext(AppContext);
+
     return (
-          <div className="App">
-            { context.state.isLoggedIn ? <AppRouter /> : <LoginFirst /> }
-          </div>
+      <div className="App">
+        { context.state.isLoggedIn ? <AppRouter /> : <LoginFirst />  }
+      </div>
     );
 }
+
 

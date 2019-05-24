@@ -1,4 +1,4 @@
-const SERVER_URL = 'http://localhost:8080/api/';
+const SERVER_URL = '/api/';
 
 class CommentService{
 constructor(){}
@@ -9,6 +9,18 @@ async fetchPosts() {
     return  posts;
 }
 
+
+async updatePost(post ,postId) {
+    await fetch(SERVER_URL +'posts/'+ postId, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(post)
+    });
+};
+
+
 async createComment(comment,postId) {
     await fetch(SERVER_URL +'comments/', {
         method: 'POST',
@@ -16,8 +28,17 @@ async createComment(comment,postId) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(comment)
-    });
-}
+        }).then(
+            response=>response.json()
+            .then(
+                (data)=>{
+                    fetch(SERVER_URL +'posts/'+postId).then(res=>res.json().then(dataPost=>{
+                        dataPost.comments.push(data._id)
+                        this.updatePost(dataPost, postId)
+                    }))
+                })  
+            );
+        }
 }
 
 
