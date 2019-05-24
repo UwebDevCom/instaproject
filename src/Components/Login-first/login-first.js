@@ -7,7 +7,6 @@ import android from './images/app-and.png';
 import windows from './images/app-win.png';
 import FormLogin from './FormLogin';
 import Slider from './Slider';
-import Footer from '../footer/Footer';
 
 export default function LoginFirst(props) {
     const context = useContext(AppContext);

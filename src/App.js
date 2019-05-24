@@ -3,7 +3,7 @@ import './app.scss';
 import LoginFirst from './Components/Login-first/login-first';
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { AppContext } from './AppContext/AppContext';
-import Footer from './Components/footer/Footer';
+import Footer from './Components/footer/footer';
 import UserPage from './Components/UserPage/';
 import Home from './Components/home/Home';
 import Explore from './Components/explore';
