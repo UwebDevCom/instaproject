@@ -23,13 +23,18 @@ p.title-create-post
 }
 .create-post-preview
 {
-    flex: 1;
+    flex: 1.5;
     background-color: #f4f4f4;
     display: flex;
 }
 .pop-container form 
 {
     padding: 2em;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 5% 0 10% 0;
 }
 .pop-container button.close-pop
 {
@@ -40,7 +45,7 @@ p.title-create-post
 .flex-and-split
 {
     display: flex;
-    min-height: 100%;
+    min-height: 87%;
 }
 .image-preview
 {
@@ -111,4 +116,23 @@ button#addNewPost
     color: #fff;
     position: relative;
     padding: .3em 1em;
+}
+form .post-caption , form .post-image
+{
+    display: flex;
+    flex-direction: column;
+}
+form .post-caption input, form .post-image input
+{
+    border: none;
+    border-bottom: 1px solid #909090;
+    margin-top: 1em;
+}
+form .post-image input
+{
+    margin-top: 1em;
+}
+form .post-caption input:focus , form .post-image input:focus
+{
+    outline: none;
 }
