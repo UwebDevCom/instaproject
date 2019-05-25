@@ -42,7 +42,6 @@ route.post('/api/users/register',async (req,res)=>{
         user = new User({
             "fullName": req.body.fullName,
             "userName": req.body.userName,
-            "userImg": req.body.userImg,
             "email": req.body.email,
             "password": req.body.password
         });

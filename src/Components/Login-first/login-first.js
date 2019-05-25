@@ -21,8 +21,7 @@ export default function LoginFirst(props) {
                         <Slider />    
                     </div>
                     <div className="login-area">
-                        <SignUp />
-                        {/* <div className="inner-login-area">
+                        <div className="inner-login-area">
                         <div className="logo-login"></div>
                         <div className="login-form">
                             <FormLogin {...props} />
@@ -45,7 +44,7 @@ export default function LoginFirst(props) {
                             <a href='https://link.link.co'><img alt='' src={android} /></a>
                             <a href='https://link.link.co'><img alt='' src={windows} /></a>
                         </div>
-                        </div> */}
+                        </div>
                     </div>
                 </div>
             </div>

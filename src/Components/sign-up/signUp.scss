@@ -4,6 +4,7 @@
     align-items: stretch;
     width: 350px;
     height: 564px;
+    margin-bottom: 10px;
     background-color: #fff;
     border: 1px solid #e6e6e6;
 
@@ -78,10 +79,8 @@
             font-size: 13px;
             color: #999;
             margin: 0 18px;
-            
         }
     }
-
 
     .input-box {
         display: flex;
@@ -125,6 +124,22 @@
     
             }
         }
+    }
+
+    p {
+        margin: 10px 60px;
+        font-size: 14px;
+        line-height: 18px;
+        text-align: center;
+        color: #999;
+        font-weight: 600;
+
+        a {
+            text-decoration: none;
+            color: #999;
+            font-weight: bold;
+        }
+
     }
 }
 

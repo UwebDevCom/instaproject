@@ -63,7 +63,6 @@ function validateUserReq(reqBody) {
     const schema = {
         fullName: Joi.string().required(),
         userName: Joi.string().required(),
-        userImg: Joi.string(),
         email: Joi.string().required().email({ minDomainSegments: 2 }),
         password: Joi.string().required()
     };
