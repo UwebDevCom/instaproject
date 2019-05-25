@@ -5,12 +5,11 @@ import { AppContext } from '../../AppContext/AppContext';
 import { Route } from 'react-router-dom';
 import UserPagePosts from '../UserPage/UserPagePosts';
 
-
 export default function Explore() {
     const context = useContext(AppContext);
 
     useEffect(()=> {
-        context.allUsers();
+        context.allUsers()
     }, []);
 
     return ( 

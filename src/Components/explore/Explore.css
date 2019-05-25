@@ -83,7 +83,7 @@
 
 .leftArrow
 {
-    background-image: url('../../Components/appRouter/images/f01fcb405c10.png');
+    /* background-image: url('../../Components/appRouter/images/f01fcb405c10.png'); */
     height: 24px;
     width: 24px;
     background-position: -371px -357px;
@@ -95,7 +95,7 @@
 
 .rightArrow
 {
-    background-image: url('../../Components/appRouter/images/f01fcb405c10.png');
+    /* background-image: url('../../Components/appRouter/images/f01fcb405c10.png'); */
     height: 24px;
     width: 24px;
     background-position: -371px -357px;
