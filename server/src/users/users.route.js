@@ -1,5 +1,5 @@
 const { User, validateUserReq } = require('./User.model');
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 const config = require('config');
 const jwt = require('jsonwebtoken');
 const { Router } = require ('express');
