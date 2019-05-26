@@ -1,7 +1,6 @@
 const { Router } = require ('express');
 const route = Router();
 const { User } = require('../users/User.model');
-const bcrypt = require('bcrypt');
 const Joi = require('@hapi/joi');
 
 route.post('/api/auth',async (req,res)=>{
@@ -13,10 +12,9 @@ route.post('/api/auth',async (req,res)=>{
         let user = await User.findOne({ email: req.body.email });
         if(!user) return res.status(400).send('Invalid email or password');
         //if user exist - compare password
-        const isPasswordValid = await (await bcrypt.compare(req.body.password, user.password) || req.body.password === user.password);
+        const isPasswordValid = req.body.password === user.password;
         if(!isPasswordValid) return res.status(400).send('Invalid email or password');
-        //create token
-        const token = user.generateAuthToken()
+
         res.send(user);
     } catch(err) {
     console.log(err.message)
