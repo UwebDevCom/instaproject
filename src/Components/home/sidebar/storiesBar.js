@@ -18,8 +18,7 @@ export default function StoriesBar(){
             <div className="stories-container-sidebar">
                 <div className="story-sidebar">        
                     <div className="header-flex">
-                        <Link to={`/${context.state.myLoggedInUser.userName}`} className="user-image"><img src={imageMe} alt='static img' /></Link>
-                
+                        <Link to={`/${context.state.loggedUser.userName}/`} className="user-image"><img src={imageMe} alt='static img' /></Link>
                         <div className="story-top-details"><Link to='/username'>Username</Link><p>19 hours ago</p></div>
                     </div>  
                 </div>

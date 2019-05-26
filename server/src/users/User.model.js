@@ -1,14 +1,11 @@
 const mongoose = require('mongoose');
-const validator = require('validator');
+const Joi = require('@hapi/joi');
+ 
 
-const UserSchema = mongoose.Schema({
-    name: {
+const UserSchema =  mongoose.Schema({
+    fullName: {
         type: String,
         require: true
-    },
-    lastName: {
-        type: String,
-        required: true
     },
     userName: {
         type: String,
@@ -17,14 +14,12 @@ const UserSchema = mongoose.Schema({
     userImg: {
         type: String,
     },
-    location: {
-        type: String,
-        required: true
-    },
     email: {
         type: String,
+        trim: true,
+        lowercase: true,
+        unique: true,
         required: true,
-        validate: [ validator.isEmail, 'invalid email']
     },
     registrationDate: {
         type: Date,
@@ -32,6 +27,7 @@ const UserSchema = mongoose.Schema({
     },
     password: {
         type: String,
+        required: true
     },
     following: [{
         type: mongoose.Schema.Types.ObjectId,
@@ -49,11 +45,21 @@ const UserSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Post'
     }]
-})
-
+});
 
 const User = mongoose.model('User', UserSchema);
 
+function validateUserReq(reqBody) {
+    const schema = {
+        fullName: Joi.string().required(),
+        userName: Joi.string().required(),
+        email: Joi.string().required().email({ minDomainSegments: 2 }),
+        password: Joi.string().required()
+    };
+    return Joi.validate(reqBody, schema);
+};
+
 module.exports = {
-    User
-}
+    User,
+    validateUserReq
+};

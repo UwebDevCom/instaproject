@@ -101,7 +101,7 @@ header.post-header
     align-items: center;
     justify-content: space-between;
 }
-button
+.article.post-wrap button
 {
     border: none;
     background-color: transparent;

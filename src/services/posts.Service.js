@@ -1,6 +1,11 @@
-const SERVER_URL = 'http://localhost:8080/api/';
+const SERVER_URL = '/api/';
 
 export default class PostsService{
+
+    async loggedUserSavedPosts(userId) {
+        const posts = await fetch(SERVER_URL + 'posts/' + userId + 'loggedUserSavedPosts');
+        return await posts.json();
+    }
 
     async fetchLoggedUserPosts(userId) {
         const posts = await fetch(SERVER_URL + 'posts/' + userId + '/loggedUserPosts');

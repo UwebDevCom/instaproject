@@ -1,23 +1,27 @@
-import React, {Component} from 'react';
+import React, { useContext } from 'react';
+import { AppContext } from '../../AppContext/AppContext'
 import Feed from './feed/Feed';
 import Sidebar from './sidebar/Sidebar';
-import './home.css';
+import './home.scss';
 
-class Home extends Component {
-    render(){
-        return(
-            <React.Fragment>
-               <div className="wrapper-home-page">
-                   <div className="feeds-home-page">
-                   <Feed key={this.props.uniqueKey} />
-                   </div>
-                   <div className="slider-homepage">
-                   <Sidebar />
-                   </div>
-               </div>
-            </React.Fragment>
-        )
-    }
+export default function Home() {
+	const context = useContext(AppContext)
+	if(!context.state.loggedUser) {
+		return 'loading'
+	} else {
+	return(
+		<React.Fragment>
+			<div className='wrapper'>
+				<div className="content">
+					<div className="feed">
+						<Feed />
+					</div>
+					<div className="slider">
+						<Sidebar />
+					</div>
+				</div>
+			</div>
+			</React.Fragment>
+	)}
 }
 
-export default Home;
