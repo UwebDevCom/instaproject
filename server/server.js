@@ -1,4 +1,5 @@
-const config = require('config')
+process.env.SUPPRESS_NO_CONFIG_WARNING = 'y';
+
 const users = require('./src/users/users.route');
 const posts = require('./src/posts/posts.route');
 const comments = require('./src/comments/comments.route');
@@ -7,11 +8,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const mongoAtlas = 'mongodb+srv://tomermatmon:tomermatmondb@instaproject-1ogpw.mongodb.net/test?retryWrites=true'
-
-if(!config.get('jwtPrivateKey')) {
-    console.error('FATAL ERROR: jwtPrivateKey is not defined');
-    process.exit(1);
-};
 
 const DB_URI = process.env.DB_URI || mongoAtlas || 'mongodb://localhost:27017/instaproject'
 mongoose.connect(DB_URI, { useNewUrlParser: true })
