@@ -3,8 +3,9 @@ import './signUp.scss';
 import LoginLink from '../login-link/LoginLink';
 import GetTheApp from '../get-the-app/GetTheApp';
 import { AppContext } from '../../AppContext';
+import Footer from '../footer/Footer';
 
-export default function SignUp() {
+export default function SignUp(props) {
     const context = useContext(AppContext);
 
     const [email, setEmail] = useState('');
@@ -16,20 +17,28 @@ export default function SignUp() {
     async function handleSubmit(e) {
         console.log('user submit in action')
         e.preventDefault();
-        if (email && fullName && userName && password) {
-            await context.actions.registerUser({
-                'email': email,
-                'fullName': fullName,
-                'userName': userName,
-                'password': password
-            })
-        } else {
-            alert('please fill all fields')
+        try {
+            if (email && fullName && userName && password) {
+                await context.actions.registerUser({
+                    'email': email,
+                    'fullName': fullName,
+                    'userName': userName,
+                    'password': password
+                })
+                .then(result => {
+                    context.actions.logUser(result);
+                    props.history.push('/')
+                })
+            } else {
+                alert('please fill all fields')
+            }
+        } catch(err) {
+            console.log(err)
         }
     }
 
     return (
-        <React.Fragment>
+        <div className='signup-page'>
             <div className='signUp'>
                 <div className='logo'></div>
                 <form onSubmit={handleSubmit}>
@@ -68,6 +77,8 @@ export default function SignUp() {
             </div>
             <LoginLink />
             <GetTheApp />
-        </React.Fragment>
+            <Footer />
+            
+        </div>
     )
 }

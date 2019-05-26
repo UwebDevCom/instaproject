@@ -9,7 +9,8 @@ export default function UserPagePosts() {
     const context = useContext(AppContext);
 
     useEffect(() => {
-        context.getUserPosts(context.state.loggedUser._id) 
+        console.log('getuserposts: ', context.state.loggedUser._id)
+        context.actions.getUserPosts(context.state.loggedUser._id) 
     },[])
 
     const UlContainer = styled.ul`
@@ -46,44 +47,42 @@ export default function UserPagePosts() {
         align-self: center;    
     `
 
-    if (!context) {
+    if (context) {
         return <DisplayGrid path={context.state.loggedUserPosts} />
     } else {
         return (
-            <Router>
-                <UlContainer>
-                    <li>
-                        <Container>
-                            <Icon></Icon>    
-                            <h1>Find Facebook Friends</h1>
-                            <p>You choose which friends to follow. We'll never post to Facebook without your permission.</p>
-                            <Button>
-                                <Link to=''>Connect to Facebook</Link>
-                            </Button>
-                        </Container>
-                    </li>
-                    <li>
-                        <Container>
-                            <Icon></Icon>    
-                            <h1>Add Phone Number</h1>
-                            <p>Add your phone number so you can reset your password, find friends and more.</p>
-                            <Button>
-                                <Link to=''>Connect to Facebook</Link>
-                            </Button>
-                        </Container>
-                    </li>
-                    <li>
-                        <Container>
-                            <Icon></Icon>    
-                            <h1>Add Profile Photo</h1>
-                            <p>Add a profile photo so your friends know it's you.</p>
-                            <Button>
-                                <Link to=''>Add Phone Number</Link>
-                            </Button>
-                        </Container>
-                    </li>
-                </UlContainer>
-             </Router>
+            <UlContainer>
+                <li>
+                    <Container>
+                        <Icon></Icon>    
+                        <h1>Find Facebook Friends</h1>
+                        <p>You choose which friends to follow. We'll never post to Facebook without your permission.</p>
+                        <Button>
+                            <Link to=''>Connect to Facebook</Link>
+                        </Button>
+                    </Container>
+                </li>
+                <li>
+                    <Container>
+                        <Icon></Icon>    
+                        <h1>Add Phone Number</h1>
+                        <p>Add your phone number so you can reset your password, find friends and more.</p>
+                        <Button>
+                            <Link to=''>Connect to Facebook</Link>
+                        </Button>
+                    </Container>
+                </li>
+                <li>
+                    <Container>
+                        <Icon></Icon>    
+                        <h1>Add Profile Photo</h1>
+                        <p>Add a profile photo so your friends know it's you.</p>
+                        <Button>
+                            <Link to=''>Add Phone Number</Link>
+                        </Button>
+                    </Container>
+                </li>
+            </UlContainer>
         )
     }  
 

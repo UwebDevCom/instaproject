@@ -5,7 +5,7 @@ import UsersService from '../../services/users.service';
 import { Redirect } from 'react-router-dom';
 const UserService = new UsersService();
 
-function FormLogin(props) {
+export default function FormLogin(props) {
     const context = useContext(AppContext);
     const [email, setEmail] = useState('gal123@gmail.com')
     const [password, setPassword] = useState('gal123')
@@ -13,17 +13,17 @@ function FormLogin(props) {
     const [labelGoesUp, setLable] = useState('false');
     const [loginFailed, setLogin] = useState(null);
 
-    //run handleSubmit on form submit - 
-    //<form id="loginForm" onSubmit={handleSubmit}>
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-            await UserService.userAuth(email, password)
+            const user = await UserService.userAuth(email, password)
                 .then(result => {
                     context.actions.logUser(result)
                     props.history.push("/")
+                  
                 })
         } catch(err) {
+            props.history.push("/login")
             console.log(err)
             setLogin(false)
         }
@@ -38,18 +38,6 @@ function FormLogin(props) {
             setField(true);
         }
     }
-
-    // async function authUser(fnVal,myUser,postss) {
-    //     let user = await UserService.userAuth(state.email, state.password);
-    //     if(user) {
-    //         setState({loginFailed: false})
-    //         fnVal();
-    //         myUser(user);
-    //         postss(user._id);
-    //     } else {
-    //         setState({loginFailed: true})
-    //         }
-    // }
 
     return (
         <div>
@@ -76,4 +64,3 @@ function FormLogin(props) {
     )
    
 }
-export default FormLogin;

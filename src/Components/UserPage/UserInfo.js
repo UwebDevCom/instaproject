@@ -1,14 +1,13 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext/';
 import './userInfo.scss';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Link, withRouter } from 'react-router-dom';
 
-export default function UserInfo() {	
+function UserInfo(props) {	
 	const context = useContext(AppContext);	
-	
+	console.log('user info props: ', props)
 	if (context.state.loggedUser) {
 		return (
-			<Router>
 				<header className='userInfo-header'>
 					<div className='userInfo-image'>
 						<img className='userInfo-img' alt='' src={context.state.loggedUser.userImg}/>
@@ -19,7 +18,7 @@ export default function UserInfo() {
 							<ul>
 								<li><span>{context.state.allPosts.length}</span> posts</li>
 								<li>
-									<Link to={`/${context.state.loggedUser.userName}/followers`}>
+									<Link to={`${props.match.url}/followers`}>
 									<span>{context.state.loggedUser.followers.length}</span> followers</Link>
 								</li>
 								<li><span>{context.state.loggedUser.following.length}</span> following</li>
@@ -28,9 +27,10 @@ export default function UserInfo() {
 						<div className='userInfo-name'>{context.state.loggedUser.userName}</div>
 					</section>
 				</header>
-			</Router>
 		)
 	} else { 
 		return <p>no userinfo to load</p>
 	}
 }
+
+export default UserInfo;

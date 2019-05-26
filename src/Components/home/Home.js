@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { AppContext } from '../../AppContext/AppContext'
 import Feed from './feed/Feed';
 import Sidebar from './sidebar/Sidebar';
-import Nav from '../Nav/Nav';
 import './home.scss';
 
 export default function Home() {
@@ -12,7 +11,6 @@ export default function Home() {
 	} else {
 	return(
 		<React.Fragment>
-			<Nav />
 			<div className='wrapper'>
 				<div className="content">
 					<div className="feed">

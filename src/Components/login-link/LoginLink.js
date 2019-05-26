@@ -1,14 +1,17 @@
 import React from 'react';
 import './loginLink.scss';
+import { withRouter } from 'react-router-dom';
 
-export default function LoginLink(props) {
+function LoginLink(props) {
     const message = props.message || 'Have an account?';
     const linkMessage = props.linkMessage || ' Login'
     const route = props.route || '/login'
 
     function handleClick() {
-        this.props.history.push({route})
+        props.history.push(route)
     }
+
+    // console.log(props)
 
     return(
         <div className='loginLink-container'>
@@ -19,4 +22,6 @@ export default function LoginLink(props) {
         </div>
     )
 }
+
+export default withRouter(LoginLink);
 

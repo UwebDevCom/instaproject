@@ -7,6 +7,9 @@ import windows from './images/app-win.png';
 import FormLogin from './FormLogin';
 import Slider from './Slider';
 import SignUp from '../sign-up/SignUp';
+import LoginLink from '../login-link/LoginLink';
+import Footer from '../footer/Footer';
+
 
 export default function LoginFirst(props) {
     const context = useContext(AppContext);
@@ -34,19 +37,17 @@ export default function LoginFirst(props) {
                             </div>
                         </div>
                         </div>
-                        <div className="sign-up">
-                            <span>Don't have an account?</span><a href="https://link.link.co">Sign Up</a>
-                        </div>
+                            <LoginLink message="don't have an account?" linkMessage=' Sign up' route='/signup' />
                         <div className="get-the-app">
                             <p>Get the app.</p>
                         <div className="get-apps">
                             <a href='https://link.link.co'><img alt='' src={apple} /></a>
                             <a href='https://link.link.co'><img alt='' src={android} /></a>
-                            <a href='https://link.link.co'><img alt='' src={windows} /></a>
                         </div>
                         </div>
                     </div>
                 </div>
+                <Footer />
             </div>
         )
     }
