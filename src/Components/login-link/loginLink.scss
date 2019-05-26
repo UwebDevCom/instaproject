@@ -1,0 +1,34 @@
+.loginLink-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 350px;
+    margin-bottom: 10px;
+    padding: 10px 0;
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+
+    div {
+        display: block;
+    }
+
+    p {
+        text-align: center;
+        font-size: 14px;
+        margin: 15px;
+        color: #262626;
+    }
+    a {
+        text-decoration: none;
+        color: #3897f0;
+        font-weight: 600;
+
+        &:active {
+            opacity: .5;
+        }
+
+        &:visited {
+            color: #3897f0;
+        }
+    }
+}
