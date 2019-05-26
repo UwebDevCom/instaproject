@@ -58,13 +58,18 @@ export default class UsersService {
         });
     }
 
-    async createUser(userData) {
-        await fetch(SERVER_URL + 'users/', {
+    async registerUser(userData) {
+        console.log('user service data:', userData);
+        const user = await fetch(SERVER_URL + 'users/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(userData)
         })
+        .then(response => response.json())
+        .then(user => console.log('user from server: ',user))
+        .catch(error => console.log('this is error; ',error))
+        return user;
     }
 }

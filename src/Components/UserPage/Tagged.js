@@ -5,9 +5,9 @@ import './tagged.scss';
 
 export default function Saved() {
     const context = useContext(AppContext);
-    console.log(context.state.myLoggedInUser)
-    if(context.state.myLoogedInUser.postMentions) {
-        return <DisplayGrid path={context.state.myLoogedInUser.postMentions} />
+    console.log(context.state.loggedUser)
+    if(context.state.loggedUser.postMentions) {
+        return <DisplayGrid path={context.state.loggedUser.postMentions} />
     }
     return (
         <div className='tagged-container'>

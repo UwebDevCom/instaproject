@@ -5,17 +5,17 @@ const jwt = require('jsonwebtoken');
 const { Router } = require ('express');
 const route = Router();
 
-// route.get('/api/users/', async (req, res) => {
-//     try {
-//        const user = await User.find({
-//            email: new RegExp(req.query.name, 'i')
-//         })
-//         res.send(user)
-//     } catch(err) {
-//         console.log(err.message)
-//         res.status(400).send(err.message);
-//     }
-// });
+route.get('/api/users/', async (req, res) => {
+    try {
+       const user = await User.find({
+           email: new RegExp(req.query.name, 'i')
+        })
+        res.send(user)
+    } catch(err) {
+        console.log(err.message)
+        res.status(400).send(err.message);
+    }
+});
 
 
 route.get('/api/users/:userId', async (req, res) => {
@@ -30,7 +30,7 @@ route.get('/api/users/:userId', async (req, res) => {
 });
 
 // create new user
-route.post('/api/users',async (req,res)=>{
+route.post('/api/users/register',async (req,res)=>{
     try {
         //validate request
         const { error } = validateUserReq(req.body);
@@ -40,11 +40,8 @@ route.post('/api/users',async (req,res)=>{
         if (user) return res.status(400).send('User already registered');
         //if user does not exist - creat new user with predefined parameters
         user = new User({
-            "name": req.body.name,
-            "lastName": req.body.lastName,
+            "fullName": req.body.fullName,
             "userName": req.body.userName,
-            "userImg": req.body.userImg,
-            "location": req.body.location,
             "email": req.body.email,
             "password": req.body.password
         });

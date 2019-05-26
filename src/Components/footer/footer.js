@@ -1,14 +1,13 @@
 
 import React from 'react';
- import './footer.css';
+import './footer.css';
 import styled from 'styled-components';
 export default function Footer(props){
     const Footer = styled.footer`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 130px;
-    margin-top: ${props.margin}; 
+    height: 104px;
     `;
     const Ul = styled.ul`
     list-style: none;

@@ -13,6 +13,7 @@ export default function ListBox() {
         width: 100vw;
         height: 100vh;
         background-color: rgba(0,0,0,.5);
+        z-index:99999;
         `
 
     return (

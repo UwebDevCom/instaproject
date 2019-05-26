@@ -85,7 +85,7 @@ class Post extends Component{
         <article id={this.state._id} className="post-wrap">
             <header className="post-header">
                <div className="header-flex">
-             <Link to={`/${context.state.myLoggedInUser.userName}`} className="user-image"><img src={this.state.author.userImg} alt={context.state.myLoggedInUser._id}/></Link>
+             <Link to={`/${context.state.loggedUser.userName}`} className="user-image"><img src={this.state.author.userImg} alt={context.state.loggedUser._id}/></Link>
                 <div className="post-user-top-details"><Link to='/username'>{this.state.author.name}</Link><p>{this.state.author.location}</p></div>
                </div>
                 <p href="#" className="post-settings">...</p>
@@ -94,12 +94,12 @@ class Post extends Component{
            <div className="interaction">
            <div className="features">
               <div className="buttons">
-              <button><span onClick={()=>this.functionLike(this.state._id,context.state.myLoggedInUser._id)} className={this.state.isLiked? 'like-btn liked':'like-btn unliked'}></span></button> 
+              <button><span onClick={()=>this.functionLike(this.state._id,context.state.loggedUser._id)} className={this.state.isLiked? 'like-btn liked':'like-btn unliked'}></span></button> 
               <button><span className="comment-btn"></span></button> 
               <button><span className="share-btn"></span></button> 
               </div>
               <div className="save-it">
-              <button onClick={()=>{this.savedPost(context.state.myLoggedInUser._id,context.state.myLoggedInUser.savedPosts)}}><span className={ this.state.saved ? "post-saved" : "save-btn"}></span></button> 
+              <button onClick={()=>{this.savedPost(context.state.loggedUser._id,context.state.loggedUser.savedPosts)}}><span className={ this.state.saved ? "post-saved" : "save-btn"}></span></button> 
               </div>
            </div>
            <div className="like-counter">
@@ -136,7 +136,7 @@ class Post extends Component{
             </div>
            </div>
            <div className="add-a-comment">
-              <CommentForm authorId={context.state.myLoggedInUser._id} postId={this.state._id} commentsArr={this.state.comments} addCommentFn={(com)=>this.addComment(com)} />
+              <CommentForm authorId={context.state.loggedUser._id} postId={this.state._id} commentsArr={this.state.comments} addCommentFn={(com)=>this.addComment(com)} />
             </div>
         </article>
         )} else return (<p>no posts</p>)}}

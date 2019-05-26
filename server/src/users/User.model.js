@@ -5,22 +5,15 @@ const config = require('config')
  
 
 const UserSchema =  mongoose.Schema({
-    name: {
+    fullName: {
         type: String,
         require: true
-    },
-    lastName: {
-        type: String,
-        required: true
     },
     userName: {
         type: String,
         required: true
     },
     userImg: {
-        type: String,
-    },
-    location: {
         type: String,
     },
     email: {
@@ -68,11 +61,8 @@ const User = mongoose.model('User', UserSchema);
 
 function validateUserReq(reqBody) {
     const schema = {
-        name: Joi.string().required(),
-        lastName: Joi.string().required(),
+        fullName: Joi.string().required(),
         userName: Joi.string().required(),
-        userImg: Joi.string(),
-        location: Joi.string(),
         email: Joi.string().required().email({ minDomainSegments: 2 }),
         password: Joi.string().required()
     };

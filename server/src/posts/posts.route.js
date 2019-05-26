@@ -36,7 +36,7 @@ route.get('/api/posts/:userId/loggedUserSavedPosts', async (req, res) => {
     try {
         //find post by id, populate and return
         const post = await User.findById(req.params.userId)
-        .populate('savedPosts').select('savedPosts');
+        .populate('savedPosts');
 
         res.send(post);
     } catch(err) {

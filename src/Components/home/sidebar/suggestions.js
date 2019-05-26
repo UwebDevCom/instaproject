@@ -39,7 +39,7 @@ const usersData = new UsersService();
                                                 <ContextConsumer>
                                                 {
                                                     (context) => {
-                                                        if (context.state.myLoggedInUser.following.includes(userSug._id) ) {
+                                                        if (context.state.loggedUser.following.includes(userSug._id) ) {
                                                             return (<button>Unfollow </button>)
                                                         }else{
                                                             return (<button>follow </button>)
