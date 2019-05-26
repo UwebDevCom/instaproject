@@ -5,20 +5,11 @@ import { AppContext } from '../../AppContext/AppContext';
 import { Route } from 'react-router-dom';
 import UserPagePosts from '../UserPage/UserPagePosts';
 
-class Explore extends Component {
-    render(){
-        return(
-            <ContextConsumer>
-                {(context) =>{
-                    return ( 
-                        <div className="explorContainer">
-                        hello
-                        </div>
-                    )
-                }}
-            </ContextConsumer>
-        )
-    }
+export default function Explore() {
+ 
+    return ( 
+        <div className="explorContainer">
+        hello
+        </div>
+    )
 }
-
-export default Explore; 
