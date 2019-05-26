@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import NagiaLeze from '../../nagia/Nagia';
 import {Link, BrowserRouter as Router} from 'react-router-dom';
 import UsersService from '../../../services/users.service';
 import { ContextConsumer } from '../../../AppContext/AppContext';
@@ -32,7 +31,7 @@ const usersData = new UsersService();
            <div className="sugestions-friends-homepage">
                 <div className="header-sidebar">
                         <p>Suggestions For You</p>
-                        <Link to='#'>See All</Link>
+                        <Link to='#'>See All<span className="tooltip">נגיע לזה...</span></Link> 
                         </div>
                         {this.state.getSuggestions ? this.state.getSuggestions.map((userSug)=>{
                             return (

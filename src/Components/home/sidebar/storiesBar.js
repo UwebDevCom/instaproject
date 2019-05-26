@@ -12,7 +12,7 @@ export default function StoriesBar(){
           
             <div className="header-sidebar">
                 <p>Stories</p>
-                <Link to='#'>Watch All</Link>
+                <Link to='#'>Watch All<span className="tooltip">נגיע לזה...</span></Link>
             </div>
 
             <div className="stories-container-sidebar">

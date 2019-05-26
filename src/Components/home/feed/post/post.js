@@ -104,8 +104,8 @@ class Post extends Component{
            <div className="features">
               <div className="buttons">
               <button><span onClick={()=>this.functionLike(this.state._id,context.state.myLoggedInUser._id)} className={this.state.isLiked? 'like-btn liked':'like-btn unliked'}></span></button> 
-              <button><span className="comment-btn"></span></button> 
-              <button><span className="share-btn"></span></button> 
+              <button onClick={()=>this.spillComments()}><span className="comment-btn"></span></button> 
+              <button onClick={()=>{this.handleNagiaLeze()}}><span className="share-btn"></span></button> 
               </div>
               <div className="save-it">
               <button onClick={()=>{this.savedPost(context.state.myLoggedInUser._id,context.state.myLoggedInUser.savedPosts)}}><span className={ this.state.saved ? "post-saved" : "save-btn"}></span></button> 
