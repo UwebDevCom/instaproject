@@ -9,7 +9,7 @@ class Home extends Component {
             <React.Fragment>
                <div className="wrapper-home-page">
                    <div className="feeds-home-page">
-                   <Feed />
+                   <Feed key={this.props.uniqueKey} />
                    </div>
                    <div className="slider-homepage">
                    <Sidebar />

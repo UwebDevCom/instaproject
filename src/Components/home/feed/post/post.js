@@ -5,6 +5,8 @@ import UserService from '../../../../services/users.service';
 import Comments from './comments';
 import { ContextConsumer } from '../../../../AppContext/AppContext';
 import CommentForm from './CommentForm';
+import NagiaLeze from '../../../nagia/Nagia';
+
 
 const updateLikeInPost = new PostsService();
 const updateSavedPost = new UserService();
@@ -17,7 +19,8 @@ class Post extends Component{
             saved: null,
             userLoggedIn: this.props.user,
             hasComments: false,
-            newComment: ''
+            newComment: '',
+            nagiaLeze: false
         }
     }
     
@@ -73,11 +76,17 @@ class Post extends Component{
             newComment: comment
         });
     }
+    handleNagiaLeze(){
+        this.setState({
+            nagiaLeze: !this.state.nagiaLeze
+        });
+    }
  
     render() { 
         return(
             <Router>
             <React.Fragment>
+                {this.state.nagiaLeze ? <NagiaLeze closePop={()=>this.handleNagiaLeze()} activate= {this.state.nagiaLeze} /> : ''}
                 <ContextConsumer>
                     {(context)=>{
                         if (this.state.author) {
@@ -88,7 +97,7 @@ class Post extends Component{
              <Link to={`/${context.state.myLoggedInUser.userName}`} className="user-image"><img src={this.state.author.userImg} alt={context.state.myLoggedInUser._id}/></Link>
                 <div className="post-user-top-details"><Link to='/username'>{this.state.author.name}</Link><p>{this.state.author.location}</p></div>
                </div>
-                <p href="#" className="post-settings">...</p>
+                <p onClick={()=>{this.handleNagiaLeze()}} href="#" className="post-settings">...</p>
             </header>
             <div className="visual"><img src={this.state.image} alt="" /></div>
            <div className="interaction">

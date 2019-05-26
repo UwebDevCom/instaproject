@@ -73,6 +73,7 @@ header.post-header
     position: relative;
     top: -8px;
     margin: 0;
+    cursor: pointer;
 }
 
 .visual

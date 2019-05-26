@@ -43,7 +43,7 @@ class AppRouter extends Component{
                             </header>
                             <main>
                                 <Switch>
-                                    <Route exact path='/' component={Home}  />
+                                    <Route exact path='/' render={()=>(<Home uniqueKey={'327r8efy47'} />)}  />
                                     <Route exact path={`/${context.state.myLoggedInUser.userName}/`} component={UserPage} />
                                     <Route exact path='/explore/' component={Explore} />
                                     <Route exact path={'/:name/followers'} component={ListBox} />

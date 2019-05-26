@@ -4,10 +4,6 @@ import Post from './post/post';
 import { ContextConsumer } from '../../../AppContext/AppContext';
 
 class Feed extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render(){
         return(
          <React.Fragment>

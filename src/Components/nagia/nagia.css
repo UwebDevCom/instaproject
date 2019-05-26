@@ -1,0 +1,24 @@
+.image-nagia
+{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+}
+
+.image-nagia img
+{
+    width: 200px;
+    display: inline-block;
+}
+
+.image-wrapper
+{
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    overflow: hidden;
+}

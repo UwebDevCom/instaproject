@@ -1,8 +1,6 @@
 const SERVER_URL = '/api/';
 
 class CommentService{
-constructor(){}
-
 async fetchPosts() {
     const data = await fetch(SERVER_URL + 'posts');
     const posts = await data.json();
