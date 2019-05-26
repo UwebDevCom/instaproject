@@ -1,5 +1,3 @@
-process.env.SUPPRESS_NO_CONFIG_WARNING = 'y';
-
 const users = require('./src/users/users.route');
 const posts = require('./src/posts/posts.route');
 const comments = require('./src/comments/comments.route');

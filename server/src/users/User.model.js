@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Joi = require('@hapi/joi');
-const config = require('config')
  
 
 const UserSchema =  mongoose.Schema({
