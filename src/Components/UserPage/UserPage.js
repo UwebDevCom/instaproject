@@ -49,6 +49,7 @@ function UserPage(props) {
 							<Route path={`/:name/saved`} component={Saved} />
 							<Route path={`/:name/tagged`} component={Tagged} />
 							<Route path={`/:name/followers`} component={ListBox} />
+							<Route path={`/:name/following`} component={ListBox} />
 						</Switch>
 					</div>
 				</div>

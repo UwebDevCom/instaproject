@@ -9,7 +9,7 @@ export default function UserPagePosts() {
     const context = useContext(AppContext);
 
     useEffect(() => {
-        console.log('getuserposts: ', context.state.loggedUser._id)
+        console.log('getuserposts: ', context.state.loggedUser)
         context.actions.getUserPosts(context.state.loggedUser._id) 
     },[])
 
