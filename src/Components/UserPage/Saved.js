@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect }from 'react';
 import Context, { AppContext } from '../../AppContext/AppContext';
-import DisplayGrid from '../displayGrid/DisplayGrid';
+import PhotoGallery from '../PhotoGallery/PhotoGallery';
 import PostsService from '../../services/posts.Service';
 import './saved.scss';
 
