@@ -1,10 +1,6 @@
 const { Router } = require ('express');
 const route = Router();
 const { User } = require('../users/User.model');
-<<<<<<< HEAD
-// const bcrypt = require('bcrypt');
-=======
->>>>>>> 2de9a7d99152e582260665a4f70145cbdef807e0
 const Joi = require('@hapi/joi');
 
 route.post('/api/auth',async (req,res)=>{

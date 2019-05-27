@@ -1,21 +1,13 @@
 const { User, validateUserReq } = require('./User.model');
-<<<<<<< HEAD
-// const bcrypt = require('bcrypt');
-const config = require('config');
-const jwt = require('jsonwebtoken');
-=======
->>>>>>> 2de9a7d99152e582260665a4f70145cbdef807e0
 const { Router } = require ('express');
 const route = Router();
 
+//get all users
 route.get('/api/users/', async (req, res) => {
     try {
-       const user = await User.find({
-           email: new RegExp(req.query.name, 'i')
-        })
+       const user = await User.find()
         res.send(user)
     } catch(err) {
-        console.log(err.message)
         res.status(400).send(err.message);
     }
 });

@@ -13,7 +13,8 @@ export default class Context extends React.Component {
         isLoggedIn: false,  //|| JSON.parse(localStorage.getItem('myData')),
         loggedUser: null, //|| JSON.parse(localStorage.getItem('userId')),
         allPosts:[],
-        loggedUserPosts:[]
+        loggedUserPosts:[],
+        allUsers: []
     }
 
     actions = {
@@ -25,7 +26,12 @@ export default class Context extends React.Component {
         },
         getPosts: (userId) => PostService.fetchPosts(userId).then(response => this.setState({ allPosts: response})),
         getUserPosts: (userId) => PostService.fetchLoggedUserPosts(userId).then(response => this.setState({loggedUserPosts: response})),
-        registerUser: (userData) => UserService.registerUser(userData).then(response => this.actions.logUser(response))
+        registerUser: (userData) => UserService.registerUser(userData).then(response => this.actions.logUser(response)),
+        allUsers: () => UserService.fetchSuggestionsUsers()
+                    .then(response => {
+                        console.log('all users from server: ', response)
+                        this.setState({ allUsers: response })}
+                    ),
     }
      
     render() { 
