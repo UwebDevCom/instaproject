@@ -21,7 +21,7 @@ export default function LoginFirst(props) {
             <div className="container-login">
                 <div className="inner-container">
                     <div className="image-slides">
-                        {/* <Slider />     */}
+                        <Slider />
                     </div>
                     <div className="login-area">
                         <div className="inner-login-area">

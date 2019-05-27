@@ -2,13 +2,17 @@ import React, {Component} from 'react';
 import {Link, BrowserRouter as Router} from 'react-router-dom';
 import UsersService from '../../../services/users.service';
 import { ContextConsumer } from '../../../AppContext/AppContext';
+
+
 const usersData = new UsersService();
    
  class Suggestions extends Component{
     constructor(props){
         super(props);
         this.state = {
-            getSuggestions: null
+            getSuggestions: null,
+            nagiaLeze: true
+
         }
     }
     async getSuggestions() {
@@ -20,14 +24,14 @@ const usersData = new UsersService();
     componentDidMount(){
         this.getSuggestions()
     }
-    
+  
     render() {  
     return (
-        <Router>
+        <Router> 
            <div className="sugestions-friends-homepage">
                 <div className="header-sidebar">
                         <p>Suggestions For You</p>
-                        <p>See All</p>
+                        <Link to='#'>See All<span className="tooltip">נגיע לזה...</span></Link> 
                         </div>
                         {this.state.getSuggestions ? this.state.getSuggestions.map((userSug)=>{
                             return (

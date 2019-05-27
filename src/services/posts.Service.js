@@ -1,4 +1,4 @@
-const SERVER_URL = 'http://localhost:8080/api/';
+const SERVER_URL = '/api/';
 
 export default class PostsService{
 

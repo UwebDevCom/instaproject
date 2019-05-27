@@ -1,12 +1,12 @@
 import React ,{useState}  from 'react';
 import AddPostButton from './AddPostButton';
-import CreatePostForm from './CreatePostForm';
-import CreatePostInside from './CreatePostInside';
+import PopupForm from '../../../popup-form/PopupForm';
+import CreatePostContent from './CreatePostContent';
 import './create-post.css';
 
 
 
-export default function createPost(){
+export default function createPost(props){
     
     const [isClicked, changeIt] = useState(false);
 
@@ -16,7 +16,12 @@ export default function createPost(){
     
     return(
         <React.Fragment>
-            {isClicked ? <CreatePostForm><CreatePostInside clickBtnClose={(changeByClick)=>isClickedFn(changeByClick)} /></CreatePostForm> : <AddPostButton clickBtn={(changeByClick)=>isClickedFn(changeByClick)} /> }
+            {isClicked ? 
+            <PopupForm activate={isClicked}>
+                <CreatePostContent
+                    clickBtnClose={(changeByClick)=>isClickedFn(changeByClick)} />
+                    </PopupForm> :
+                        <AddPostButton clickBtn={(changeByClick)=>isClickedFn(changeByClick)} /> }
         </React.Fragment>
     )
 }

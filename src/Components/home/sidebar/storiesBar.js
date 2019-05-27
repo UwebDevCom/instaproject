@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import imageMe from './yair_image.png';
 import {Link } from 'react-router-dom';
 import {AppContext} from '../../../AppContext/AppContext'; 
+
 export default function StoriesBar(){
 
     const context = useContext(AppContext);
@@ -11,7 +12,7 @@ export default function StoriesBar(){
           
             <div className="header-sidebar">
                 <p>Stories</p>
-                <p>Watch All</p>
+                <Link to='#'>Watch All<span className="tooltip">נגיע לזה...</span></Link>
             </div>
 
             <div className="stories-container-sidebar">

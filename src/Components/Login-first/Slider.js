@@ -39,10 +39,10 @@ function Slider(){
 
         const img =(
         <React.Fragment>
-        <img className={'fixed'} src={slide1} alt="image" />
-        <img className={'fixed'} src={slide2} alt="image" />
-        <img className={'fixed'} src={slide3} alt="image" />
-        <img className={'fixed'} src={slide4} alt="image" />
+        <img className={'fixed'} src={slide1} alt="image1" />
+        <img className={'fixed'} src={slide2} alt="image2" />
+        <img className={'fixed'} src={slide3} alt="image3" />
+        <img className={'fixed'} src={slide4} alt="image4" />
         </React.Fragment>
         );
         return (

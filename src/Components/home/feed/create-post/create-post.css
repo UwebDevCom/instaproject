@@ -26,6 +26,9 @@ p.title-create-post
     flex: 1.5;
     background-color: #f4f4f4;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 .pop-container form 
 {
@@ -54,8 +57,10 @@ p.title-create-post
     margin: 30% auto;
     height: 25px;
     position: relative;
+    display: block;
+    overflow: hidden;
 }
-.image-preview::before
+/* .image-preview::before
 {
     content: 'Preview';
     position: absolute;
@@ -64,7 +69,7 @@ p.title-create-post
     transform: translate(-50%, -50%);
     color: #909090;
     margin-top: 20px;
-}
+} */
 .layoutDiv
 {
     width: 100vw;
@@ -135,4 +140,34 @@ form .post-image input
 form .post-caption input:focus , form .post-image input:focus
 {
     outline: none;
+}
+
+.preview-wrapper
+{
+    padding: 1em;
+    word-break: break-all;
+    background-color: #fff;
+    width: 200px;
+    line-break: auto;
+    max-width: 200px;
+    margin: auto;
+}
+.preview-wrapper img
+{
+    display: block;
+    width: 100%;
+}
+.preview-wrapper .preview-caption
+{
+    width: 200px;
+    line-break: auto;
+    max-width: 200px;
+    font-size: .7em; 
+    margin: .3em;
+    text-align: left;
+}
+
+.preview-wrapper .features
+{
+    zoom:0.6;
 }

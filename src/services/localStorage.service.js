@@ -9,7 +9,6 @@ export default class SaveLocalStorage{
 
     saveUserOnLogin() {
         let localData = JSON.parse(localStorage.getItem('myData'));
-        console.log(localData);
         if ( localData === null || localData===false) {
           localStorage.setItem('myData', this.isLoggedIn);
         }else{
