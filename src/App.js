@@ -1,7 +1,6 @@
 import React, { useContext }from 'react';
 import './app.scss';
-import {BrowserRouter as Router, Route, Switch, withRouter } from 'react-router-dom';
-import { AppContext } from './AppContext/AppContext';
+import {BrowserRouter as Router, Switch, withRouter } from 'react-router-dom';
 import Footer from './Components/footer/Footer';
 import UserPage from './Components/UserPage/';
 import Home from './Components/home/Home';
@@ -10,7 +9,6 @@ import PrivateRoute from './Components/auth/PrivateRoute';
 import Nav from './Components/Nav/Nav';
 
 function App() {
-	const context = useContext(AppContext)
 	return (
 		<Router>
 			<div className='App'>

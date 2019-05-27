@@ -25,19 +25,19 @@ function UserPage(props) {
 						</NavLink>
 						<NavLink to={`${props.match.url}/channel`} activeClassName='active'>
 							<span className='text-container'>
-								<div className='channel-sprite'>⍰</div>
+								<div className='channel-sprite'/>
 								<span> IGTV</span>
 							</span>
 						</NavLink>
 						<NavLink to={`${props.match.url}/saved`} activeClassName='active'>
 							<span className='text-container'>
-								<div className='saved-sprite'>⍰</div>
+								<div className='saved-sprite'/>
 								<span> Saved</span>
 							</span>
 						</NavLink>
 						<NavLink to={`${props.match.url}/tagged`} activeClassName='active'>
 							<span className='text-container'>
-								<div className='tagged-sprite'>⍰</div>
+								<div className='tagged-sprite'/>
 								<span> Tagged</span>
 							</span>
 						</NavLink>

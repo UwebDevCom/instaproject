@@ -52,13 +52,11 @@
         height: 12px;
         width: 12px;
         background-image: url(https://www.instagram.com/static/bundles/es6/sprite_core_2x_6ba81dcece9b.png/6ba81dcece9b.png);
-        background-position-x: -177px;
-        background-position-y: -366px;
+        background-position: -177px -366px;
         background-size: 410px 396px;
         
-        .selected {
-            background-position-x: -189px;
-            background-position-y: -366px;
+        &:active {
+            background-position: -189px 366px;
         }
     }
     
@@ -67,26 +65,35 @@
         height: 12px;
         width: 12px;
         background-image: url(https://www.instagram.com/static/bundles/es6/sprite_core_2x_6ba81dcece9b.png/6ba81dcece9b.png);
-        background-position-x: -177px;
-        background-position-y: -366px;
+        background-position: -164px -366px;
         background-size: 410px 396px;
+
+        &:active {
+            background-position: 410px 396px;
+        }
+    }
+    .saved-sprite {
+        display: inline-block;
+        height: 12px;
+        width: 12px;
+        background-image: url(https://www.instagram.com/static/bundles/es6/sprite_core_2x_6ba81dcece9b.png/6ba81dcece9b.png);
+        background-position: -401px -13px;
+        background-size: 410px 396px;
+
+        &:active {
+            background-position: -401px -13px;
+        }
     }
     .tagged-sprite {
         display: inline-block;
         height: 12px;
         width: 12px;
         background-image: url(https://www.instagram.com/static/bundles/es6/sprite_core_2x_6ba81dcece9b.png/6ba81dcece9b.png);
-        background-position-x: -177px;
-        background-position-y: -366px;
+        background-position: -315px -319px;
         background-size: 410px 396px;
-    }
-    .tagged-sprite {
-        display: inline-block;
-        height: 12px;
-        width: 12px;
-        background-image: url(https://www.instagram.com/static/bundles/es6/sprite_core_2x_6ba81dcece9b.png/6ba81dcece9b.png);
-        background-position-x: -177px;
-        background-position-y: -366px;
-        background-size: 410px 396px;
+
+        &:active {
+            background-position: -315px -319px;
+        }
     }
 }
