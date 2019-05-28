@@ -10,8 +10,8 @@ const UserService = new UserSerive();
 
 export default class Context extends React.Component {
     state = {
-        isLoggedIn: false,  //|| JSON.parse(localStorage.getItem('myData')),
-        loggedUser: null, //|| JSON.parse(localStorage.getItem('userId')),
+        isLoggedIn: false || JSON.parse(localStorage.getItem('myData')),
+        loggedUser: null || JSON.parse(localStorage.getItem('userId')),
         allPosts:[],
         loggedUserPosts:[]
     }

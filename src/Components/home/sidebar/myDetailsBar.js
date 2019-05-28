@@ -12,7 +12,7 @@ export default function myDetailsBar(props) {
                     <Link className="image-profile-sidebar" to={`/${context.state.loggedUser._id}`}> <img src={context.state.loggedUser.userImg} alt="#" /> </Link>
                    <div className="me-profile-content">
                    <Link to={`/${context.state.loggedUser.userName}`}> {context.state.loggedUser.userName} </Link>
-                    <p>{context.state.loggedUser.name + ' ' + context.state.loggedUser.lastName}</p>
+                    <p>{context.state.loggedUser.fullName}</p>
                    </div>
                 </div>) :  console.log(context.state)
            

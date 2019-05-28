@@ -45,6 +45,7 @@ class Post extends Component{
 
 
     async functionLike(postId,userId){
+        console.log(postId,userId);
        await updateLikeInPost.updatePostLikes(postId,userId);
        let x = await updateLikeInPost.fetchSinglePost(postId);
        this.setState({
@@ -103,7 +104,7 @@ class Post extends Component{
            <div className="interaction">
            <div className="features">
               <div className="buttons">
-              <button><span onClick={()=>this.functionLike(this.state._id,context.state.myLoggedInUser._id)} className={this.state.isLiked? 'like-btn liked':'like-btn unliked'}></span></button> 
+              <button><span onClick={()=>this.functionLike(this.state._id,context.state.loggedUser._id)} className={this.state.isLiked? 'like-btn liked':'like-btn unliked'}></span></button> 
               <button onClick={()=>this.spillComments()}><span className="comment-btn"></span></button> 
               <button onClick={()=>{this.handleNagiaLeze()}}><span className="share-btn"></span></button> 
               </div>

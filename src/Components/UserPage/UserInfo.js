@@ -33,7 +33,7 @@ function UserInfo(props) {
 								</li>
 							</ul>
 						</div>
-						<div className='name'>{context.state.loggedUser.name}</div>
+						<div className='name'>{context.state.loggedUser.fullName}</div>
 					</section>
 				</header>
 		)

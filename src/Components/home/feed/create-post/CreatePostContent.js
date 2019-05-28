@@ -8,7 +8,7 @@ export default function createPost(props){
     
     const context = useContext(AppContext);
     const CreatePost = new PostsService();
-    const author = context.state.myLoggedInUser._id;
+    const author = context.state.loggedUser._id;
 
     const [isBtnClickedClose, changeBtnClose] = useState(false);
     const [currentCaption, changeCaption] = useState("");
@@ -39,8 +39,9 @@ export default function createPost(props){
     return(
     <React.Fragment>
        <button className="close-pop"
-            onKeyPress={(event)=>{if (event.key==="Escape"){props.clickBtnClose(isBtnClickedClose)}}}
+            //onKeyPress={(event)=>{if (event.key==="Escape"){props.clickBtnClose(isBtnClickedClose)}}}
             onClick={()=>props.clickBtnClose(isBtnClickedClose)}>
+            X
         </button>
         <p className="title-create-post">Create new Post</p>
         <hr className="line-create-post" />

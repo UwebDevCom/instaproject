@@ -16,7 +16,7 @@ export default function Home() {
 					<div className="feed">
 						<Feed />
 					</div>
-					<div className="slider">
+					<div className="slider-homepage">
 						<Sidebar />
 					</div>
 				</div>
