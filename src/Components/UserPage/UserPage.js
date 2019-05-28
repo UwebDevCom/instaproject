@@ -8,6 +8,7 @@ import Channel from './Channel';
 import Saved from './Saved';
 import Tagged from './Tagged';
 import ListBox from '../listBox/ListBox';
+import PostViewer from '../post-viewer/PostViewer';
 
 function UserPage(props) {
 	const context = useContext(AppContext);
@@ -44,11 +45,13 @@ function UserPage(props) {
 					</div>
 					<div className='userPage-content'>
 						<Switch>
-							<Route exact path={`/:name/`} component={UserPagePosts} />
-							<Route path={`/:name/channel`} component={Channel} />
-							<Route path={`/:name/saved`} component={Saved} />
-							<Route path={`/:name/tagged`} component={Tagged} />
-							<Route path={`/:name/followers`} component={ListBox} />
+							<Route exact path={'/:name/'} component={UserPagePosts} />
+							<Route path={'/:name/channel'} component={Channel} />
+							<Route path={'/:name/saved'} component={Saved} />
+							<Route path={'/:name/tagged'} component={Tagged} />
+							<Route path={'/:name/followers'} render={() => <ListBox listArray={context.state.loggedUser.followers} />} />
+							<Route path={'/:name/following'} render={() => <ListBox listArray={context.state.loggedUser.following} />} />
+							<Route path={'/p/:post'} component={PostViewer} />
 						</Switch>
 					</div>
 				</div>

@@ -33,15 +33,11 @@ route.get('/api/posts/:userId/loggedUserPosts', async (req, res) => {
 });
 
 route.get('/api/posts/:userId/loggedUserSavedPosts', async (req, res) => {
-    try {
-        //find post by id, populate and return
-        const post = await User.findById(req.params.userId)
-        .populate('savedPosts');
-
-        res.send(post);
-    } catch(err) {
-        res.status(400).send(err.message);
-    }
+        await User.findById(req.params.userId)
+        .select('savedPosts')
+        .populate('savedPosts')
+        .then(response => res.send(response))
+        .catch(err => res.status(400).send(err.message))
 })
 
 

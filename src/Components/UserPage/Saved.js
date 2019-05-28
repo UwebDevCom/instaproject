@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect }from 'react';
 import Context, { AppContext } from '../../AppContext/AppContext';
-import DisplayGrid from '../displayGrid/DisplayGrid';
+import PhotoGallery from '../PhotoGallery/PhotoGallery';
 import PostsService from '../../services/posts.Service';
 import './saved.scss';
 
@@ -22,15 +22,16 @@ export default function Saved() {
         setPosts(posts)
     }, [])
 
-    if(context.state.loggedUser) {
-        console.log('this state',fetchedPosts)
-        // return <DisplayGrid path={context.state.loggedUser.savedPosts} />
+    if(fetchedPosts) {
+        console.log('these are feyched posts: ', fetchedPosts);
+        return <PhotoGallery images={{fetchedPosts}} />
+    } else {
+        return (
+            <div className='saved-container'>
+                <div/>    
+                <h1>Save</h1>
+                <p>Save photos and videos that you want to see again. No one is notified, and only you can see what you've saved.</p>
+            </div>
+        )
     }
-    return (
-        <div className='saved-container'>
-            <div/>    
-            <h1>Save</h1>
-            <p>Save photos and videos that you want to see again. No one is notified, and only you can see what you've saved.</p>
-        </div>
-    )
 }

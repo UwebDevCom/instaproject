@@ -3,13 +3,13 @@ import { AppContext } from '../../AppContext/AppContext';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import './userPagePosts.scss';
-import DisplayGrid from '../displayGrid/DisplayGrid'
+import PhotoGallery from '../PhotoGallery/PhotoGallery';
 
 export default function UserPagePosts() {
     const context = useContext(AppContext);
 
     useEffect(() => {
-        console.log('getuserposts: ', context.state.loggedUser._id)
+        console.log('getuserposts: ', context.state.loggedUser)
         context.actions.getUserPosts(context.state.loggedUser._id) 
     },[])
 
@@ -48,7 +48,7 @@ export default function UserPagePosts() {
     `
 
     if (context) {
-        return <DisplayGrid path={context.state.loggedUserPosts} />
+        return <PhotoGallery images={context.state.loggedUserPosts} />
     } else {
         return (
             <UlContainer>
