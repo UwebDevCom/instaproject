@@ -102,13 +102,10 @@ route.post('/api/posts',async (req,res)=>{
 route.put('/api/posts/:postId', async (req,res)=>{
     try {
         //validate request
-        const { error } = validatePostReq(req.body);
-        if(error) return res.status(400).res(error.details[0].message);
+        // const { error } = validatePostReq(req.body);
+        // if(error) return res.status(400).res(error.details[0].message);
         //get post from server and update
-        const post = await Post.findByIdAndUpdate(req.params.postId, {
-            caption:req.body.caption,
-            image:req.body.image,
-        });
+        const post = await Post.findByIdAndUpdate(req.params.postId, req.body);
         if(!post) return res.status(404).res('post not found');
         //return new post to client
         res.send(post);
