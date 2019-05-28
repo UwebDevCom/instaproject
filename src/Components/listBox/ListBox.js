@@ -1,25 +1,36 @@
 import React, { useContext } from 'react';
-import styled from 'styled-components';
-import { AppContext } from '../../AppContext'
+import './listBox.scss';
+import { Link } from 'react-router-dom';
+import UserPage from '../UserPage/UserPage';
 
-export default function ListBox() {
-
-    const context = useContext(AppContext);
-
-    const Wrapper = styled.div`
-        position: absolute;
-        top: 1px;
-        left: 1px;
-        width: 100vw;
-        height: 100vh;
-        background-color: rgba(0,0,0,.5);
-        z-index:99999;
-        `
-
+export default function ListBox({ listArray }) {
+    console.log(listArray);
     return (
-        <Wrapper>
-          <h1>hello</h1>  
-          <p>context.myLoggedInUser.name</p>
-        </Wrapper>
+        <div className='listBox-container'>
+            <div className='list-container'>
+                <ul className='list'>
+                    {listArray.map(user => {
+                        return (
+                            <li className='listItem'>
+                                <div className='user-container'>
+                                    <div className='user-info'>
+                                        <div className='user-image'>
+                                            <img/>
+                                        </div>
+                                        <div className='user-name'>
+                                            <div>
+                                                <Link to=''>{user.name || 'tomer matmon'}</Link>
+                                            </div>
+                                            <div>{user.userName || 'tomermatmon'}</div>
+                                        </div>
+                                    </div>
+                                    <button></button>
+                                </div>
+                            </li>
+                        )
+                    })}
+                </ul>
+            </div>
+        </div>
     )
 }
