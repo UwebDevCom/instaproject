@@ -18,6 +18,14 @@ export default class UsersService {
         const users = await data.json();
         return users;
     }
+
+    async fetchSuggestionsForExploer() {
+        const data = await fetch(SERVER_URL + 'explore/users');
+        console.log('func data: ', data)
+        const users = await data.json();
+        return users;
+    }
+
     async fetchUser(userEmail,password) {
 
             const data = await fetch(SERVER_URL + 'users/');

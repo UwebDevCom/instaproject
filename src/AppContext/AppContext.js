@@ -27,7 +27,7 @@ export default class Context extends React.Component {
         getPosts: (userId) => PostService.fetchPosts(userId).then(response => this.setState({ allPosts: response})),
         getUserPosts: (userId) => PostService.fetchLoggedUserPosts(userId).then(response => this.setState({loggedUserPosts: response})),
         registerUser: (userData) => UserService.registerUser(userData).then(response => this.actions.logUser(response)),
-        allUsers: () => UserService.fetchSuggestionsUsers()
+        allUsers: () => UserService.fetchSuggestionsForExploer()
                     .then(response => {
                         console.log('all users from server: ', response)
                         this.setState({ allUsers: response })}

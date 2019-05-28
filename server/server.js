@@ -2,6 +2,7 @@ const users = require('./src/users/users.route');
 const posts = require('./src/posts/posts.route');
 const comments = require('./src/comments/comments.route');
 const auth = require('./src/auth/auth.route')
+const explore = require('./src/explore/explore.route')
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -25,6 +26,7 @@ app.use(users.route);
 app.use(posts.route);
 app.use(comments.route);
 app.use(auth.route);
+app.use(explore.route);
 app.use(express.static('build'));
 
 app.listen(port,

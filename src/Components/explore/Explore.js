@@ -20,8 +20,7 @@ export default function Explore() {
                 <div className="explorPage">
                     <div className="dicoverConteiner">
                         <div className="dicoverHeader">Discover People
-                            <a className="seeAll" href="">see all</a> 
-                            {/*   need href */}
+                            <a className="seeAll" href="">see all</a>  {/*   need href */}
                         </div>
                         <div className="dicoverAllUserContainer">
                             <ul className="dicoverAllUser">

@@ -68,4 +68,6 @@ export default class PostsService{
             body: JSON.stringify(postData)
         });
     }
+
+    
 };
