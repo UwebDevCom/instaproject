@@ -3,8 +3,6 @@ const SERVER_URL = '/api/'
 
 export default class UsersService {
     
-    async fetchSuggestionsUsers() {}
-
     fetchLocalStorage(myUser, posts){
     if (!localStorage.getItem('myUserData')) {
         localStorage.setItem('myUserData', JSON.stringify(myUser));
@@ -16,9 +14,18 @@ export default class UsersService {
 
     async fetchSuggestionsUsers() {
         const data = await fetch(SERVER_URL + 'users/');
+        console.log('func data: ', data)
         const users = await data.json();
         return users;
     }
+
+    async fetchSuggestionsForExploer() {
+        const data = await fetch(SERVER_URL + 'explore/users');
+        console.log('func data: ', data)
+        const users = await data.json();
+        return users;
+    }
+
     async fetchUser(userEmail,password) {
 
             const data = await fetch(SERVER_URL + 'users/');

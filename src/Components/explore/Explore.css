@@ -29,6 +29,7 @@
     position: relative;
     height: 264px;
     overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .dicoverAllUser
@@ -103,4 +104,9 @@
     /* position: absolute; */
     margin-top: 105px;
     border: none;
+}
+
+.explreontainer
+{
+    width: 935px;
 }

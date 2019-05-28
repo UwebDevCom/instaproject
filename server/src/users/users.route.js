@@ -2,14 +2,12 @@ const { User, validateUserReq } = require('./User.model');
 const { Router } = require ('express');
 const route = Router();
 
+//get all users
 route.get('/api/users/', async (req, res) => {
     try {
-       const user = await User.find({
-           email: new RegExp(req.query.name, 'i')
-        })
+       const user = await User.find()
         res.send(user)
     } catch(err) {
-        console.log(err.message)
         res.status(400).send(err.message);
     }
 });
