@@ -1,0 +1,10 @@
+.exploreFollowButton
+{
+    background: rgb(56, 151, 240);
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 9px;
+    border-radius: 10%;
+    border: none;
+}

@@ -71,10 +71,45 @@ a.image-profile-sidebar img
     font-weight: 600;
     color: #c3c3c3;
 }
-.header-sidebar p:last-child
+.header-sidebar a:last-child
 {
+    text-decoration: none;
+    color: #000;
     font-weight: 600;
     font-size: 0.7rem;
+    position: relative;
+}
+.tooltip
+{
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+    padding: 1em 2em;
+    min-width: 100px;
+    opacity: 0;
+    background-color: #fff;
+    border-radius: 20px;
+    transition: opacity .2s ease-in;
+    direction: rtl;
+    text-align: center;
+}
+.tooltip::after
+{
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    bottom: -6px;
+    left: 50%;
+    transform: rotate(45deg) translateX(-50%);
+}
+.header-sidebar a:hover > .tooltip
+{   
+   
+    opacity: 1;
 }
 .story-top-details
 {
@@ -101,6 +136,10 @@ a.image-profile-sidebar img
     border: 1px solid #e6e6e6;
     padding: 1em;
     margin: .6em 0;
+}
+.sugestions-sidebar
+{
+    padding-bottom: 1em; 
 }
 .user-top-details
 {

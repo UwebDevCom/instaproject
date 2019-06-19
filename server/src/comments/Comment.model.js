@@ -12,6 +12,14 @@ const CommentSchema = mongoose.Schema({
         autopopulate: true
     },
     hashtages: [String],
+    mentions: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }],
+    likes:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }],
     published: {
         type: Date,
         default: Date.now

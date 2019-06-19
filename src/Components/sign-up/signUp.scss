@@ -1,0 +1,154 @@
+.signup-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    
+    .signUp {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 350px;
+        height: 564px;
+        margin-bottom: 10px;
+        background-color: #fff;
+        border: 1px solid #e6e6e6;
+
+        .logo {
+            height: 51px;
+            width: 175px;  
+            margin: 22px auto;  
+            background-image: url(https://www.instagram.com/static/bundles/es6/sprite_core_2x_6ba81dcece9b.png/6ba81dcece9b.png);
+            background-size: 410px 396px;
+            background-position: 0 -97px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        h2 {
+            color: #999;
+            text-align: center;
+            font-weight: 600;
+            line-height: 20px;
+            font-size: 17px;
+            margin: 0 40px 10px;
+        }
+        
+        .btn-container {
+            margin: 0 auto;
+
+            button {
+                width: 268px;
+                height: 32px;
+                background-color: #3897f0;
+                border-radius: 4px;
+                color: #fff;
+                font-weight: 600;
+                padding: 5px 9px;
+                font-size: 14px;
+                line-height: 18px;
+
+                span.fb-icon{
+                    margin-right: 8px;
+                    position: relative;
+                    top: 2px;
+                    display: inline-block;
+                    background: url(https://www.instagram.com/static/bundles/es6/sprite_core_2x_6ba81dcece9b.png/6ba81dcece9b.png);
+                    background-position: -273px -256px;
+                    background-size: 410px 396px;
+                    height: 16px;
+                    width: 16px;
+                }
+            }
+        }
+
+        .or-div {
+            display: flex;
+            flex-direction: row;
+            line-height: 15px;
+            margin: 15px auto;
+            
+            .or-line {
+                position: relative;
+                width: 100px;
+                height: 1px;
+                background-color: #efefef;
+                top: 6px;
+            }
+            
+            .or-text {
+                font-weight: 600;
+                font-size: 13px;
+                color: #999;
+                margin: 0 18px;
+            }
+        }
+
+        .input-box {
+            display: flex;
+            margin: 0 40px 6px;
+            position: relative;
+            height: 38px;
+
+            .signUp-input {
+                width: 100%;
+                background-color: #fafafa;
+                border: 1px solid #efefef;
+                border-radius: 3px;
+                padding: 9px 0 7px 8px;
+                
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            .signUp-lable {
+                position: absolute;
+                pointer-events: none;
+                color: #999;
+                font-size: 12px;
+                left: 12px;
+                right: 0;
+                line-height: 36px;
+                height: 36px;
+
+                .active-lable {
+                    font-size: 12px;
+                    padding: 14px 0 2px 8px!important;
+
+                    position: absolute;
+                    color: #999;
+                    font-size: 12px;
+                    left: 12px;
+                    right: 0;
+                    line-height: 36px;
+                    height: 36px;
+        
+                }
+            }
+        }
+
+        p {
+            margin: 10px 60px;
+            font-size: 14px;
+            line-height: 18px;
+            text-align: center;
+            color: #999;
+            font-weight: 600;
+
+            a {
+                text-decoration: none;
+                color: #999;
+                font-weight: bold;
+            }
+
+        }
+    }
+}
+
+
+

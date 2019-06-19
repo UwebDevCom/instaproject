@@ -72,6 +72,8 @@ header.post-header
     align-self: center;
     position: relative;
     top: -8px;
+    margin: 0;
+    cursor: pointer;
 }
 
 .visual
@@ -99,7 +101,7 @@ header.post-header
     align-items: center;
     justify-content: space-between;
 }
-button
+article.post-wrap button
 {
     border: none;
     background-color: transparent;
@@ -110,6 +112,14 @@ button
     margin: 0;
     padding: 0;
 }
+
+@keyframes btn-liked {
+
+    0%{transform:scale(1);}
+    50%{transform:scale(1.1);}
+    100%{transform:scale(1);}
+
+}
 button span.like-btn
 {
     display: block;
@@ -119,6 +129,7 @@ button span.like-btn
 button span.liked
 {
     background: url('./61393e2520c3.png') -52px -203px;
+    animation: btn-liked .4s alternate backwards;
 }
 button span.unliked
 {
@@ -229,7 +240,7 @@ button span.post-saved
 {
     margin-bottom: .8em;
 }
-.view-all-comments a
+.view-all-comments button
 {
     text-decoration: none;
     color: #cccccc;

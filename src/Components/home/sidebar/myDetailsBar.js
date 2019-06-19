@@ -1,4 +1,4 @@
-import React , {useState} from 'react';
+import React from 'react';
 import { ContextConsumer } from '../../../AppContext/AppContext';
 import {Link } from 'react-router-dom';
 export default function myDetailsBar(props) {
@@ -8,13 +8,14 @@ export default function myDetailsBar(props) {
      {
         (context)=>{
             return(
-            <div className="me-profile">
-                    <Link className="image-profile-sidebar" to={`/${context.state.allUsers[0]._id}`}> <img src={context.state.allUsers[0].userImg} alt="#" /> </Link>
+                context.state.loggedUser ? ( <div className="me-profile">
+                    <Link className="image-profile-sidebar" to={`/${context.state.loggedUser._id}`}> <img src={context.state.loggedUser.userImg} alt="#" /> </Link>
                    <div className="me-profile-content">
-                   <Link to={`/${props.userId}`}> user name here </Link>
-                    <p>full name</p>
+                   <Link to={`/${context.state.loggedUser.userName}`}> {context.state.loggedUser.userName} </Link>
+                    <p>{context.state.loggedUser.fullName}</p>
                    </div>
-                </div>
+                </div>) :  console.log(context.state)
+           
                 )
         }
      }

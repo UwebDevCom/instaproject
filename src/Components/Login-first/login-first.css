@@ -110,7 +110,7 @@
     margin: 0 0 10px;
     padding: 10px 0;
     background-color: #fff;
-    width: 80%;
+    width: 350px;
 }
 
 .login-area .login-form form input
@@ -154,7 +154,7 @@
 {
     position: relative;
 }
-form label
+form label.label-form
 {
     color: #999;
     font-size: 12px;
@@ -269,18 +269,18 @@ form label.label-up
     padding: 10px;
     width: 80%;
 }
-.get-the-app p
+.get-the-app
 {
+    width: 350px;
     margin:0;
     margin-bottom: 10px;
 }
 .get-apps a img
 {
-    width: 32%;
-    margin: 4px;
-    height: auto;
+    height: 40px;
+    margin: 8px;
 }
 .get-apps a:last-child img
 {
-    width: 26%;
+    margin-right:0 ;
 }

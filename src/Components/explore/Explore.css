@@ -1,0 +1,112 @@
+.dicoverConteiner
+{
+    margin-top: 70px;
+    width: 100%;
+    height: 100%;
+}
+
+
+.dicoverHeader 
+{
+    height: 20px;
+    width: 100%;
+    /* background: indigo;   */
+    display: flex;
+    justify-content: space-between;
+    color: #999999;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.seeAll
+{
+    color: #3897f0;
+    text-decoration: none;
+}
+
+.dicoverAllUserContainer
+{
+    position: relative;
+    height: 264px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.dicoverAllUser
+{
+    display: flex;
+    position: absolute;
+    flex-direction: row;
+    
+  
+}
+
+
+.discoverUser
+{
+    height: 164px;
+    width: 142px;
+    border: 1px solid #999999;
+    margin: 15px;
+    border-radius: 5px;
+    background: white;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    display: inline-block;
+
+}
+
+.discoverUserName
+{
+    color: #262626;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.userPctuar
+{
+    height: 56px;
+    width: 56px;
+    border-radius: 50%;
+    /* background: red; */
+    margin: 10px auto;
+    align-items: center;
+    border: 1px solid #999999;
+}
+
+.userDescription
+{
+    color: #999999;
+    font-size: 14px;
+}
+
+.leftArrow
+{
+    /* background-image: url('../../Components/appRouter/images/f01fcb405c10.png'); */
+    height: 24px;
+    width: 24px;
+    background-position: -371px -357px;
+    margin-top: 105px;
+    position: absolute;
+    border: none;
+
+}
+
+.rightArrow
+{
+    /* background-image: url('../../Components/appRouter/images/f01fcb405c10.png'); */
+    height: 24px;
+    width: 24px;
+    background-position: -371px -357px;
+    transform: scaleX(-1); 
+    /* position: absolute; */
+    margin-top: 105px;
+    border: none;
+}
+
+.explreontainer
+{
+    width: 935px;
+}
