@@ -7,7 +7,7 @@
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "moment": "^2.24.0",
-    "mongoose": "^5.4.19",
+    "mongoose": "^5.7.5",
     "mongoose-autopopulate": "^0.9.1",
     "nodemon": "^1.18.11",
     "react": "^16.8.4",
